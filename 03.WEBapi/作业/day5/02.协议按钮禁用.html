@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<textarea rows="10" cols="30">这个世界太疯狂了，耗子都给猫当伴娘了</textarea>
+		
+		
+		<button disabled="">请仔细阅读协议(5)</button>
+		
+		<script>
+			var time=5;
+			var btn=document.querySelector("button");
+			var timeId=setInterval(function () {
+				time--;
+				btn.innerHTML="请仔细阅读协议("+time+")";
+				if (time==0) {
+					btn.removeAttribute("disabled");
+					btn.innerHTML="同意注册";
+					clearInterval(timeId);
+				}
+			},1000);
+			
+			
+		</script>
+	</body>
+</html>

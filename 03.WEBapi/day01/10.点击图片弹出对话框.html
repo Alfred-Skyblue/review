@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="images/1.jpg" >
+		<img src="images/2.jpg" >
+		<img src="images/3.jpg" >
+		<script>
+			//获取元素的标签名
+			var imgs=document.getElementsByTagName("img")
+			for(var i=0;i<imgs.length;i++){//因为返回值是一个数组,所以需要遍历数组
+				imgs[i].onclick=function (){//为每个img标签注册点击事件
+					alert("我是一个图片");
+				}
+			};
+		</script>
+	</body>
+</html>

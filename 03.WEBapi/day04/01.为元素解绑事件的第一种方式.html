@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" value="按钮" id="btn"/>
+		
+		<input type="button" value="移除第一个按钮的点击事件" id="btn2"/>
+		
+		<div id="dv"></div>
+		
+		<script src="common.js"></script>
+		<script>
+			
+			
+			var btnObj=document.getElementById("btn");
+			
+		/*
+			解绑事件的第一种方式	
+				//点击事件是怎样创建的,就要怎样移除
+				//为函数注册点击事件,添加该函数
+				btn.onclick=function () {
+					console.log("床前明月光");
+					
+					//创建一个p标签
+					var pObj=document.createElement("p");
+					//为p标签添加内容
+					pObj.innerText="疑是地上霜";
+					// 把p标签添加到div中
+					my$("dv").appendChild(pObj);
+				};
+				
+				// 为btn2注册鼠标点击事件
+				my$("btn2").onclick=function () {
+					//移除第一个按钮的点击事件
+					btn.onclick=null;
+				};
+		
+		*/
+	
+			//第二遍
+			
+			btnObj.onclick=function () {
+				console.log("床前明月光");
+			};
+			
+			
+			my$("btn2").onclick=function () {
+				btnObj.onclick=null;
+			};
+		</script>
+		
+		
+	</body>
+</html>

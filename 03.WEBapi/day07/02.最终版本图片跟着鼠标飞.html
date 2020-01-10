@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body {
+				height: 2000px;
+			}
+			img{
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="images/bird.png" id="im">
+		
+		<script src="common.js"></script>
+		<script>
+			
+			// 图片跟着鼠标飞的最终兼容性代码
+			// window.event和事件参数对象e的兼容代码
+			// clientX和clientY单独的兼容代码
+			// scrollLeft和scrollTop的兼容代码
+			// pageX,pageY和clientx+scrollLeft和clientY+scrollTop的兼容代码
+			
+			
+			// 把代码放到一个对象中
+			var evt={
+				// window.event和事件处理参数对象e的兼容性代码
+				getEvent:function (evt) {
+					return window.event||evt;
+				},
+				// 可视区域横坐标的兼容代码
+				getClientX:function (evt) {
+					return this.getEvent(evt).clientX;
+				},
+				// 可视区域纵坐标的兼容代码
+				getClientY:function (evt) {
+					return this.getEvent(evt).clientY;
+				},
+				// 页面向左卷曲出去的横坐标
+				getScrollLeft:function () {
+					return window.pageXOffset||document.body.scrollLeft||document.documentElement.scrollLeft||0;
+				},
+				//页面向上卷曲出去的纵坐标
+				getScrollTop:function () {
+				  return window.pageYOffset||document.body.scrollTop||document.documentElement.scrollTop||0;
+				},
+				//相对于页面的横坐标(pageX或者是clientX+scrollLeft)
+				getPageX:function (evt) {
+				  return this.getEvent(evt).pageX? this.getEvent(evt).pageX:this.getClientX(evt)+this.getScrollLeft();
+				},
+				//相对于页面的纵坐标(pageY或者是clientY+scrollTop)
+				getPageY:function (evt) {
+				  return this.getEvent(evt).pageY?this.getEvent(evt).pageY:this.getClientY(evt)+this.getScrollTop();
+				}
+				
+				
+			}
+			
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

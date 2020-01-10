@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="" id="im">
+		<script src="common.js"></script>
+		<script>
+			/*
+			//onload可以让页面完毕执行函数
+			setInterval(onload=function f1() {
+				//获取时间
+				var dt=new Date();
+				//获取小时
+				var hour=dt.getHours();
+				//获取秒
+				var second=dt.getSeconds();
+				
+				//判断时间的值是不是小于10,如果小于10,就往前面加个0
+				hour=hour>10?hour:"0"+hour;
+				second=second>10?second:"0"+second;
+				
+				//设置图片的路径
+				my$("im").src="meimei/"+hour+"_"+second+".jpg";
+				
+			},1000)
+			*/
+			
+			
+			//使用onload事件,可以让页面加载完毕执行函数
+			setInterval(onload=function f1() {
+				//获取时间
+				var dt=new Date();
+				
+				//获取小时
+				var hour=dt.getHours();
+				
+				//获取秒
+				var second=dt.getSeconds();
+				
+				//判断时间的值是不是小于10,如果小于10,就往前面加个0
+				hour=hour>10?hour:"0"+hour;
+				second=second>10?second:"0"+second;
+				
+				
+				//设置图片路径
+				my$("im").src="meimei/"+hour+"_"+second+".jpg";
+			},600)
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

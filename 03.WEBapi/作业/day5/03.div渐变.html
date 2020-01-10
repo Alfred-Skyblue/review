@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: skyblue;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div></div>
+		
+		<button>渐变</button>
+		<script>
+			
+			var dvObj=document.querySelector("div");
+			var btn=document.querySelector("button");
+			var opacity=10;
+			btn.addEventListener("click",function () {
+				var timeId=setInterval(function () {
+					opacity--;
+					dvObj.style.opacity=opacity/10
+					if (opacity<=0) {
+						clearInterval(timeId);
+					}
+				},100)
+				
+			})
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="创建元素" id="btn"/>
+		爱是一道光
+		<div id="dv">
+			<img src="images/cangjingkong.jpg" msg>
+			
+		</div>
+		<script src="common.js"></script>
+		<script>
+			
+			//document.write();缺陷:如果是在页面加载完毕后,此时通过这种方式创建元素,那么页面上所有的内容都会被清除
+			var btnObj=document.getElementById("btn");
+			btnObj.onclick=function () {
+				//document.write("<p>云何应住？云何降伏其心?</p>");
+			};
+			
+			document.write("<p>云何应住？云何降伏其心?</p>");
+		</script>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid #f40;
+			}
+			
+
+		</style>
+	</head>
+	<body>
+		<div id="dv"></div>
+		<p id="p1"></p>
+		<script src="common.js"></script>
+		<script>
+			//为元素绑定多个事件,并且指向同一个事件处理函数
+			
+			my$("dv").onclick=f1;
+			my$("dv").onmouseover=f1;
+			my$("dv").onmouseout=f1;
+		
+			
+			// 在需要通过一个函数处理多个事件时， 可以使用 type 属性
+
+			function f1(event) {
+				switch (event.type){
+					//这里的事件名字是不用加on的
+					case "click":this.style.backgroundColor="#f40"; break;
+					case "mouseover":setInnerText(this,"天王盖地虎"); break;
+					case "mouseout":this.style.margin="0 auto"; break;
+				}
+			}
+			
+		   
+		</script>
+		
+	</body>
+</html>

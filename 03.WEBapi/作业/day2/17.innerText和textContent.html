@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				margin-top: 20px;
+				border: 1px solid #f40;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="设置" id="btn"/>
+		<div id="dv">
+			天王盖地虎
+		</div>
+		
+		<script src="common.js"></script>
+		<script>
+			/*
+			
+				总结：
+				
+					设置标签中的文本内容,应该使用textContent属性,谷歌,火狐支持,IE8不支持
+					设置标签中的文本内容,应该使用innerText属性,谷歌,火狐,IE8都支持
+					
+					如果这个属性在浏览器中不支持,那么这个属性的类型是undefined
+					判断这个属性的类型 是不是undefined,就知道浏览器是否支持
+			
+		
+			*/
+		   
+			
+			// my$("btn").onclick=function () {
+			// 	my$("dv").innerText="宝塔镇河妖";
+			// };
+			
+			
+			//兼容代码
+			
+			//设置任意标签中的任意文本内容
+			function setInnerText(element,text) {
+				
+				//判断浏览器是否支持
+				if (typeof element.textContent=="undefined") {//不支持
+					element.innerText=text;
+				} else{
+					element.textContent=text;
+				}
+			}
+			
+			
+			//获取任意标签中的文本内容
+			function getInnerText(element) {
+				if (typeof element.textContent=="undefined") {
+					return element.innerText;
+				} else{
+					return element.textContent;
+				}
+			}
+			
+			
+			
+			
+			//测试
+			my$("btn").onclick=function () {
+				
+				//setInnerText(my$("dv"),"宝塔镇河妖");
+				console.log(getInnerText(my$("dv")));
+			};
+		</script>
+	</body>
+</html>

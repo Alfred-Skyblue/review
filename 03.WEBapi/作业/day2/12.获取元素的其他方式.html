@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+				div {
+					  width: 200px;
+					  height: 50px;
+					  background-color: green;
+					  margin-top: 10px;
+					}
+		
+					.cls {
+					  background-color: yellow;
+					}
+				  </style>
+	</head>
+	<body>
+			<p>这是一个p</p>
+			<p class="cls">这是另一个p</p>
+			<span class="cls">这是第一个span</span><br />
+			<span>这是第二个span</span><br />
+			<div class="cls">这是第一个div</div>
+			<div>这是第二个div</div>
+			<input type="button" value="显示效果" id="btn" /><br />
+			
+			<script>
+				
+				//document.querySelector("选择器的名字");根据选择器获取元素,返回值是一个元素
+				
+				//document.querySelectorAll("选择器的名字")选择所有符合选择器的元素,多个选择器之间用逗号隔开,返回值是一个数组
+				
+				
+				//根据id选择器,获取元素,需要加id标识
+				var btnObj=document.querySelector("#btn");
+				
+				// 根据选择器获取所有符合选择器的元素,返回值是一个数组
+				var clsObjs=document.querySelectorAll(".cls");
+				
+				btnObj.onclick=function () {
+				
+					for (var i = 0; i < clsObjs.length; i++) {
+						
+						clsObjs[i].style.backgroundColor="green";
+					}
+				};
+				
+				
+			</script>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <meta charset="UTF-8">
+	  <title></title>
+		  <style>
+			* {
+			  margin: 0px;
+			  padding: 0px;
+			}
+
+			body {
+			  background-image: url("images/1.jpg");
+			}
+
+			#mask {
+			  background-color: rgba(255, 255, 255, 0.3);
+			  height: 200px;
+			  text-align: center;
+			}
+
+			#mask img {
+			  width: 200px;
+			  margin-top: 35px;
+			  cursor: pointer;
+			}
+
+		  </style>
+
+	</head>
+	<body id="bd">
+		<div id="mask">
+		  <img src="images/1.jpg">
+		  <img src="images/2.jpg">
+		  <img src="images/3.jpg">
+		</div>
+		
+		
+		<script src="common.js"></script>
+		<script>
+			
+			//根据id获取元素
+			var maObj=document.getElementById("mask");
+			var bdObj=document.getElementById("bd");
+			
+			
+			//获取div里面所有的子元素
+			var images=maObj.children;
+			for (var i = 0; i < images.length; i++) {
+				//循环遍历,为每个img添加点击事件
+				images[i].onclick=function () {
+					
+					//把body的背景图片设置成当前点击的img的图片
+					bdObj.style.background="url("+this.src+")";
+				};
+			}
+		</script>
+
+	</body>
+</html>

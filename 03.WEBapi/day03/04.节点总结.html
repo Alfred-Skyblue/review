@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	    <ol id="test">
+	        <li>我是li1</li>
+	        <li>我是li2</li>
+	        <li id="three">我是li3</li>
+	        <li>我是li4</li>
+	        <li>我是li5</li>
+	    </ol>
+		<script src="common.js"></script>
+	    <script>
+			
+			//总结:凡是获取节点的代码在谷歌和火狐得到的都是  相关的节点
+			//凡是获取元素的代码在谷歌和火狐得到的都是   相关的元素
+			//从子节点和兄弟节点开始,凡是获取节点的代码在IE8中得到的是元素,获取元素的相关代码,在IE8中得到的是undefined----元素的代码,iE中不支持
+			
+	        var ol = document.querySelector('ol');
+	        // 1. firstChild 第一个子节点 不管是文本节点还是元素节点
+	        console.log(ol.firstChild);
+	        console.log(ol.lastChild);
+	        // 2. firstElementChild 返回第一个子元素节点 ie9才支持
+	        console.log(ol.firstElementChild);
+	        console.log(ol.lastElementChild);
+	        // 3. 实际开发的写法  既没有兼容性问题又返回第一个子元素
+	        console.log(ol.children[0]);
+	        console.log(ol.children[ol.children.length - 1]);
+			
+			
+			//12行代码:都是获取节点和元素的
+			var testObj=document.getElementById("test");
+			var threeObj=document.getElementById("three");
+			
+			
+			//父级节点
+			console.log(testObj.parentNode);
+			//父级元素
+			console.log(testObj.parentElement);
+			//子节点
+			console.log(testObj.childNodes);
+			//子元素
+			console.log(testObj.children);
+			console.log("==================");
+			//第一个子节点
+			console.log(testObj.firstChild);//--------IE8中是第一个子元素
+			//第一个子元素
+			console.log(testObj.firstElementChild);//-----IE8中不支持
+			//最后一个子节点
+			console.log(testObj.lastChild);//---------IE8中是第一个子元素
+			//最后一个子元素
+			console.log(testObj.lastElementChild);//--------IE8中不支持
+			//某个元素的前一个兄弟节点
+			console.log(threeObj.previousSibling);
+			//某个元素的前一个兄弟元素
+			console.log(threeObj.previousElementSibling);
+			//某个元素的后一个兄弟节点
+			console.log(threeObj.nextSibling);
+			//某个元素的后一个兄弟元素
+			console.log(threeObj.nextElementSibling);
+			
+	    </script>
+	</body>
+</html>

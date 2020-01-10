@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    input{
+      top: 250px;
+      position: absolute;
+    }
+    #dv1{
+      width: 200px;
+      height: 150px;
+      background-color: red;
+      /* position: absolute; */
+      left: 100px;
+      top: 30px;
+	  margin-top: 30px;
+	margin-left: 200px;
+    }
+    #dv2{
+      width: 100px;
+      height: 50px;
+      background-color: green;
+	  position: absolute;
+	  left: 10px;
+    }
+  </style>
+  <script>
+
+    //三个大的系列:
+    /*
+    * 三组属性
+    * 1. offset系列中的属性
+    *
+    *
+    * */
+  </script>
+</head>
+<body>
+<div id="dv1">
+  <div id="dv2"></div>
+</div>
+<input type="button" value="获取属性" id="btn"/>
+<script src="common.js"></script>
+<script>
+	// 获取红色div的宽和高
+	var btn=document.querySelector("#btn");
+	
+	btn.onclick=function () {
+		console.log(my$("dv2").offsetLeft);
+	};
+	
+	/*
+		这种方式可以获取style标签中的样式属性 
+		btn.addEventListener("click",function () {
+			console.log(my$("dv1").offsetWidth);
+			console.log(my$("dv2").offsetTop);
+		});
+	*/
+	
+	/*
+		//在style标签中设置的样式,获取不到,在style属性中设置的样式,才可以通过这种方式获取
+		btn.addEventListener("click",function () {
+			console.log(my$("dv1").style.width);
+			console.log(my$("dv2").style.width);
+		});
+	*/
+	
+</script>
+</body>
+</html>

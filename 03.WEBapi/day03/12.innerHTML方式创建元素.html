@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				border: 1px solid #F10215;
+				width: 500px;
+				height: 200px;
+				
+			}
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<input type="button" value="创建元素" id="btn"/>
+		<div id="dv">
+			
+		</div>
+		
+		<script>
+			/*
+			总结:
+			innerHTML方法不能往body标签中创建元素,不然会导致body中的其他标签全部消失,同document.write
+			*/
+			// 第二种方式创建元素: 对象.innerHTML="标签代码及内容"
+			var btnObj=document.getElementById("btn");
+			var dvObj=document.getElementById("dv");
+			
+			btnObj.onclick=function () {
+				//document.body.innerHTML="<p>白天要好好读书，书里有你不知道的。夜晚要好好睡觉，梦里有你想要的</p>";
+				dvObj.innerHTML="<p>白天要好好读书，书里有你不知道的。夜晚要好好睡觉，梦里有你想要的</p>";
+			};
+		</script>
+	</body>
+</html>

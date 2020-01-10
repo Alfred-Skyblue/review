@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<script>
+			//常用定时器
+			// window.setInterval(function () {
+			// 	alert("常用定时器");
+			// },1000)  
+			
+			
+			//另一个定时器(一次性定时器)
+			/*
+				参数1：函数
+				参数2：时间，毫秒
+				返回值：该定时器的id
+			*/
+			
+			//页面加载完毕后执行事件
+			window.onload=function () {
+				//一次性定时器
+				var timeId=window.setTimeout(function () {
+					alert("一次性定时器")
+				},1000);
+				
+				//点击按钮,清除定时器
+				document.getElementById("btn").onclick=function () {
+					clearTimeout(timeId);
+				};
+			};
+			
+			
+			
+			
+		</script>
+		<input type="button" value="按钮" id="btn" />
+	</body>
+</html>

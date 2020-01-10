@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 300px;
+				height: 300px;
+				background-color: skyblue;
+			}
+			.cls{
+				display: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<input type="button" value="隐藏" id="btn">
+		
+		<div id="dv"></div>
+		
+		<script src="common.js"></script>
+		<script>
+			//获取按钮的id属性值,为按钮添加点击事件,创建函数
+			my$("btn").onclick=function (){
+				
+				
+				//判断div中有没有class属性,如果没有,则添加class属性值为cls,如果有,则为空
+				if(!my$("dv").className){
+					my$("dv").className="cls";
+					this.value="显示";
+				}else{
+					my$("dv").className="";
+					this.value="隐藏";
+				}
+			};
+			
+			
+		</script>
+		
+	</body>
+</html>

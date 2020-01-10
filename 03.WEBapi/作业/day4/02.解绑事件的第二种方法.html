@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" value="按钮" id="btn1"/>
+		<input type="button" value="移除事件" id="btn2"/>
+		
+		<script src="common.js"></script>
+		<script>
+			
+			
+			//这种方法可以为元素绑定多个事件,按照绑定顺序执行
+			//这种方法必须使用命名函数,才能解绑事件
+			function f1() {
+				console.log("第一个事件");
+			}
+			function f2() {
+				console.log("第二个事件");
+			}
+			
+			my$("btn1").addEventListener("click",f1,false)
+			my$("btn1").addEventListener("click",f2,false)
+			
+			my$("btn2").onclick=function () {
+				my$("btn1").removeEventListener("click",f1,false)
+			};
+			
+			
+		</script>
+	</body>
+</html>

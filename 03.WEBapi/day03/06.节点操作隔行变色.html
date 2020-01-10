@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+	</head>
+	<body>
+			<input type="button" value="变色" id="btn"/>
+			<ol id="greens">
+				<li>天王盖地虎</li>
+				<li>宝塔镇河妖</li>
+				<li>小鸡炖蘑菇</li>
+				<li>青菜炒香蕉</li>
+				<li>黄瓜炖土豆</li>
+			</ol>
+			<script src="common.js"></script>
+			<script>
+				
+				my$("btn").onclick=function () {//给按钮注册点击事件,添加函数
+					var count=0;//记录li的个数
+					var olObj=my$("greens");//获取ol
+					var nodes=olObj.childNodes;//获取ol的所有子节点
+					for (var i = 0; i < nodes.length; i++) {//循环遍历
+					console.log(i);
+						if (nodes[i].nodeType==1&&nodes[i].nodeName=="LI") {
+							nodes[i].style.backgroundColor=count%2==0?"skyblue":"#f40";
+							count++
+						}
+					}
+					
+				};
+				
+				
+			</script>
+	</body>
+</html>

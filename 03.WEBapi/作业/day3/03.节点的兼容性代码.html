@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ol id="greens">
+			<li>天王盖地虎</li>
+			<li>宝塔镇河妖</li>
+			<li>小鸡炖蘑菇</li>
+			<li>青菜炒香蕉</li>
+			<li>黄瓜炖土豆</li>
+		</ol>
+		<script src="common.js"></script>
+		
+		<script>
+			
+			/**
+			 * 获取任意元素的第一个子元素
+			 * @param {Object} element
+			 */
+			function getFirstElementChild(element) {
+				if (element.firstElementCHild) {
+					
+					//表示支持这个方法,则使用当前方法
+					return element.firstElementChild;
+				} else{
+					//到这里需要获取元素的第一个子节点,判断这个节点是不是元素,如果不是,则循环查找下一个节点,直到找到元素为止
+					//获取该元素的第一个节点
+					var node=element.firstChild;
+					while (node&&node.nodeType!=1){
+						node=node.nextSibling;
+					}
+					return node;
+				}
+			}
+			
+			
+			
+			/**
+			 * 获取任意元素的最后一个子元素
+			 * @param {Object} element
+			 */
+			function getLastElementChild(element) {
+				if (element.lastElementChild) {
+					return element.lastElementChild;
+				} else{
+					//到这里需要获取元素的最后一个子节点,判断这个节点是不是元素,如果不是,则循环查找上一个节点,直到找到元素为止
+					//获取该元素的第一个节点
+					var node=element.lastChild;
+					while (node&&node.nodeType!=1){
+						node=node.previousSibling;
+					}
+					return node;
+				}
+			}
+			
+			
+			
+			
+			console.log(getFirstElementChild(my$("greens")).innerText);
+			console.log(getLastElementChild(my$("greens")).innerText);
+			//测试成功
+			
+			
+		</script>
+		
+	</body>
+</html>

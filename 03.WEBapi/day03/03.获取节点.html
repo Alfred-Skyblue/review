@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="dv">
+		  <span>这是div中的第一个span标签</span>
+		  <p>这是div中的第二个元素,第一个p标签</p>
+		  <ul id="car">
+			<li>奥迪</li>
+			<li>宝马</li>
+			<li id="three">奔驰</li>
+			<li>奥拓</li>
+			<li>拖拉机</li>
+		  </ul>
+		</div>
+		
+		<script src="common.js"></script>
+		<script>
+			var ulObj=my$("car");
+			console.log(ulObj.parentNode);//获取的是ul的父节点
+			console.log(ulObj.parentNode.parentNode);//body
+			console.log(ulObj.parentNode.parentNode.parentNode);//html
+			console.log(ulObj.parentNode.parentNode.parentNode.parentNode);//document
+			console.log(ulObj.parentNode.parentNode.parentNode.parentNode.parentNode);//null
+			
+		</script>
+		
+		  
+	</body>
+</html>

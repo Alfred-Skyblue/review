@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      border: 0;
+    }
+
+    .all {
+      width: 500px;
+      height: 200px;
+      padding: 7px;
+      border: 1px solid #ccc;
+      margin: 100px auto;
+      position: relative;
+    }
+
+    .screen {
+      width: 500px;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .screen li {
+      width: 500px;
+      height: 200px;
+      overflow: hidden;
+      float: left;
+    }
+
+    .screen ul {
+      position: absolute;
+      left: 0;
+      top: 0px;
+      width: 3000px;
+    }
+
+    .all ol {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      line-height: 20px;
+      text-align: center;
+    }
+
+    .all ol li {
+      float: left;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .all ol li.current {
+      background: #DB192A;
+    }
+
+    #arr {
+      display: none;
+    }
+
+    #arr span {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      margin-top: -20px;
+      background: #000;
+      cursor: pointer;
+      line-height: 40px;
+      text-align: center;
+      font-weight: bold;
+      font-family: '黑体';
+      font-size: 30px;
+      color: #fff;
+      opacity: 0.3;
+      border: 1px solid #fff;
+    }
+
+    #arr #right {
+      right: 5px;
+      left: auto;
+    }
+  </style>
+</head>
+<body>
+<div class="all" id='box'>
+  <div class="screen"><!--相框-->
+    <ul>
+      <li><img src="images/1.jpg" width="500" height="200"/></li>
+      <li><img src="images/2.jpg" width="500" height="200"/></li>
+      <li><img src="images/3.jpg" width="500" height="200"/></li>
+      <li><img src="images/4.jpg" width="500" height="200"/></li>
+      <li><img src="images/5.jpg" width="500" height="200"/></li>
+    </ul>
+    <ol>
+    </ol>
+  </div>
+  <div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+</div>
+<script src="common.js"></script>
+<script>
+  //获取最外面的div
+  var box = my$("box");
+  //获取相框
+  var screen = box.children[0];
+  //获取相框的宽度
+  var imgWidth = screen.offsetWidth;
+  //获取ul
+  var ulObj = screen.children[0];
+  //获取ul中的所有的li
+  var list = ulObj.children;
+  //获取ol
+  var olObj = screen.children[1];
+  //焦点的div
+  var arr = my$("arr");
+  //把pic设置为全局变量,方便调用
+  var pic=0;
+	// 循环遍历ul里面的li,创建ol中的li
+	for (var i = 0; i < list.length; i++) {
+		
+		
+		//创建li标签
+		var liObjs=document.createElement("li");
+		// 添加自定义属性,储存每个li的索引值
+		liObjs.setAttribute("index",i)
+		//添加到ol标签中
+		olObj.appendChild(liObjs);
+		//为li标签添加内容
+		setInnerText(liObjs,i+1);
+		olObj.firstElementChild.className="current";
+		//为li标签注册鼠标进入事件
+		liObjs.addEventListener("mouseover",function () {
+			for (var j = 0; j < olObj.children.length; j++) {
+				//干掉所有人
+				olObj.children[j].removeAttribute("class")
+			}
+			//留下我自己
+			this.className="current";
+			// 调用当前指向li标签的索引值
+			pic=this.getAttribute("index");
+			// 设置ul的移动距离为当前索引值*图片的宽度
+			animate(ulObj,-pic*imgWidth)
+		})
+	}
+	// 克隆一个ul里面的li标签,放到ul的最后面,用来实现无缝效果的衔接
+	ulObj.appendChild(ulObj.firstElementChild.cloneNode(true));
+ 
+	// 为box注册鼠标进入事件,显示左右焦点div
+	box.onmouseover=function () {
+		arr.style.display="block";
+		//鼠标进入box干掉定时器
+		clearInterval(timeId)
+		timeId=null;
+	};
+	// 为box注册鼠标离开事件,隐藏左右焦点div
+	box.onmouseout=function () {
+		arr.style.display="none";
+		//鼠标离开,开始定时器
+		timeId=setInterval(f1,1000);
+	};
+	// 自动播放效果
+	var timeId=setInterval(f1,1000);
+	
+	
+	//右侧焦点按钮点击事件的命名函数
+	function f1() {
+		
+		if (pic==olObj.children.length) {
+			//如果到这里,已经移动到了最后一张图片,此时应该让ul的left等于0,来显示第一张图片,实现无缝效果
+			pic=0;
+			ulObj.style.left=pic+"px";
+		}
+		//点击按钮的时候,pic++,移动一张图片
+		pic++;
+		animate(ulObj,-pic*imgWidth)
+		
+		for (var i = 0; i < olObj.children.length; i++) {
+			//循环遍历,排他效果
+			if (pic==olObj.children.length) {
+				
+				//如果当前的pic等于ol里面li的个数,那么说明显示到了第六张照片,由于第六张照片是为了做无缝效果和第一张照片是一样的,为了让用户以为显示的是第一张照片,所以要把ol里面第一个li的背景颜色显示出来
+				olObj.children[i].className="";
+				olObj.firstElementChild.className="current"
+			} else{
+				// 正常显示排他效果
+				olObj.children[i].className="";
+				olObj.children[pic].className="current";
+			}
+		}
+		
+	}
+	
+	// 为右侧按钮注册点击事件,移动图片
+	my$("right").onclick=f1;
+	// 为左侧按钮注册点击事件,移动图片
+	my$("left").addEventListener("click",function () {
+		
+		if (pic==0) {
+			//如果到这里,已经移动到了最后一张图片,此时应该让ul的left等于0,来显示第一张图片,实现无缝效果
+			pic=olObj.children.length;
+			ulObj.style.left=-pic*imgWidth+"px";
+		}
+		//点击按钮的时候,pic++,移动一张图片
+		pic--;
+		animate(ulObj,-pic*imgWidth)
+		
+		for (var i = 0; i < olObj.children.length; i++) {
+			//循环遍历,排他效果
+			if (pic==olObj.children.length) {
+				
+				//如果当前的pic等于ol里面li的个数,那么说明显示到了第六张照片,由于第六张照片是为了做无缝效果和第一张照片是一样的,为了让用户以为显示的是第一张照片,所以要把ol里面第一个li的背景颜色显示出来
+				olObj.children[i].className="";
+				olObj.firstElementChild.className="current"
+			} else{
+				// 正常显示排他效果
+				olObj.children[i].className="";
+				olObj.children[pic].className="current";
+			}
+		}
+		
+	});
+	
+  //设置任意的一个元素,移动到指定的目标位置
+  function animate(element, target) {
+    clearInterval(element.timeId);
+    //定时器的id值存储到对象的一个属性中
+    element.timeId = setInterval(function () {
+      //获取元素的当前的位置,数字类型
+      var current = element.offsetLeft;
+      //每次移动的距离
+      var step = 10;
+      step = current < target ? step : -step;
+      //当前移动到位置
+      current += step;
+      if (Math.abs(current - target) > Math.abs(step)) {
+        element.style.left = current + "px";
+      } else {
+        //清理定时器
+        clearInterval(element.timeId);
+        //直接到达目标
+        element.style.left = target + "px";
+      }
+    }, 10);
+  }
+</script>
+
+
+<script>
+
+
+  //  var num=0;
+  //  function f1(){
+  //
+  //    num=1000;
+  //  }
+  //  f1();
+  //  console.log(num);
+</script>
+</body>
+</html>

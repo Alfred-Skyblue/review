@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            width: 200px;
+            height: 150px;
+            background-color: green;
+            float: left;
+            margin-left: 10px;
+            border: 5px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+	<script src="common.js"></script>
+    <script>
+		
+		var dvObjs=document.getElementsByTagName("div");
+		for (var i = 0; i < dvObjs.length; i++) {
+			dvObjs[i].onmouseover=function () {
+				this.style.border="5px solid blue";
+			};
+			
+			dvObjs[i].onmouseout=function () {
+				this.style.border="";
+			};
+		}
+		
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+					width: 500px;
+					height: 600px;
+					background-color: skyblue;
+					margin-top: 10px;
+				}
+			</style>
+	</head>
+	<body>
+
+		<input type="button" value="创建列表" id="btn" />
+		<div id="dv"></div>
+
+		<script>
+			var iptObj = document.getElementById("btn");
+			var dvObj = document.getElementById("dv");
+
+
+
+			var car = ["捷达", "桑塔纳", "宝来", "朗逸", "凌度", "帕萨塔"];
+
+			iptObj.onclick = function() {
+				//创建ul列表,并且把ul放到div中
+				var ulObj = document.createElement("ul");
+				dvObj.appendChild(ulObj);
+
+
+				for (var i = 0; i < car.length; i++) {
+					//循环遍历添加创建li标签
+					var list = document.createElement("li")
+					list.innerHTML = car[i]; //给li标签添加内容
+					ulObj.appendChild(list); //把li标签添加到ul当中
+
+
+					//为li注册鼠标进入事件
+					list.onmouseover = mouseoverHandle;
+
+					// 给li标签注册鼠标离开事件
+					list.onmouseout = mouseoutHandle;
+				}
+			};
+
+			// 在外面创建一个鼠标进入事件的函数
+			function mouseoverHandle() {
+				this.style.backgroundColor = "#f40";
+			}
+
+
+			//鼠标离开事件
+			function mouseoutHandle() {
+				this.style.backgroundColor = "";
+			}
+		</script>
+
+
+
+
+
+	</body>
+</html>

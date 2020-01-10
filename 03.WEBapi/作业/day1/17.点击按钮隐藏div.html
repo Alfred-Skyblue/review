@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: skyblue;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<input type="button" value="隐藏" id="btn">
+		<div id="dv"></div>
+		<script src="common.js"></script>
+		<script>
+			my$("btn").onclick = function() {
+				my$("dv").style.display = "none";
+			};
+		</script>
+	</body>
+</html>

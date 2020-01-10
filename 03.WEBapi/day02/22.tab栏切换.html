@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+				* {
+					margin: 0;
+					padding: 0;
+				}
+		
+				ul {
+					list-style-type: none;
+				}
+		
+				.box {
+					width: 400px;
+					height: 300px;
+					border: 1px solid #ccc;
+					margin: 100px auto;
+					overflow: hidden;
+				}
+		
+				.hd {
+					height: 45px;
+				}
+		
+				.hd span {
+					display: inline-block;
+					width: 90px;
+					background-color: pink;
+					line-height: 45px;
+					text-align: center;
+					cursor: pointer;
+				}
+		
+				.hd span.current {
+					background-color: purple;
+				}
+		
+				.bd li {
+					height: 255px;
+					background-color: purple;
+					display: none;
+				}
+		
+				.bd li.current {
+					display: block;
+				}
+			</style>
+		</head>
+		<body>
+			<div class="box" id="dv">
+				<div class="hd">
+					<span class="current">宝马</span>
+					<span>奔驰</span>
+					<span>奥拓</span>
+					<span>拖拉机</span>
+				</div>
+				<div class="bd">
+					<ul>
+						<li class="current">宝马带你一路畅行</li>
+						<li>我要翱翔天空</li>
+						<li>我是拖后腿的</li>
+						<li>我是后腿</li>
+					</ul>
+				</div>
+			</div>
+		
+			<script src="common.js"></script>
+			<script>
+				//获取祖先元素div
+				var dv=my$("dv");
+				
+				//获取dv的第一个子元素div
+				var hd=dv.getElementsByTagName("div")[0];
+				
+				
+				//获取dv的第二个子元素div
+				var bd=dv.getElementsByTagName("div")[1];
+				
+				
+				//获取hd里面所有的span标签
+				var spans=hd.getElementsByTagName("span");
+				
+				//获取bd里面所有的li标签
+				var list=bd.getElementsByTagName("li");
+				
+				//循环遍历span标签
+				for (var i = 0; i < spans.length; i++) {
+					spans[i].setAttribute("index",i)
+					//为每一个sapn标签注册点击事件,添加函数
+					spans[i].onclick=function () {
+						
+						for (var j = 0; j < spans.length; j++) {
+							//移除所有span标签里面的类样式
+							spans[j].removeAttribute("class")
+						}
+						
+						//为当前点击的span标签设置类样式
+						this.className="current";
+						
+						var num=this.getAttribute("index");
+						
+						for (var k = 0; k < list.length; k++) {
+							//移除所有li标签里面的类样式
+							list[k].removeAttribute("class")
+							
+						}
+						
+						list[num].className="current";
+						
+					};
+				}
+			</script>
+			
+	</body>
+</html>

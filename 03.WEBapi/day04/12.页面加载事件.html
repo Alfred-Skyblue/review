@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/*
+				页面加载的时候,如果先加载了js代码,html的内容没有加载完毕,那么浏览器就会报错
+				可以使用onload事件让浏览器所有的内容加载完毕后再执行
+				只有页面中所有的内容加载完毕后，这个事件才会被触发
+				页面中所有的内容，包括标签，属性，文本，css文件和js文件
+			*/
+				//重点
+				// onload=function () {
+				// 	my$("btn").onclick=function () {
+				// 		alert("天王盖地虎")
+				// 	};
+				// };
+			
+			
+			
+				//下面的两个事件只有ie8才支持,别的浏览器不支持
+				// 扩展的事件-页面关闭后才触发的事件
+				window.onunload=function () {
+					alert("宝塔镇河妖")
+				};
+				// 扩展的事件-页面关闭前触发的事件
+				window.onbeforeunload=function () {
+					alert("蜻蜓水上漂");
+				};
+			
+		</script>
+	</head>
+	<body>
+		
+		<input type="button" value="按钮" id="btn">
+		
+		<script src="common.js"></script>
+		
+	</body>
+</html>

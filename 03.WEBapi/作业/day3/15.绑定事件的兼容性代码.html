@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn"/>
+		
+		
+		<script>
+			//根据id获取元素
+			var btnObj=document.getElementById("btn")
+			//为元素绑定任意事件的兼容性代码
+			function addEventListener(element,type,fn) {
+				if (element.addEventListener){
+					element.addEventListener(type,fn,false);
+				} else if (element.attachEvent) {
+					element.attachEvent("on"+type,fn);
+				} else{
+					element["on"+type]=fn;
+				}
+			}
+			
+			addEventListener(btnObj,"click",function () {
+				console.log("不要只为一个人而活");
+			});
+			addEventListener(btnObj,"click",function () {
+				console.log("你的人生");
+			});
+			addEventListener(btnObj,"click",function () {
+				console.log("还可以拥有全世界");
+			});
+		</script>
+	</body>
+</html>

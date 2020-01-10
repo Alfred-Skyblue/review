@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+	</head>
+	<body>
+			<input type="button" value="变色" id="btn"/>
+			<ol id="greens">
+				<li>天王盖地虎</li>
+				<li>宝塔镇河妖</li>
+				<li>小鸡炖蘑菇</li>
+				<li>青菜炒香蕉</li>
+				<li>黄瓜炖土豆</li>
+			</ol>
+			<script>
+				
+				//根据id属性值获取元素
+				var btnObj=document.getElementById("btn");
+				var gesObj=document.getElementById("greens");
+				
+				//获取ol里面所有的子节点
+				var nodes=gesObj.childNodes;
+				
+				
+				
+				
+				
+				btnObj.onclick=function () {
+					//定义一个变量,来储存li的个数
+					var count=0;
+					
+					//循环遍历所有的子节点
+					for (var i = 0; i < nodes.length; i++) {
+						
+						//判断节点是不是li标签
+						if (nodes[i].nodeType==1&&nodes[i].nodeName=="LI") {
+							//实现隔行变色
+							nodes[i].style.backgroundColor=count%2==0?"skyblue":"#f40";
+							count++;
+						}
+					}
+				};
+				
+				
+				
+			</script>
+	</body>
+</html>

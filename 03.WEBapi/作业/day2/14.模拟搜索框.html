@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+    <style>
+        input {
+            color: gray
+        }
+    </style>
+	</head>
+
+	<body>
+		<input type="text" value="请输入搜索内容" id="txt">
+		<script src="common.js"></script>
+		<script>
+			//根据id获取文本框,为文本框注册获取焦点事件,添加函数
+			my$("txt").onfocus=function () {
+				if (this.value!=0) {
+					this.value="";
+					this.style.color="#000";
+				}
+			};
+			
+			
+			//为文本框注册失去焦点事件
+			my$("txt").onblur=function () {
+				if (this.value==0) {
+					this.value="请输入搜索内容";
+					this.style.color="gray";
+				}
+			};
+			
+		</script>
+		
+	</body>
+</html>

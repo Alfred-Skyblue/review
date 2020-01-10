@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+	<input type="button" value="停止" id="btn">
+	<script>
+	/*
+	  定时器
+	  参数1:函数
+	  参数2:时间---毫秒---1000毫秒--1秒
+	  执行过程:页面加载完毕后,过了1秒,执行一次函数的代码,又过了1秒再执行函数
+	  返回值就是定时器的id值
+	 */
+	//定时器的id就是定时器的返回值
+	  var timeId = setInterval(onload=function () {
+	    alert("hello");//断言,如果不点击,后面的代码就不会执行
+	  }, 5000);
+	  
+	  //点击按钮,停止定时器
+	  document.getElementById("btn").onclick = function () {
+		
+	    //参数:要清理的定时的id的值
+	    window.clearInterval(timeId);
+	  };
+	  
+	 // 在使用setInterval方法时，每一次启动都需要对setInterval方法返回的值做一个判断，判断是否是空值，若不是空值，则要停止定时器并将值设为空，再重新启动，如果不进行判断并赋值，有可能会造成计时器循环调用，在同等的时间内同时执行调用的代码，并会随着代码的运行时间增加而增加，导致功能无法实现，甚至占用过多资源而卡死奔溃。因此在每一次使用setInterval方法时，都需要进行一次判断。
+	 
+	  
+	</script>
+</body>
+</html>

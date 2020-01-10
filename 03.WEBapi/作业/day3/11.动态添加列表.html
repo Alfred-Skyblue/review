@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+					width: 500px;
+					height: 600px;
+					background-color: skyblue;
+					margin-top: 10px;
+				}
+			</style>
+	</head>
+	<body>
+
+		<input type="button" value="创建列表" id="btn" />
+		<div id="dv"></div>
+
+		<script>
+			var iptObj = document.getElementById("btn");
+			var dvObj = document.getElementById("dv");
+
+
+
+			var car = ["捷达", "桑塔纳", "宝来", "朗逸", "凌度", "帕萨塔"];
+
+			//为按钮注册点击事件
+			iptObj.onclick = function() {
+				//创建一个ul,并且把它添加到div中
+				var ulObj = document.createElement("ul");
+				dvObj.appendChild(ulObj);
+				//循环遍历数组,创建li标签
+				for (var i = 0; i < car.length; i++) {
+					// 创建li标签
+					var list = document.createElement("li");
+					// 把car数组里面的内容添加到li标签中
+					list.innerText = car[i];
+					//把li标签添加到ul当中
+					ulObj.appendChild(list);
+
+					//为li标签注册鼠标点击事件
+					list.onmouseover = mouseoverHandle;
+					list.onmouseout = mouseoutHandle;
+
+				}
+			};
+			//为了减少浏览器的负载,我们创建函数的时候,如果是在循环内部创建
+			//则每次循环执行都会创建函数,如果我们在外部创建一个函数,在循环内部只需要调用该函数就可以了
+			// 在外面创建一个鼠标进入事件的函数
+			function mouseoverHandle() {
+				this.style.backgroundColor = "#f40";
+			}
+			//鼠标离开事件
+			function mouseoutHandle() {
+				this.style.backgroundColor = "";
+			}
+		</script>
+
+
+
+
+
+	</body>
+</html>

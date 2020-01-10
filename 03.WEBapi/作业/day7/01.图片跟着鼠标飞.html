@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				height: 2000px;
+			}
+			img{
+			  position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="images/bird.png" id="im">
+		<script src="common.js"></script>
+		<script>
+			document.onmousemove=function (e) {
+				// //鼠标相对于页面的可视区域的横坐标
+				// my$("im").style.left=e.clientX+"px";
+				// //鼠标相对于页面的可视区域的纵坐标
+				// my$("im").style.top=e.clientY+"px";
+				
+				// 由于ie8当中针对事件参数对象使用的是window.event,所以,使用window.event来代�e
+				my$("im").style.left=window.event.clientX+document.documentElement.scrollLeft+"px";
+				my$("im").style.top=window.event.clientY+document.documentElement.scrollTop+"px";
+				// console.log(document.documentElement.scrollTop);
+				
+				// 1.window.event和e是需要兼容处理的
+				// 2.pageX和pageY是鼠标相对于页面边界的坐标
+				my$("im").style.left=e.pageX+"px";
+				my$("im").style.top=e.pageY+"px";
+				
+				
+				//ie8不支持pageX
+				// my$("im").style.left=window.event.pageX+"px";
+				// my$("im").style.top=window.event.pageY+"px";
+				
+				function getScroll() {
+						return {
+							left:window.pageXoffset||document.body.scrollLeft||document.documentElement.scrollLeft||0,
+							top:window.pageYoffset||document.body.scrollTop||document.documentElement.scrollTop||0,
+						
+				}
+				
+				
+				
+				
+				my$("im").style.left=window.event.clientX+getScroll.left+"px";
+				my$("im").style.top=window.event.clientY+getScroll.top+"px";
+				}
+				
+			};
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

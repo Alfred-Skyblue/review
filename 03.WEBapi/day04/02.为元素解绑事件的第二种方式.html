@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" value="按钮" id="btn"/>
+		
+		<input type="button" value="移除第一个按钮的点击事件" id="btn2"/>
+		
+		<div id="dv"></div>
+		<script src="common.js"></script>
+		<script>
+			
+			var btnObj=document.getElementById("btn");
+			
+			//解绑事件的第二种方式
+			//这种方式在解绑事件的时候,需要在绑定事件的时候,使用命名函数
+			
+				/*
+				function f1() {
+					console.log("第一个");
+				}
+				function f2() {
+					console.log("第二个");
+				}
+				
+				btnObj.addEventListener("click",f1,false);
+				btnObj.addEventListener("click",f2,false);
+				
+				my$("btn2").onclick=function () {
+					//解绑btn的事件
+					my$("btn").removeEventListener("click",f1,false);
+				};
+			*/
+		   
+		   
+			//第二遍
+			
+			
+			function f1() {
+				console.log(this);
+			}
+			function f2() {
+				console.log("第二个");
+			}
+			btnObj.addEventListener("click",f1,false);
+			btnObj.addEventListener("click",f2,false);
+			
+			my$("btn2").onclick=function () {
+				btnObj.removeEventListener("click",f2,false);
+			};
+			
+		</script>
+	</body>
+</html>

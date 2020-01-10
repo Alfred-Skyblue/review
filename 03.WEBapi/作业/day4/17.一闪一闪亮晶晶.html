@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 600px;
+				height: 600px;
+				border: 1px solid skyblue;
+				font-size: 50px;
+				color: #f40;
+				position: relative;
+				position: absolute;
+				background-color: #000000;
+				
+			}
+			span {
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="亮起来" id="btn" />
+		<div id="dv"></div>
+		<script src="common.js"></script>
+		<script>
+			
+			
+			dvObj = document.getElementById("dv");
+			my$("btn").onclick = function() {
+				setInterval(function() {//为点击事件加入定时器
+					dvObj.innerHTML = "<span>☆</span>";//给div加一个span标签
+					var x = parseInt(Math.random() * 566);//设置一个随机数作为x
+					var y = parseInt(Math.random() * 566);//设置一个随机数作为x
+					dvObj.firstElementChild.style.left = x + "px";//把x的值定位给left
+					dvObj.firstElementChild.style.top = y + "px";//把y的值定位给top
+				}, 50);
+
+
+			};
+		</script>
+	</body>
+</html>

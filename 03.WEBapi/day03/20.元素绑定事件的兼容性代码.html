@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn"/>
+		
+		
+		<script>
+			
+			var btnObj=document.getElementById("btn")
+			
+			//为元素绑定任意事件的兼容性代码
+			function addEventListener(element,type,fn) {
+				if (element.addEventListener){
+					element.addEventListener(type,fn,false);
+				} else if (element.attachEvent) {
+					element.attachEvent("on"+type,fn);
+				} else{
+					element["on"+type]=fn;
+				}
+			}
+			
+			
+			
+			addEventListener(btnObj,"click",function () {
+				console.log("爱是一道光");
+			});
+			addEventListener(btnObj,"click",function () {
+				console.log("如此美妙");
+			});
+			addEventListener(btnObj,"click",function () {
+				console.log("指引我们想要的未来");
+			});
+		</script>
+	</body>
+</html>

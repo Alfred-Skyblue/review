@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="images/1.jpg" id="ak"><img src="images/1-small.jpg" id="im"></a>
+		
+		
+		
+		
+		
+	</body>
+	
+	<script>
+		
+		var akObj=document.getElementById("ak");
+		var imObj=document.getElementById("im");
+		
+		akObj.onclick=function () {
+			
+			imObj.src=imObj.src!=this.href?this.href:"images/1-small.jpg";
+			
+			// if (imObj.src!=this.href) {
+			// 	imObj.src=this.href;
+			// } else{
+			// 	imObj.src="images/1-small.jpg";
+			// }
+			
+			return false;
+		};
+		
+	</script>
+</html>

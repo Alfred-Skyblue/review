@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			
+			// String对象
+			
+			//常用方法
+			var str=" Hello+Wordl ";
+			//返回值是指定索引位置的字符串
+			console.log(str.charAt(5));
+			
+			//.concat(字符串1,字符串2,...)返回的是拼接之后的新的字符串
+			console.log(str.concat("hi","this"));
+			
+			//indexOf("字符"，索引)从指定索引值的位置查找字符,从前往后找
+			console.log(str.indexOf("W"));
+			
+			//lastIndexOf("字符")从字符串的最后面查找字符,只能从最后一个开始往前找
+			console.log(str.lastIndexOf("W"));
+			
+			//把原字符串中的指定值替换为新的字符串
+			console.log(str.replace("l","m"));
+			
+			////从索引为5的字符串开始提取,到索引为10的前一个结束,不包括10
+			console.log(str.slice(5,10));
+			
+			
+			//.split删除该字符,并且返回从该字符位置切割开的字符串,返回值是一个数组
+			console.log(str.split('+',5));
+			
+			//输出从一个索引值到另一个索引值的字符串不包括
+			console.log(str.substr(0,4));
+			//转换为小写
+			console.log(str.toLocaleLowerCase());
+			
+			//转换为大写
+			console.log(str.toUpperCase());
+			
+			//删除字符串两端的空格
+			console.log(str.trim());
+			//返回对应按钮的ASCII码的值
+			console.log(String.fromCharCode(139,123,188));
+		</script>
+		
+	</body>
+</html>

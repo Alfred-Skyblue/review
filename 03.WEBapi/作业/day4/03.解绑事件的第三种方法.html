@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" value="按钮" id="btn1"/>
+		<input type="button" value="移除按钮" id="btn2"/>
+		
+		<script src="common.js"></script>
+		<script>
+			
+			function f1() {
+				console.log("第一个事件");
+			}
+			function f2() {
+				console.log("第二个事件");
+			}
+			
+			
+			//只支持ie8,由于 IE8 及更早版本只支持事件冒泡，所以通过这种方法添加的事件处理程序都会被添加到冒泡阶段。
+			my$("btn1").attachEvent("onclik",f1)
+			my$("btn1").attachEvent("onclik",f2)
+			
+			my$("btn2").onclick=function () {
+				detachEvent("onclick",f1)
+			};
+			
+			
+		</script>
+	</body>
+</html>

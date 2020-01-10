@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn"/>
+		<p>
+			大唐洺郡
+		</p>
+		<script src="common.js"></script>
+		<script>
+			my$("btn").onclick=function () {
+				alert(document.getElementsByTagName("p")[0].innerText);
+			};
+		</script>
+	</body>
+</html>

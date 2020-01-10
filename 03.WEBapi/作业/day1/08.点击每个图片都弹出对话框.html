@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="images/1.jpg">
+		<img src="images/2.jpg">
+		<img src="images/3.jpg">
+		<img src="images/4.jpg">
+		<img src="images/5.jpg">
+		<img src="images/6.jpg">
+		<script>
+			var imgObjs = document.getElementsByTagName("img");
+
+			for (var i = 0; i < imgObjs.length; i++) {
+				imgObjs[i].onclick = function() {
+					alert("我是楚乔传");
+				};
+			}
+		</script>
+	</body>
+</html>

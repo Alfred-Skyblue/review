@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			
+			li {
+				width: 200px;
+				height: 200px;
+				list-style: none;
+				background-color: skyblue;
+				float: left;
+				border: 5px solid skyblue;
+				margin-right: 10px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<ul id="car">
+			<li>宝马</li>
+			<li>奔驰</li>
+			<li>奥迪</li>
+			<li>保时捷</li>
+			<li>法拉利</li>
+		</ul>
+		
+		<script src="common.js"></script>
+		<script>
+			
+			//获取储存每个li标签的数组
+			var list=me$("car","li");
+			
+			// 循环遍历li标签数组,为每个li标签注册鼠标进入事件,添加函数
+			for (var i = 0; i < list.length; i++) {
+				list[i].onmouseover=function () {
+					this.style.border="5px solid red"
+				};
+				
+				
+				list[i].onmouseout=function () {
+					this.style.border="";
+				};
+			}
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="修改性别" id="btn">
+		<input type="radio" value="1" name="sex" id="rad">男
+		<input type="radio" value="2" name="sex">女
+		<input type="radio" value="3" name="sex">中性
+		<script src="common.js"></script>
+		<script>
+			my$("btn").onclick=function(){
+				my$("rad").checked=true;
+			}
+			
+		</script>
+
+
+		<input type="button" value="选择兴趣" id="btn2">
+		<input type="checkbox" value="1" name="interest" id="ck1">跑步
+		<input type="checkbox" value="1" name="interest">看书
+		<input type="checkbox" value="1" name="interest">打篮球
+		<input type="checkbox" value="1" name="interest" id="ck2">写代码
+		<input type="checkbox" value="1" name="interest">看电影
+		<script>
+			my$("btn2").onclick = function() {
+				my$("ck1").checked = true;
+				my$("ck2").checked = true;
+			}
+		</script>
+
+	</body>
+</html>

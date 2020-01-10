@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+				li {
+					list-style: none;
+					cursor: pointer;
+					margin-top: 10px;
+				}
+			</style>
+	</head>
+	<body>
+			<ul id="results">
+				<li grade="60">语文成绩</li>
+				<li grade="70">数学成绩</li>
+				<li grade="80">英语成绩</li>
+				<li grade="90">化学成绩</li>
+				<li grade="100">物理成绩</li>
+			</ul>
+
+			<script src="common.js"></script>
+			<script>
+				/*
+					html标签中没有可以自带存储值的属性
+					但是可以自己给标签添加自定义属性，储存一些数据
+					在html标签中，添加自定义属性，如果想要获取这个属性值，需要使用getAttribute("自定义属性的名字")方法，才能获取这个属性的值
+					
+				
+				*/
+			   
+			   
+			   //获取所有的li标签
+			   var list=me$("results","li");
+			   for (var i = 0; i < list.length; i++) {
+			   	list[i].onclick=function () {
+			   		alert(this.getAttribute("grade"));
+			   	};
+			   }
+			</script>
+	</body>
+</html>

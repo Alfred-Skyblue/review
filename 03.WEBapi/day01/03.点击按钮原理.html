@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<input type="button" value="获取地址" id="btn">
+		
+		<script>
+			
+			//必须现有按钮,才能获取元素,之后才能注册事件
+			
+			
+			//根据id属性的值,从文档中获取这个元素
+			var btnObj=document.getElementById("btn");
+			//为这个按钮注册事件
+			btnObj.onclick=function(){
+				alert("我来自邯郸");
+			};
+			
+		</script>
+	</body>
+</html>

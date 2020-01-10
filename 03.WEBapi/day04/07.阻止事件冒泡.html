@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#father {
+				width: 300px;
+				height: 300px;
+				background-color: red;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="father">
+			<button id="btn">点击</button>
+		</div>
+		<script>
+			//事件冒泡:多个元素嵌套,有层次关系,这些元素都注册了相同的事件,如果里面的元素的事件触发了,外面的元素的该事件自动的触发了
+			
+			 window.onload = function () {
+			        var father = document.getElementById("father");
+			        var btn = document.getElementById("btn");
+			        btn.onclick = function () {
+			            alert("点击了按钮");
+			        };
+			        father.onclick = function () {
+			            alert("点击了父标签");
+			        };
+			        document.onclick = function () {
+			            alert("点击了文档");
+			        }
+			    }
+				//此时我们点击按钮的时候,div的点击事件和document的点击事件都会被触发,就形成了事件冒泡
+				
+				
+				//阻止事件冒泡
+				window.onload = function () {
+				  var father = document.getElementById("father");
+				  var btn = document.getElementById("btn");
+				
+				   btn.onclick = function () {
+				      if(event && event.stopPropagation){ // w3c标准 阻止冒泡机制
+				           event.stopPropagation();
+				      }else{ // IE系列 IE 678
+				          event.cancelBubble = true;
+				           }
+				      alert("点击了按钮");
+				    };
+				   father.onclick = function () {
+				      if(event && event.stopPropagation){ // w3c标准 阻止冒泡机制
+				           event.stopPropagation();
+				       }else{ // IE系列 IE 678
+				           event.cancelBubble = true;
+				           }
+				      alert("点击了父标签");
+				   };
+				  document.onclick = function () {
+				      alert("点击了文档");
+				    }
+				 }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="设置P标签文字" id="btn">
+		<div id="dv1">
+			<p>人生如棋，落子无悔</p>
+			<p>人生如棋，落子无悔</p>
+			<p>人生如棋，落子无悔</p>
+			<p>人生如棋，落子无悔</p>
+			<p>人生如棋，落子无悔</p>
+		</div>
+		<div>
+			<p>人生如画，岁月如歌</p>
+			<p>人生如画，岁月如歌</p>
+			<p>人生如画，岁月如歌</p>
+			<p>人生如画，岁月如歌</p>
+			<p>人生如画，岁月如歌</p>
+		</div>
+		
+		<script>
+			//获取按钮的id属性
+			document.getElementById("btn").onclick=function (){//注册点击事件
+				//var pObjs=document.getElementsByTagName("p");//获取p标签属性
+				var pObjs=document.getElementById("dv1").getElementsByTagName("p");//获取id为dv1的元素里面的p标签,类似于子元素选择器
+				console.log(pObjs);
+				for(var i=0;i<pObjs.length;i++){//通过for循环遍历数组,更改p标签的文本
+					pObjs[i].innerText="曾梦想仗剑走天涯，看一看世界的繁华";
+					
+					
+				}
+			};
+			
+			
+		</script>
+	</body>
+</html>

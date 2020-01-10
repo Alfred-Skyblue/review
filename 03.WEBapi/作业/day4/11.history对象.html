@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="跳过去" id="btn1"/>
+		<input type="button" value="前进" id="btn2"/>
+		
+		
+		<script src="common.js"></script>
+		
+		<script>
+			
+			//页面跳转
+			
+			my$("btn1").onclick=function () {
+				window.location.href="12.test.html";
+			};
+			
+			//前进
+			my$("btn2").onclick=function () {
+				window.history.forward()//前进页面
+			};
+		</script>
+	</body>
+</html>

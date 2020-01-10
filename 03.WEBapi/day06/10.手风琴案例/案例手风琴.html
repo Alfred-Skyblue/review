@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+	.clearfix:after { content: ""; display: block; height: 0; clear: both; visibility: hidden; } 
+	.clearfix {*zoom: 1;} /* IE6、7 专有 */
+    ul {
+      list-style: none;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 1150px;
+      height: 400px;
+      margin: 50px auto;
+      border: 1px solid red;
+      overflow: hidden;
+    }
+
+    div li {
+      width: 240px;
+      height: 400px;
+      float: left;
+    }
+
+    div ul {
+      width: 1300px;
+    }
+
+
+  </style>
+</head>
+<body>
+<div id="box">
+  <ul class="clearfix">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+<script src="common.js"></script>
+<script>
+	var list=my$("box").getElementsByTagName("li");
+	for (var i = 0; i < list.length; i++) {
+		list[i].style.backgroundImage="url(images/"+(i+1)+".jpg)";
+		// 鼠标进入
+		list[i].onmouseover=mouseoverHandle;
+		// 鼠标离开
+		list[i].onmouseout=mouseoutHandle;
+	}
+	
+	
+	function mouseoverHandle() {
+		for (var i = 0; i < list.length; i++) {
+			//动画效果
+			animate(list[i],{"width":100});
+		}
+		animate(this,{"width":800});
+	}
+	function mouseoutHandle() {
+		for (var i = 0; i < list.length; i++) {
+			//动画效果
+			animate(list[i],{"width":230});
+		}
+	}
+</script>
+
+</body>
+</html>

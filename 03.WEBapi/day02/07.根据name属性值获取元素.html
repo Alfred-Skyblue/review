@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="显示效果" id="btn"/><br/>
+		<input type="text" value="您好" name="name1"/><br/>
+		<input type="text" value="您好" name="name2"/><br/>
+		<input type="text" value="您好" name="name1"/><br/>
+		<input type="text" value="您好" name="name3"/><br/>
+		<input type="text" value="您好" name="name1"/><br/>
+		<input type="text" value="您好" name="name1"/><br/>
+		
+		<script src="common.js"></script>
+		<script>
+			my$("btn").onclick=function(){
+				
+				//表单标签可以通过name值获取元素
+				var inputs=document.getElementsByName("name1");
+				for(var i=0;i<inputs.length;i++){
+					inputs[i].value="thinks";
+				}
+			};
+		</script>
+	</body>
+</html>

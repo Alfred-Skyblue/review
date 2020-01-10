@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			div {
+				width: 300px;
+				height: 200px;
+				border: 2px solid blue;
+				margin: 50px;
+				overflow: auto;
+			}
+			button {
+				position: absolute;
+				left: 430px;
+				top: 20px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div>
+			国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐国庆节快乐
+		</div>
+		<button>按钮</button>
+		
+		<script>
+			
+			/*
+				元素的样式属性是无法直接通过：对象.style.属性来获取的(样式在style标签中)
+				
+				offset系列：
+				offsetLeft:距离左边位置的值
+				offsetTop:距离上边位置的值
+				offsetWidth:元素的宽度(包含边框)
+				offsetHeight：元素的高度(包含边框)
+				
+				
+				scroll系列：卷曲
+				scrollWidth:元素中内容的实际宽度(不含边框),如果没有内容或者内容小于元素的宽度，则显示元素的宽度
+				scrollHeight:元素中内容的实际高度(不含边框),如果没有内容或者内容小于元素的高度，则显示元素的高度
+				
+			*/
+			
+			var dvObj=document.querySelector("div");
+			var btn=document.querySelector("button");
+			
+			btn.onclick=function () {
+				// console.log(dvObj.offsetLeft);
+				// console.log(dvObj.offsetTop);
+				// console.log(dvObj.offsetWidth);
+				// console.log(dvObj.offsetHeight);
+				console.log(dvObj.scrollWidth);
+				console.log(dvObj.scrollHeight);
+				console.log(dvObj.scrollLeft);
+				console.log(dvObj.scrollTop);
+			};
+			dvObj.onscroll=function () {
+				console.log(this.scrollTop);
+			};
+			
+		</script>
+		
+		
+	</body>
+</html>

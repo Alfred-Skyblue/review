@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 300px;
+				height: 300px;
+				background-color: skyblue;
+			}
+			.cla{
+				width: 500px;
+				height: 500px;
+				background-color: #f40;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="变大" id="btn">
+		<div id="dv"></div>
+		<script src="common.js"></script>
+		<script>
+			my$("btn").onclick=function(){
+				if(my$("dv").className!="cla"){//在js代码中DOM操作的时候,设置元素的类样式,不用class关键字,应该使用,className
+					my$("dv").className="cla";
+					this.value="还原"
+				}else{
+					my$("dv").className="";
+					this.value="变大"
+				}
+			};
+			
+			
+		</script>
+	</body>
+</html>

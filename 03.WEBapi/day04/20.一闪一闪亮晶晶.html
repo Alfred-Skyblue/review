@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 600px;
+				height: 600px;
+				border: 1px solid skyblue;
+				font-size: 50px;
+				color: #f40;
+				position: relative;
+				position: absolute;
+				background-color: #000000;
+				
+			}
+			span {
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="亮起来" id="btn" />
+		<div id="dv"></div>
+		<script src="common.js"></script>
+		<script>
+			dvObj = document.getElementById("dv");
+			my$("btn").onclick = function() {
+				setInterval(function() {
+					dvObj.innerHTML = "<span>★</span>";
+					var x = parseInt(Math.random() * 500);
+					var y = parseInt(Math.random() * 500);
+					dvObj.firstElementChild.style.left = x + "px";
+					dvObj.firstElementChild.style.top = y + "px";
+				}, 10);
+			};
+		</script>
+	</body>
+</html>

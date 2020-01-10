@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 200px;
+      height: 150px;
+      background-color: red;
+      border-radius: 100px;
+    }
+  </style>
+</head>
+<body>
+<input type="button" value="变宽" id="btn"/>
+<div id="dv"></div>
+
+<script>
+  var btn=document.querySelector("#btn");
+  var dvObj=document.querySelector("#dv");
+  var dvWidth=dv.offsetWidth;
+  btn.addEventListener("click",function () {
+  	var timeId=setInterval(function () {
+		
+		dvWidth+=10;
+		dvObj.style.width=dvWidth+"px";
+		if (dvWidth>=800) {
+			clearInterval(timeId);
+		}
+  	},20)
+  });
+  
+</script>
+
+</body>
+</html>

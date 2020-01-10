@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				  padding: 0;
+				  margin: 0;
+				}
+
+				.wrap {
+				  width: 300px;
+				  margin: 100px auto 0;
+				}
+
+				table {
+				  border-collapse: collapse;
+				  border-spacing: 0;
+				  border: 1px solid #c0c0c0;
+				  width: 300px;
+				}
+
+				th,
+				td {
+				  border: 1px solid #d0d0d0;
+				  color: #404060;
+				  padding: 10px;
+				}
+
+				th {
+				  background-color: #09c;
+				  font: bold 16px "微软雅黑";
+				  color: #fff;
+				}
+
+				td {
+				  font: 14px "微软雅黑";
+				}
+
+				tbody tr {
+				  background-color: #f0f0f0;
+				}
+
+				tbody tr:hover {
+				  cursor: pointer;
+				  background-color: #fafafa;
+				}
+			</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<table>
+				<thead>
+					<tr>
+						<th>
+							<input type="checkbox" id="j_cbAll" />
+						</th>
+						<th>菜名</th>
+						<th>饭店</th>
+					</tr>
+				</thead>
+				<tbody id="j_tb">
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>红烧肉</td>
+						<td>田老师</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>西红柿鸡蛋</td>
+						<td>田老师</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>油炸榴莲</td>
+						<td>田老师</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>清蒸助教</td>
+						<td>田老师</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+		<script src="common.js"></script>
+
+		<script>
+			//获取全选框
+
+			var checkAll = document.getElementById("j_cbAll")
+
+			//获取tbody里面所有的选择框
+			var choices = me$("j_tb", "input")
+
+			//为全选框注册点击事件
+			checkAll.onclick = function() {
+
+				//循环遍历选中tbody里面所有的选择框
+				for (var i = 0; i < choices.length; i++) {
+					choices[i].checked = this.checked;
+				}
+			};
+
+			for (var j = 0; j < choices.length; j++) {
+				choices[j].onclick = function() {
+					var flag = true; //默认全部选中
+					for (var i = 0; i < choices.length; i++) {
+						//判断是否有未被选中的
+						if (!choices[i].checked) {
+							flag = false;
+							break; //如果有一个未被选中,跳出循环,减少浏览器不必要的负载
+						}
+					}
+					checkAll.checked = flag;
+				};
+			}
+		</script>
+
+
+
+	</body>
+</html>

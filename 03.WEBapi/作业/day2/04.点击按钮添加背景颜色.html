@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<ul id="car">
+			<li>宝马</li>
+			<li>奔驰</li>
+			<li>奥迪</li>
+			<li>保时捷</li>
+			<li>法拉利</li>
+		</ul>
+		
+		<script src="common.js"></script>
+		<script>
+			//根据id属性值获取ul,注册点击事件,添加事件处理函数
+			my$("car").onclick=function () {
+				
+				//获取当前ul标签里面所有的li
+				var list=my$("car").getElementsByTagName("li");
+				
+					for (var i = 0; i < list.length; i++) {
+						// 循环遍历给奇数的li标签添加背景颜色为蓝色,偶数为天蓝色
+						if (i%2==0) {
+							list[i].style.backgroundColor="blue";
+						} else{
+							list[i].style.backgroundColor="skyblue";
+						}
+				}
+			};
+			
+			
+		</script>
+	</body>
+</html>

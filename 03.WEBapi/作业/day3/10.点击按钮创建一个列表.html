@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 500px;
+				height: 600px;
+				background-color: skyblue;
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<input type="button" value="创建列表" id="btn"/>
+		<div id="dv"></div>
+		
+		<script>
+			var iptObj=document.getElementById("btn");
+			var dvObj=document.getElementById("dv");
+			
+			//定义一个数组,储存需要往li标签里面添加的内容
+			var car=["捷达","桑塔纳","宝来","朗逸","凌度","帕萨塔"];
+			
+			//为按钮注册点击事件,添加事件处理函数
+			iptObj.onclick=function () {
+				//定义一个变量,储存ul标签
+				var uls="<ul style='list-style:none;'>";
+				
+				//循环遍历,添加所有的li标签,并且给li标签添加内容
+				for (var i = 0; i < car.length; i++) {
+					uls+="<li style='margin-top:10px'>"+car[i]+"</li>";
+					
+				}
+				uls+="</ul>";//为ul添加闭合标签
+				
+				dvObj.innerHTML=uls;//把ul列表添加到div中
+				
+				
+			};
+			
+		</script>
+		
+	</body>
+</html>

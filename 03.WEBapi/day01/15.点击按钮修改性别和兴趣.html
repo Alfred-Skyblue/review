@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="选择性别" id="btn">
+		<input type="radio" value="1" name="sex">男
+		<input type="radio" value="2" name="sex" id="woman">女
+		<input type="radio" value="3" name="sex">保密
+		
+		<script>
+			 function my$(id){
+				 return document.getElementById(id);
+			 }
+			
+			my$("btn").onclick=function(){
+				my$("woman").checked=true;
+			};
+		/*
+			规律:在表单中,如果属性和值只有一个,并且值是这个属性的本身
+				那么在写js代码，DOM操作的时候，这个属性值，是布尔类型就可以了
+		*/
+		</script>
+		
+		<br>
+		<br>
+		<br>
+		
+		<input type="button" value="选择兴趣" id="btn2">
+		<input type="checkbox" value="1" name="interest">读书
+		<input type="checkbox" value="2" name="interest">跑步
+		<input type="checkbox" value="3" name="interest" id="ck1">打篮球
+		<input type="checkbox" value="4" name="interest" id="ck2">写代码
+		<script>
+			my$("btn2").onclick=function (){
+				my$("ck1").checked=true;
+				my$("ck2").checked=true;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<style>
+			*{
+					margin: 0;
+					padding: 0;
+				}
+				#box {
+				width: 450px;
+				margin: 200px auto;
+			}
+
+			#txt {
+				width: 350px;
+				}
+
+				#pop {
+					width: 350px;
+					border: 1px solid red;
+				}
+
+				#pop ul {
+					margin: 10px;
+					padding: 0px;
+					width: 200px;
+					list-style-type: none;
+
+				}
+
+
+			</style>
+
+	</head>
+	<body>
+
+		<div id="box">
+			<input type="text" id="txt" value="">
+			<input type="button" value="搜索" id="btn">
+
+		</div>
+
+		<script src="common.js"></script>
+		<script>
+			var keyWords = ["小杨才是最纯洁的", "小杨才是最帅的", "小段是最猥琐的", "小超是最龌龊的", "传智播客是一个培训机构", "传说在传智有个很帅很纯洁的小杨", "苹果好吃",
+				"苹果此次召回还是没有中国"
+			];
+
+
+			
+			my$("txt").onkeyup = function() {
+
+				//每一次的键盘抬起都判断页面中有没有这个div
+				if (my$("dv")) {
+					//删除一次
+					my$("box").removeChild(my$("dv"));
+				}
+
+				var text = this.value;
+				//定义一个临时数组,用来存放原数组中对应的数据
+				var tempArr = [];
+				//把用户输入的内容和数组中的数据作对比
+				for (var i = 0; i < keyWords.length; i++) {
+
+					//判断用户输入的内容是不是在数组最开始出现的
+					if (keyWords[i].indexOf(text) == 0) {
+						tempArr.push(keyWords[i]);
+					}
+				}
+					//如果页面中有这个div,则删除这个div
+					if (this.value.length == 0 || tempArr.length == 0) {
+					
+						if (my$("dv")) {
+							my$("box").removeChild(my$("dv"));
+						}
+						return;
+					}
+
+				//创建div,把div加入到id为box的div中 
+				var dvObj = document.createElement("div");
+				my$("box").appendChild(dvObj);
+				dvObj.id = "dv";
+				dvObj.style.width = "350px";
+				dvObj.style.border = "1px solid green";
+				
+				//遍历临时数组,创建对应的p标签
+				
+				for (var i = 0; i < tempArr.length; i++) {
+					//创建p标签
+					var pObj = document.createElement("p");
+
+					// 把p标签加入到div中
+					dvObj.appendChild(pObj);
+					//把临时数组的值,添加到p标签当中
+					setInnerText(pObj, tempArr[i]);
+					pObj.style.margin = "5px 0 0 5px"
+					pObj.style.cursor = "pointer";
+
+					//为p标签注册多个不同的事件,并且指向同一个函数
+					pObj.onmouseover = f1;
+					pObj.onmouseout = f1;
+					pObj.onclick = f1
+			
+				}
+			
+				function f1(event) {
+					switch (event.type) {
+						//如果鼠标点击p标签,则把p标签的内容复制给文本框,并且删除div
+						case "click":
+							my$("txt").value = getInnerText(this);
+							my$("box").removeChild(my$("dv"));
+							break;
+						case "mouseover":
+							this.style.backgroundColor = "skyblue";;
+							break;
+						case "mouseout":
+							this.style.backgroundColor = "";
+							break;
+					}
+					
+				}
+				/*
+					function f1() {
+						this.style.backgroundColor="skyblue";
+					}
+					
+					
+					function f2() {
+						this.style.backgroundColor="";
+					}
+					function f3() {
+						// my$("txt").value=this.innerText;
+						my$("txt").value=getInnerText(this);
+						// my$("txt").value=this.innerText;
+						my$("box").removeChild(my$("dv"));
+					}
+				*/
+
+
+			};
+		</script>
+
+	</body>
+</html>

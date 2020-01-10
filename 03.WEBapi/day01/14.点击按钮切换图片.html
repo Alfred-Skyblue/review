@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="切换图片" id="btn">
+		<img src="images/1.jpg" id="im">
+		
+		<script>
+			function my$(id){//定义一个函数,返回元素的id属性
+				return document.getElementById(id);
+			}
+			
+			my$("btn").onclick=function(){//注册点击事件创建函数
+				my$("im").src="images/2.jpg";//点击按钮时更改图片的路径
+			};
+			
+		</script>
+	</body>
+</html>

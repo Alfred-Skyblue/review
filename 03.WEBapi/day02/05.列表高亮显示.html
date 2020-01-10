@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			li {
+				list-style: none;
+				cursor: pointer;
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>大众</li>
+			<li>丰田</li>
+			<li>本田</li>
+			<li>现代</li>
+			<li>吉利</li>
+			<li>别克</li>
+			<li>长安</li>
+			<li>哈佛</li>
+			<li>起亚</li>
+		</ul>
+		
+		<script>
+			
+			//获取li标签的标签名
+			var liObjs=document.getElementsByTagName("li");
+			for(var i=0;i<liObjs.length;i++){
+				//为li标签注册鼠标进入事件
+				liObjs[i].onmouseover=function(){
+					this.style.backgroundColor="skyblue";
+				};
+				//为li标签注册鼠标离开事件
+				liObjs[i].onmouseout=function(){
+					this.style.backgroundColor="";
+				};
+			}
+		</script>
+	</body>
+</html>

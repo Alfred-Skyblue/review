@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="创建图片" id="btn"/>
+		<div id="dv"></div>
+		
+
+		<script>
+		/*	
+			总结:
+			innerHTML方法不能往body标签中创建元素,不然会导致body中的其他标签全部消失,同document.write
+		*/
+			var btnObj=document.getElementById("btn");
+			var dvObj=document.getElementById("dv");
+			
+			btnObj.onclick=function () {
+				
+				//document.body.innerHTML="<p>我是新创建的p标签</p>";
+				//注意,innerHTML方法不能往body标签中创建元素,不然会导致body中的其他标签全部消失,同document.write
+				dvObj.innerHTML="<img src='images/1-small.jpg'>";
+				//注意:当字符串里面包含字符串的时候,里面的字符串应该用单引号
+						//字符串里面如果需要拼接变量,则变量用双引号拼接
+						
+			};
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="显示效果" id="btn"/><br/>
+		<input type="text" value="您好" name="name1"/><br/>
+		<input type="text" value="您好" name="name2"/><br/>
+		<input type="text" value="您好" name="name1"/><br/>
+		<input type="text" value="您好" name="name3"/><br/>
+		<input type="text" value="您好" name="name1"/><br/>
+		<input type="text" value="您好" name="name1"/><br/>
+		
+		<script src="common.js"></script>
+		<script>
+			var inputs=document.getElementsByName("name1");
+			
+			
+			my$("btn").onclick=function () {
+				
+				for (var i = 0; i < inputs.length; i++) {
+					inputs[i].value="我的天空";
+				}
+			};
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid #f10215;
+			}
+			
+		</style>
+		
+	</head>
+	
+	<body>
+		<input type="button" value="插入" id="btn"/>
+		<input type="button" value="删除" id="btn2"/>
+		<input type="button" value="全部删除" id="btn3"/>
+		<div id="dv">
+		<p>我是p标签</p>
+		</div>
+		<script src="common.js"></script>
+		<script>
+			//根据id属性值获取元素
+			var btnObj=document.getElementById("btn");
+			var dvObj=document.getElementById("dv");
+			
+			//定义一个记录器
+			var i=0;
+			btnObj.onclick=function () {
+				i++;
+				// 创建一个按钮,并且添加属性
+				var obj=document.createElement("input");
+				obj.type="button";
+				obj.value="按钮"+i;
+				
+				// 往div中添加子元素
+				// dvObj.appendChild(obj);
+				
+				// 往第一个子元素的前面追加一个新的子元素
+				dvObj.insertBefore(obj,dvObj.firstElementChild);
+				
+				//添加一个新元素,替换原标签
+				//dvObj.replaceChild(obj,dvObj.firstElementChild);
+			};
+			
+			my$("btn2").onclick=function () {
+				// 点击按钮,删除该元素的第一个子元素
+				dvObj.removeChild(dvObj.firstElementChild);
+			};
+			
+			my$("btn3").onclick=function () {
+				// 点击按钮,删除该元素的所有子元素
+				while (dvObj.firstElementChild){
+					dvObj.removeChild(dvObj.firstElementChild);
+				}
+			};
+		</script>
+		
+	</body>
+</html>

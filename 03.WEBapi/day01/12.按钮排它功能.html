@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="没怀孕">
+		<input type="button" value="没怀孕">
+		<input type="button" value="没怀孕">
+		<input type="button" value="没怀孕">
+		<input type="button" value="没怀孕">
+		<input type="button" value="没怀孕">
+		<script>
+			//获取按钮的标签名字
+			var inputs=document.getElementsByTagName("input");
+			
+				for(var i=0;i<inputs.length;i++){
+					
+					//为每个按钮都注册点击事件
+					inputs[i].onclick=function(){
+						//把所有的标签value值设置为没怀孕
+						for(var j=0;j<inputs.length;j++){
+							inputs[j].value="没怀孕";
+						}
+						//把点击的标签显示为怀孕了
+						this.value="怀孕了";
+					};
+					
+				}
+			
+			
+			
+		</script>
+	</body>
+</html>

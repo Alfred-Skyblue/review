@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="变更内容" id="btn">
+		<p>本就是匆匆过客，又何必耿耿于怀</p>
+		<p>本就是匆匆过客，又何必耿耿于怀</p>
+		<p>本就是匆匆过客，又何必耿耿于怀</p>
+		<p>本就是匆匆过客，又何必耿耿于怀</p>
+		<p>本就是匆匆过客，又何必耿耿于怀</p>
+		<script src="common.js"></script>
+		<script>
+			//获取按钮的id属性值,为按钮注册点击事件,定义函数
+			my$("btn").onclick = function() {
+				var pObjs = document.getElementsByTagName("p")//获取元素名存为一个数组遍历数组获取每个元素,更改内容
+				for (var i = 0; i < pObjs.length; i++) {
+					pObjs[i].innerText = "时光，浓淡相宜；人心，远近相安";
+				}
+			};
+		</script>
+	</body>
+</html>

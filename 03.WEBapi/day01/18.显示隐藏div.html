@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 300px;
+				height: 200px;
+				background-color: skyblue;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		
+		<input type="button" id="btn" value="隐藏">
+
+		<div id="dv"></div>
+		<script src="common.js"></script>
+		<script>
+			
+			my$("btn").onclick=function (){
+				if(my$("dv").style.display=="none"){
+					my$("dv").style.display="block";//显示
+					this.value="隐藏";
+				}else{
+					my$("dv").style.display="none";//隐藏
+					this.value="显示";
+				}
+			}
+			
+			my$("btn2").onclick=function (){
+				my$("dv").style.display="block";
+			}
+		</script>
+	</body>
+</html>

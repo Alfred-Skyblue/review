@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		  <style>
+			div{
+			  width: 200px;
+			  height: 200px;
+			  border: 1px solid red;
+			}
+		  </style>
+	</head>
+	<body>
+		<input type="button" value="创建表格" id="btn"/>
+		<div id="dv"></div>
+		<script src="common.js"></script>
+		<script>
+			
+			// 定义一个数组,来存放表格需要的数据
+			var arr=[
+			  {name:"百度",href:"http://www.baidu.com"},
+			  {name:"谷歌",href:"http://www.google.com"},
+			  {name:"优酷",href:"http://www.youku.com"},
+			  {name:"土豆",href:"http://www.tudou.com"},
+			  {name:"快播",href:"http://www.kuaibo.com"},
+			  {name:"爱奇艺",href:"http://www.aiqiyi.com"}
+			];
+			
+			// 根据id属性值获取元素
+			var btnObj=document.getElementById("btn")
+			var dvObj=document.getElementById("dv")
+			//为按钮注册点击事件
+			btnObj.onclick=function () {
+				//创建一个table标签
+				var tableObj=document.createElement("table");
+				// 设置table标签的样式
+				tableObj.border="1";
+				tableObj.cellPadding="0";
+				tableObj.cellSpacing="0";
+				// 把table标签添加到div中
+				dvObj.appendChild(tableObj);
+				
+				// 创建行
+				for (var i = 0; i < arr.length; i++) {
+					var dt=arr[i];
+					
+					//创建行标签
+					var trObj=document.createElement("tr");
+					//把tr标签添加到table标签中
+					tableObj.appendChild(trObj)
+					
+					//创建列
+					var td1=document.createElement("td");
+					td1.innerHTML=dt.name;
+					//把列标签添加到tr中
+					trObj.appendChild(td1);
+						
+						
+					var td2=document.createElement("td");
+					//给第二列的td添加超链接和地址
+					td2.innerHTML="<a href="+dt.href+">"+dt.name+"</a>";
+					trObj.appendChild(td2);
+				}
+				
+			};
+			
+		</script>
+	</body>
+</html>

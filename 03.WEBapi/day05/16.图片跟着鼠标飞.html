@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			img {
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="images/bird.png" >
+		
+		<script>
+			
+			var imObj=document.querySelector("img");
+			document.onmousemove=function (e) {
+				
+				//可视区域的横坐标
+				imObj.style.left=e.clientX+"px";
+				//可视区域的纵坐标
+				imObj.style.top=e.clientY+"px";
+			};
+			
+			
+		</script>
+		
+		
+	</body>
+	
+	
+</html>

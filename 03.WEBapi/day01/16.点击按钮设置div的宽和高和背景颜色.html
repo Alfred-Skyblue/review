@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="div变身" id="btn">
+		<div id="dv"></div>
+		
+		
+		<script src="common.js"></script>
+		<script>
+			my$("btn").onclick=function (){
+				var style=my$("dv").style;
+				style.width="500px";
+				style.height="300px";
+				style.backgroundColor="skyblue";
+				//凡是在css中用-连接的单词,在js中DOM操作的时候,把-去掉,然后第二个首字母用大写即可
+			}
+		</script>
+	</body>
+</html>

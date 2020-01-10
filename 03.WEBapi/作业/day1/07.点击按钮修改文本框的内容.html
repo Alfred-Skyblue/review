@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn"><br><br>
+		<input type="text" value="天王盖地虎"><br><br>
+		<input type="text" value="天王盖地虎"><br><br>
+		<input type="text" value="天王盖地虎"><br><br>
+		<input type="text" value="天王盖地虎"><br><br>
+		<input type="text" value="天王盖地虎"><br><br>
+		<script src="common.js"></script>
+		<script>
+			my$("btn").onclick = function() {
+				var inputs = document.getElementsByTagName("input");
+				for (var i = 0; i < inputs.length; i++) {
+					if (inputs[i].type == "text") {
+						inputs[i].value = "宝塔镇河妖";
+					}
+				}
+			};
+		</script>
+	</body>
+</html>

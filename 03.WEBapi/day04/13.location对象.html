@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn"/>
+		<script src="common.js"></script>
+		<script>
+			// 对象中的属性和方法
+			
+			// location对象
+			console.log(location);
+			
+			//地址栏#及后面的内容
+			console.log(location.hash);
+			
+			//获取主机端口号
+			console.log(location.host);
+			
+			//获取主机名
+			console.log(location.hostname);
+			
+			//文件的相对路径
+			console.log(location.pathname);
+			
+			//端口号
+			console.log(window.location.port);
+			
+			// 协议
+			console.log(location.protocol);
+			
+			// 搜索内容
+			console.log(location.search);
+			
+			
+			my$("btn").onclick=function () {
+				//设置跳转页面的地址
+				// location.href="http://www.baidu.com";//这个是常用的属性,必须要记住
+				console.log(location.href);
+				//location.assign("http://www.baidu.com")//和href一样
+				// location.reload()//刷新页面
+				//location.replace("http://www.baidu.com")//没有历史记录
+			};
+			
+			
+
+		</script>
+	</body>
+</html>

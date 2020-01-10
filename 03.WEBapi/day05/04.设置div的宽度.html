@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: skyblue;
+				border-radius: 100px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<input type="button" value="变宽" id="btn"/>
+			<div id="dv"></div>
+			
+			
+			<script src="common.js"></script>
+			<script>
+				
+				my$("btn").onclick=function () {
+					var width=200;//定义一个变量,储存div的宽度值
+					//添加定时器事件
+					var timeId=setInterval(function () {
+						
+						width+=10;
+						if (width==800) {
+							// 如果width等于800,就停止div
+							clearInterval(timeId);
+						}
+						my$("dv").style.width=width+"px";
+					},20)
+				};
+			</script>
+			
+	</body>
+</html>

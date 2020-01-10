@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="images/2.jpg" id="ak"><img src="images/1.jpg" id="im"></a>
+		<script>
+			
+			//获取图片的id属性
+			document.getElementById("im").onclick=function(){//为图片注册点击事件创建函数
+				this.src=document.getElementById("ak").href;
+				return false;
+			};
+			
+			
+			
+		</script>
+	</body>
+</html>

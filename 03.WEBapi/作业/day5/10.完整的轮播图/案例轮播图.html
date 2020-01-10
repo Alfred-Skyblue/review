@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      border: 0;
+    }
+
+    .all {
+      width: 500px;
+      height: 200px;
+      padding: 7px;
+      border: 1px solid #ccc;
+      margin: 100px auto;
+      position: relative;
+    }
+
+    .screen {
+      width: 500px;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .screen li {
+      width: 500px;
+      height: 200px;
+      overflow: hidden;
+      float: left;
+    }
+
+    .screen ul {
+      position: absolute;
+      left: 0;
+      top: 0px;
+      width: 3000px;
+    }
+
+    .all ol {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      line-height: 20px;
+      text-align: center;
+    }
+
+    .all ol li {
+      float: left;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .all ol li.current {
+      background: #DB192A;
+    }
+
+    #arr {
+      display: none;
+    }
+
+    #arr span {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      margin-top: -20px;
+      background: #000;
+      cursor: pointer;
+      line-height: 40px;
+      text-align: center;
+      font-weight: bold;
+      font-family: '黑体';
+      font-size: 30px;
+      color: #fff;
+      opacity: 0.3;
+      border: 1px solid #fff;
+    }
+
+    #arr #right {
+      right: 5px;
+      left: auto;
+    }
+  </style>
+</head>
+<body>
+<div class="all" id="box">
+  <div class="screen"><!--相框-->
+    <ul>
+      <li><img src="images/1.jpg" width="500" height="200"/></li>
+      <li><img src="images/2.jpg" width="500" height="200"/></li>
+      <li><img src="images/3.jpg" width="500" height="200"/></li>
+      <li><img src="images/4.jpg" width="500" height="200"/></li>
+      <li><img src="images/5.jpg" width="500" height="200"/></li>
+    </ul>
+    <ol>
+    </ol>
+  </div>
+  <div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+</div>
+<script src="common.js"></script>
+<script>
+	//获取元素
+	
+	// 获取最外面的div
+	var box=document.querySelector("#box");
+	//获取相框
+	var screen=box.querySelector(".screen");
+	//获取相框的宽度
+	var imWidth=screen.offsetWidth;
+	//获取左右焦点div
+	var arr=box.lastElementChild;
+	//获取ul
+	var ulObj=screen.firstElementChild;
+	//获取ul里面所有的li
+	var liObjs=ulObj.children;
+	//获取ol
+	var olObj=screen.lastElementChild;
+	var num=0;
+	var circle=0;
+	// 鼠标经过显示左右焦点
+	box.addEventListener("mouseover",function () {
+		arr.style.display="block";
+		clearInterval(timeId);
+		timeId=null;//清除定时器变量;
+	});
+	// 鼠标离开隐藏左右焦点
+	box.addEventListener("mouseout",function () {
+		arr.style.display="none";
+		timeId=setInterval(function () {
+					//手动调用点击事件
+					my$("right").click();
+				},1500)
+	});
+	//通过for循环,动态生成ol里面的li
+	for (var i = 0; i < liObjs.length; i++) {
+		// 创建li标签
+		var list=document.createElement("li");
+		//创建自定义属性,储存li标签的索引值
+		list.setAttribute("index",i)
+		
+		// 把li插入到ol标签里面
+		olObj.appendChild(list);
+		list.innerHTML=i+1;
+		list.addEventListener("mouseover",function () {
+			// 排他事件,清除所有li的类名
+			for (var j = 0; j < olObj.children.length; j++) {
+				olObj.children[j].removeAttribute("class");
+			}
+			this.className="current";
+			
+			var index=this.getAttribute("index");
+			num=index;
+			circle=index;
+			animate(ulObj,-index*imWidth);
+		})
+	}
+		// 把ol里面的第一个li设置背景颜色
+		olObj.children[0].className="current";
+		
+		// 克隆ul中的第一个li,添加到ul的最后面
+		ulObj.appendChild(ulObj.firstElementChild.cloneNode(true));
+		
+		//点击按钮,切换图片
+		my$("right").addEventListener("click",function () {
+			// 如果到了最后克隆的照片,此时应该移动到第一张
+			if (num==liObjs.length-1) {
+				ulObj.style.left=0;
+				num=0;
+			}
+			
+			num++;
+			animate(ulObj,-num*imWidth);
+			
+			// ol里面的li随动
+			circle++;
+			// 如果circle==liObjs.length-1,那么说明走到了最后一张图片
+			if (circle==liObjs.length-1) {
+				circle=0;
+			}
+			for (var i = 0; i < olObj.children.length; i++) {
+				olObj.children[i].removeAttribute("class")
+			}
+			
+			olObj.children[circle].className="current"
+		})
+		
+		my$("left").addEventListener("click",function () {
+			// 如果到了最后克隆的照片,此时应该移动到第一张
+			if (num==0) {
+				num=liObjs.length-1;
+				ulObj.style.left=-num*imWidth+"px";
+				
+			}
+			num--;
+			animate(ulObj,-num*imWidth);
+			
+			// ol里面的li随动
+			circle--;
+			// 如果circle<0,那么说明走到了第一张ol里面的li背景颜色应该改为最后一个
+			if (circle<0) {
+				
+				circle=olObj.children.length-1;;
+			}
+			for (var i = 0; i < olObj.children.length; i++) {
+				olObj.children[i].removeAttribute("class")
+			}
+			
+			olObj.children[circle].className="current"
+		})
+		var timeId=setInterval(function () {
+					//手动调用点击事件
+					my$("right").click();
+				},1500)
+
+
+  //设置任意的一个元素,移动到指定的目标位置
+  function animate(element, target) {
+    clearInterval(element.timeId);
+    //定时器的id值存储到对象的一个属性中
+    element.timeId = setInterval(function () {
+      //获取元素的当前的位置,数字类型
+      var current = element.offsetLeft;
+      //每次移动的距离
+      var step = 10;
+      step = current < target ? step : -step;
+      //当前移动到位置
+      current += step;
+      if (Math.abs(current - target) > Math.abs(step)) {
+        element.style.left = current + "px";
+      } else {
+        //清理定时器
+        clearInterval(element.timeId);
+        //直接到达目标
+        element.style.left = target + "px";
+      }
+    }, 10);
+  }
+</script>
+
+
+
+</body>
+</html>

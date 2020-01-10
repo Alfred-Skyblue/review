@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+	</head>
+	<body>
+		<input type="button" value="隔行变色" id="btn">
+		<ul id="car">
+			<li>玛莎拉蒂</li>
+			<li>保时捷</li>
+			<li>兰博基尼</li>
+			<li>劳斯莱斯</li>
+			<li>法拉利</li>
+			<li>宝马</li>
+			<li>奥迪</li>
+			<li>奔驰</li>
+		</ul>
+
+
+		<script src="common.js"></script>
+		<script>
+			//获取按钮的id属性值，注册点击事件，添加函数
+			/*
+				my$("btn").onclick = function() {
+					var liObjs = my$("car").getElementsByTagName("li"); //获取id为car的ul标签里面的li标签
+					for (var i = 0; i < liObjs.length; i++) { //循环遍历数组
+						if (i % 2 != 0) { //判断索引值是不是偶数,如果是偶数,则背景颜色为skyblue
+							liObjs[i].style.backgroundColor = "skyblue";
+						} else { //如果是奇数,背景颜色为#f40
+							liObjs[i].style.backgroundColor = "#f40";
+						}
+					}
+				};
+			*/
+		   my$("btn").onclick = function() {
+		   	var liObjs = my$("car").getElementsByTagName("li"); //获取id为car的ul标签里面的li标签
+		   	for (var i = 0; i < liObjs.length; i++) { //循环遍历数组
+		   		liObjs[i].style.backgroundColor=i%2==0?"skyblue":"#f40";
+				//由于索引0是第一个元素,所以索引的奇数值,是页面显示的偶数长度
+		   	}
+		   };
+			for (let index = 0; index < array.length; index++) {
+				const element = array[index];
+				
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img {
+				position: absolute;
+			}
+			body {
+				height: 2000px;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="images/tianshi.gif" id="im">
+		<script src="common.js"></script>
+		<script>
+			//文档鼠标移动事件
+			//对象.事件=事件处理函数,事件触发了,函数的代码就会执行,执行的时候,会调用函数
+			document.onmousemove=function (e) {
+				e=window.event||e;
+				// 可视区域的横坐标
+				my$("im").style.left=e.clientX-20+"px";
+				// 可视区域的纵坐标
+				my$("im").style.top=e.clientY-20+"px";
+			}
+			
+			// onmousemove调用时会默认传入一个事件处理参数对象,谷歌火狐支持,ie8不支持
+			// document.onmousemove=function (e) {
+			// 	console.log(e);
+			// };
+			
+			// document.onmousemove=function (e) {
+			// 	my$("im").style.left=e.clientX-20+"px";
+			// 	my$("im").style.top=e.clientY-20+"px";
+			// }
+			
+			
+			// document.onmousemove=function () {
+			// 	my$("im").style.left=window.event.clientX-20+"px";
+			// 	my$("im").style.top=window.event.clientY-20+"px";
+			// }
+		
+			
+		</script>
+		
+	</body>
+</html>

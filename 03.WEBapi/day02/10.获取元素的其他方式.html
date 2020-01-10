@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: #f40;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="按钮" id="btn">
+    <div class="cls">我的天空</div>
+    <div>我的天空</div>
+    <p class="cls">我的天空</p>
+    <p>我的天空</p>
+    <span>我的天空</span><span class="cls">我的天空</span>
+    <script src="common.js"></script>
+    <script>
+        my$("btn").onclick = function() {
+            var cls = document.querySelectorAll(".cls");
+
+            for (var i = 0; i < cls.length; i++) {
+                cls[i].style.backgroundColor = "green";
+            }
+        };
+    </script>
+</body>
+
+</html>

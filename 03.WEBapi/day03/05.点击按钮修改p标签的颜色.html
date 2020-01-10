@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		    div {
+		      width: 300px;
+		      height: 450px;
+		      border: 1px solid red;
+		    }
+		  </style>
+	</head>
+	<body>
+		<input type="button" value="变色" id="btn"/>
+		<div id="dv">
+		  <span>这是span</span>
+		  <p>这是p</p>
+		  <span>这是span</span>
+		  <p>这是p</p>
+		  <span>这是span</span>
+		  <p>这是p</p>
+		  <span>这是span</span>
+		  <a href="http://www.baidu.com">百度</a>
+		</div>
+		<script src="common.js"></script>
+		<script>
+			
+			my$("btn").onclick=function () {//给按钮注册点击事件,添加函数
+				var dvObj=my$("dv");//获取div
+				var nodes=dvObj.children;//获取div的所有子元素
+				for (var i = 0; i < nodes.length; i++) {//循环遍历
+					if (nodes[i].nodeName=="P") {//判断元素是不是P标签
+						nodes[i].style.backgroundColor="skyblue";
+					}
+				}
+				
+			};
+			
+			
+		</script>
+	</body>
+</html>

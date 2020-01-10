@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+	</head>
+	<body>
+		<input type="button" value="隔行变色" id="btn">
+		<ul id="car">
+			<li>玛莎拉蒂</li>
+			<li>保时捷</li>
+			<li>兰博基尼</li>
+			<li>劳斯莱斯</li>
+			<li>法拉利</li>
+			<li>宝马</li>
+			<li>奥迪</li>
+			<li>奔驰</li>
+		</ul>
+
+
+		<script src="common.js"></script>
+		<script>
+			
+			var list=me$("car","li")
+			my$("btn").onclick=function () {
+				for (var i = 0; i < list.length; i++) {
+				list[i].style.backgroundColor=i%2==0?"blue":"#f40";
+				}
+			};
+			
+		</script>
+	</body>
+</html>

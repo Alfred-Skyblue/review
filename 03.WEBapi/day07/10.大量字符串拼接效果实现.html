@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+
+</head>
+<body>
+<input type="button" value="拼接吧" id="btn"/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<input type="text" value=""/><br/>
+<script src="common.js"></script>
+<script>
+
+	// 字符串有不可变性,我们常用的字符串拼接方式,只是改变了他的指向,会在内存中开辟新空间来储存新的字符串,所以我们推荐用数组的方式来拼接字符串
+	
+	
+	// //点击按钮拼接字符串
+	// document.querySelector("#btn").onclick=function () {
+	// 	var str="";
+	// 	// 获取所有的文本框
+	// 	var inputs=document.getElementsByTagName("input");
+	// 	//遍历所有的文本框
+	// 	for (var i = 0; i < inputs.length; i++) {
+	// 		if (inputs[i].type!="button") {
+	// 			str+=inputs[i].value+"|";
+	// 		}
+	// 	}
+	// 	console.log(str.substr(0,str.length-1));
+	// };
+	
+	
+	
+  //推荐使用数组的方式拼接大量的字符串
+ document.querySelector("#btn").onclick=function () {
+ 	var str=[];
+ 	//获取所有的文本框
+ 	var inputs=document.querySelectorAll("input")
+	
+	inputs.forEach(function (e) {
+		if (e.type!="button") {
+			str.push(e.value);
+		}
+		
+	})
+	console.log(str.join("|"));
+ };
+</script>
+
+</body>
+</html>

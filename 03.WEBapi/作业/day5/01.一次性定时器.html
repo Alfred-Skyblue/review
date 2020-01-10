@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>按钮</button>
+		<script>
+			var btn=document.querySelector("button");
+		/*
+			// 常用的定时器,反复执行
+			var timeId=window.setInterval(function () {
+				alert("天王盖地虎");
+			},3000);
+			var btn=document.querySelector("button");
+			btn.addEventListener("click",function () {
+				window.clearInterval(timeId);
+				console.log("清除定时器");
+			});
+		*/
+	   
+			// 另一个定时器,一次性的
+			
+			/*
+				参数1：函数
+				参数2：时间（毫秒）
+				返回值：该定时器的ID
+			*/
+			var timeId=window.setTimeout(function() {
+				alert("宝塔镇河妖");
+			}, 2000);
+			btn.addEventListener("click",function () {
+				window.clearTimeout(timeId);
+				console.log("清除定时器");
+			});
+		</script>
+		
+	</body>
+</html>

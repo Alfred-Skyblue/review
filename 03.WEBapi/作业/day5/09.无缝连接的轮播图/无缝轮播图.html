@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+
+    }
+
+    img {
+      vertical-align: top;
+    }
+
+    /*取消图片底部3像素距离*/
+    .box {
+      width: 300px;
+      height: 200px;
+      margin: 100px auto;
+      background-color: pink;
+      border: 1px solid red;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .box ul li {
+      float: left;
+    }
+
+    .box ul {
+      width: 1500px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="box" id="screen">
+  <ul>
+    <li><img src="imagess/01.jpg" alt=""/></li>
+    <li><img src="imagess/02.jpg" alt=""/></li>
+    <li><img src="imagess/03.jpg" alt=""/></li>
+    <li><img src="imagess/04.jpg" alt=""/></li>
+    <li><img src="imagess/01.jpg" alt=""/></li>
+  </ul>
+</div>
+<script src="common.js"></script>
+<script>
+	// 获取在外面的div
+	var box=document.querySelector("#screen")
+	//获取ul
+	var ulObj=document.querySelector("ul");
+	// 获取每个照片的宽度
+	
+	var imgWidth=ulObj.lastElementChild.offsetWidth;
+	var current = 0;//只声明了一次
+	function f1() {
+		current -= 10;
+		//判断移动距离是不是大于ul的最大可移动距离,如果超过移动最大的距离,则让他距离左侧的位置等于0,否则正常移动
+		if (current<=-(ulObj.children.length-1)*imgWidth) {
+			current=0;
+			ulObj.style.left=current+"px";
+		}else{
+			ulObj.style.left=current+"px";
+		}
+	}
+	var timeId=setInterval(f1,20)
+	// 为box注册鼠标进入事件,停止定时器
+	box.addEventListener("mouseover",function () {
+		clearInterval(timeId);
+	});
+	// 为box注册鼠标离开事件,开启定时器
+	box.addEventListener("mouseout",function () {
+		timeId=setInterval(f1,20)
+	});
+</script>
+
+</body>
+</html>

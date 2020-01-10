@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			li {
+				list-style: none;
+				cursor: pointer;
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="car">
+			<li>大众</li>
+			<li>丰田</li>
+			<li>本田</li>
+			<li>现代</li>
+			<li>吉利</li>
+			<li>别克</li>
+			<li>长安</li>
+			<li>哈佛</li>
+			<li>起亚</li>
+		</ul>
+		<script src="common.js"></script>
+		<script>
+			var list=me$("car","li");
+			for (var i = 0; i < list.length; i++) {
+				list[i].onmouseover=function () {
+				this.style.backgroundColor="#f40";
+			};
+			list[i].onmouseout=function () {
+				this.style.backgroundColor="";
+			};
+			}
+		</script>
+	</body>
+</html>

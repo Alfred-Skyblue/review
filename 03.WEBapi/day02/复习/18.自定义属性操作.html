@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			li {
+				list-style: none;
+				cursor: pointer;
+				margin-top: 10px;
+			}
+		</style>
+
+	</head>
+	<body>
+		<ul id="results">
+			<li grade="60">语文成绩</li>
+			<li grade="70">数学成绩</li>
+			<li grade="80">英语成绩</li>
+			<li grade="90">化学成绩</li>
+			<li grade="100">物理成绩</li>
+		</ul>
+
+		<script src="common.js"></script>
+		<script>
+			for (var i = 0; i < me$("results","li").length; i++) {
+				me$("results","li")[i].onclick=function () {
+					console.log(this.getAttribute("grade"))
+				};
+			}
+			
+			
+		</script>
+	</body>
+</html>

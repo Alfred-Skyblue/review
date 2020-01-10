@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			/*
+				JavaScript分三个部分:
+				1. ECMAScript标准---基本语法
+				2. DOM--->Document Object Model 文档对象模型,操作页面元素的
+				3. BOM--->Browser Object Model 浏览器对象模型,操作浏览器的
+				
+				
+				BOM
+				1. 掌握什么是BOM
+				2. 掌握BOM的核心window对象
+				3. 掌握window对象的控制、弹出窗口方法
+				
+				浏览器中有个顶级对象:window
+				页面中顶级对象:document
+				页面中所有的内容都是属于浏览器的,页面中的内容也都是window的
+				
+				变量是window的
+			*/
+				
+			   var str=20;
+			   console.log(window.str);
+			   
+			   function f1() {
+			   	console.log("我的天空");
+			   }
+			   window.f1();
+			   // 因为页面中所有的内容都是window的,所以window可以省略
+			   
+			   window.document.write("我是中国人");
+			   
+			   
+			   // 特殊属性name,如果对象点了属性,没有赋值的情况下,会输出undefined,但是name在window对象下显示为空,所以我们要尽量避免使用name
+			   
+			   console.log(window.name);
+			   
+			   //top和window是一样的
+			   console.log(top);
+			   console.log(window);
+			   
+			   
+		</script>
+		
+		
+	</body>
+</html>

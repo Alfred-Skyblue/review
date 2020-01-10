@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>3
+		
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid #f10215;
+			}
+			
+		</style>
+		
+	</head>
+	
+	<body>
+		<input type="button" value="插入" id="btn"/>
+		<input type="button" value="删除" id="btn2"/>
+		<input type="button" value="全部删除" id="btn3"/>
+		<div id="dv">
+			<input type="text">
+		</div>
+		
+		<script>
+			//根据id属性值获取元素
+			var btnObj=document.getElementById("btn");
+			var btn2Obj=document.getElementById("btn2");
+			var btn3Obj=document.getElementById("btn3");
+			var dvObj=document.getElementById("dv");
+			
+			var i=0;
+			btnObj.onclick=function () {
+				i++;
+				var obj=document.createElement("input");
+				obj.type="button";
+				obj.value="按钮"+i;
+				
+				//追加子元素
+				//dvObj.appendChild(obj);
+				
+				//往第一个子元素前面追加一个新的子元素
+				//dvObj.insertBefore(obj,dvObj.firstElementChild);
+				dvObj.replaceChild(obj,dvObj.firstElementChild);
+			};
+			
+			btn2Obj.onclick=function () {
+				dvObj.removeChild(dvObj.firstElementChild);
+			};
+			
+			btn3Obj.onclick=function () {
+				while (dvObj.firstElementChild){
+					dvObj.removeChild(dvObj.firstElementChild);
+				}
+			};
+		</script>
+		
+	</body>
+</html>

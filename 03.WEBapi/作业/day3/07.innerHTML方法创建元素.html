@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="创建元素" id="btn"/>
+		爱是一道光
+		<div id="dv">
+			<img src="images/cangjingkong.jpg" msg>
+			
+		</div>
+		<script src="common.js"></script>
+		<script>
+
+			var btnObj=document.getElementById("btn");
+			var dvObj=document.getElementById("dv");
+			
+			btnObj.onclick=function () {
+				dvObj.innerHTML="<p>白天要好好读书，书里有你不知道的。夜晚要好好睡觉，梦里有你想要的</p>";
+				//document.body.innerHTML="<p>白天要好好读书，书里有你不知道的。夜晚要好好睡觉，梦里有你想要的</p>";//innerHTML方法不能往body标签中创建元素,不然会导致body中的其他标签全部消失,同document.write
+			};
+		</script>
+		
+		
+	</body>
+</html>
