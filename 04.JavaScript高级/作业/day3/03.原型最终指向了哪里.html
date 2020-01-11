@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			function Person() {
+				
+			}
+			Person.prototype.sayHi=function () {
+				console.log("Nice to meet you！");
+			};
+			var per=new Person();
+			console.dir(per);
+			console.dir(Person);
+			
+			/*
+			
+				实例对象中有__proto__原型
+				构造函数中有prototype原型
+				prototype是个对象
+				所以，prototype中也又__proto__原型，那么他指向了哪里，
+				实例对象中的__proto__指向的是构造函数中的prototype
+				所以，prototype这个对象中的__proto__指向的应该是某个构造函数的原型prototype
+			*/
+				console.log(Person.prototype.__proto__);//Object
+				
+				//per实例对象的__proto__----->Person.prototype的__proto__---->Object.prototype的__proto__==null
+				console.log(per.__proto__==Person.prototype);//true
+				console.log(per.__proto__.__proto__==Person.prototype.__proto__);//true
+				console.log(Person.prototype.__proto__==Object.prototype);//true
+				console.log(Object.prototype.__proto__);//null
+			
+		</script>
+		
+		
+	</body>
+</html>

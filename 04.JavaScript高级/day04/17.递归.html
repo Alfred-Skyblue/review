@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			//递归:函数中调用函数自己,此时就是递归,递归一定要有结束的条件
+			
+			
+			var i=0;
+			function f1() {
+				i++;
+				if (i<10) {
+					f1();
+				}
+				console.log("天王盖地虎，小鸡炖蘑菇");
+			};
+			
+			f1();
+			
+			
+			
+			var j=0;
+			
+			function fn() {
+				j++;
+				if (j==5) {
+					return;
+				}
+				console.log("宝塔镇河妖");
+				fn();
+			};
+			
+			fn();
+			
+		</script>
+		
+		
+	</body>
+</html>

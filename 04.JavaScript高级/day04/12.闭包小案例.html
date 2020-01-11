@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			// 普通函数
+			function f1() {
+				var num=10;
+				num++;
+				console.log(num);
+			}
+			
+			
+			f1();
+			f1();
+			f1();
+			//因为每次调用函数,都会重新声明num,所以都是11
+			
+			console.log("======");
+			//函数模式的闭包
+			function f2() {
+				var num=10;
+				return function () {
+					num++;
+					return num;
+				}
+			}
+			
+			
+			var fn=f2();
+			console.log(fn());//11
+			console.log(fn());//12
+			console.log(fn());//13
+			
+			//因为存在缓存数据的问题,所以每次调用fn的时候num都会+1
+			
+		</script> 
+		
+		
+	</body>
+</html>

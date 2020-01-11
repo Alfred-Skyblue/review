@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>apply和call的使用方法</title>
+		
+	</head>
+	<body>
+		
+		<script>
+			
+			//apply和call的使用方法
+			/*
+				apply的使用语法
+				函数名字.apply(对象,[参数1,参数2,...]);
+				方法名字.apply(对象,[参数1,参数2,...]);
+				call的使用语法
+				函数名字.call(对象,参数1,参数2,...);
+				方法名字.call(对象,参数1,参数2,...);
+				
+				作用:改变this的指向
+				不同的地方:参数传递的方式是不一样的
+				
+				只要是想使用别的对象的方法,并且希望这个方法是当前对象的,那么就可以使用apply或者是call的方法改变this的指向
+			
+			*/
+			
+			function f1() {
+				console.log(this+":===>调用了");
+			}
+			// f1是函数也是对象
+			console.dir(f1);
+			//对象调用方法,说明该对象中有这个方法
+			f1.apply();
+			f1.call();
+			console.log(f1.__proto__==Function.prototype);
+			//所有的函数都是Function的实例对象
+			console.log(Function.prototype)
+			console.dir(Function);
+			//apply和call方法实际上并不在函数这个实例对象中,而是在Function的prototype中
+			
+			
+			function Person() {
+				this.sayHi=function () {
+					console.log("Nice to meet you!");
+				};
+			}
+			
+			Person.prototype.play=function () {
+				console.log("唱歌，跑步，打篮球");
+			};
+			
+			// 实例化对象
+			var per=new Person();
+			per.sayHi();
+			per.play();
+			console.dir(per);
+			
+			//实例对象调用方法,方法要么在实例对象中存在,要么在原型对象中存在
+			
+		</script>
+	</body>
+</html>

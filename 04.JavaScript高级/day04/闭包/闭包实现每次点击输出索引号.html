@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			li {
+				list-style: none;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<ul>
+			<li>麻辣香锅</li>
+			<li>宫爆鸡丁</li>
+			<li>小炒肉</li>
+			<li>水煮肉片</li>
+		</ul>
+		
+		<script>
+			
+			var list=document.querySelectorAll("li");
+			
+			
+			// 常规写法
+			// for (var i = 0; i < list.length; i++) {
+			// 	list[i].index=i;
+			// 	list[i].onclick=function () {
+			// 		console.log(this.index);
+			// 	}
+			// }
+			
+			// 闭包写法
+			
+			for (var i = 0; i < list.length; i++) {
+				(function (i) {
+					
+					list[i].onclick=function () {
+						console.log(i);
+					}
+				}(i));
+			}
+			
+			// 总结：闭包可以解决异步的问题
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

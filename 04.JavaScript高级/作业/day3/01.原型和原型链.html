@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//创建对象,要创建对象,就要先有构造函数,用构造函数创建对象
+			
+			// 创建构造函数
+			function Person(name,sex) {
+				//添加属性
+				this.name=name;
+				this.sex=sex;
+				// 添加方法
+				this.eat=function () {
+					console.log("吃大排骨");
+				};
+			}
+			
+			//原型对象中添加属性和方法
+			Person.prototype.age=20;
+			Person.prototype.sayHi=function () {
+				console.log("Nice to meet you!");
+			};
+			
+			// 实例化对象
+			var per=new Person("小王","男");
+			console.log(per.name,per.sex,per.age);
+			per.eat();
+			per.sayHi();
+			
+			//如果想要使用一些属性和方法,并且属性和方法在每个对象中都是一样的,方法在每个对象中的操作也是一样的,那么为了共享数据节省内存空间,是可以把属性和方法通过原型的方式进行赋值
+			
+			//原型链:是一种关系,实例对象和原型对象之间的关系,是通过原型(__proto__)来联系的
+			
+		
+		</script>
+		
+		
+		
+	</body>
+</html>

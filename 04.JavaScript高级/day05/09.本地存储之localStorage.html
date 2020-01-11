@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>储存数据</button>
+		<button>获取数据</button>
+		<button>删除数据</button><br><br>
+		<input type="text" value="">
+		<script>
+			
+			// 存储数据：
+			// localStorage.setItem(key,value)
+			// 获取数据：
+			// localStorage.getItem(key)
+			// 删除数据：
+			// localStorage.removeItem(key)
+			// 删除所有数据
+			// localStorage.clear()
+			
+			var set=document.querySelectorAll("button")[0];
+			var get=document.querySelectorAll("button")[1];
+			var rem=document.querySelectorAll("button")[2];
+			var txt=document.querySelector("input");
+			
+			
+			set.onclick=function () {
+				localStorage.setItem("user",txt.value);
+			}
+			
+			get.onclick=function () {
+				var user=localStorage.getItem("user");
+				txt.value=user;
+			}
+			
+			rem.onclick=function () {
+				localStorage.removeItem("user");
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			// 检测按下键盘按键的ASCII码值
+			
+			// document.addEventListener("keyup",function (e) {
+			// 	//console.log(e);
+			// 	console.log(e.keyCode);
+			// 	// keyup和keydown事件不区分字母大小写 a和A得到的都是65
+			// })
+			
+			document.addEventListener("keypress",function (e) {
+				//console.log(e);
+				console.log(e.keyCode);
+				// keypress事件区分字母大小写,A是65,a是97
+				if (e.keyCode==97) {
+					alert("谢谢老铁送的飞机");
+				} else{
+					alert("MMP");
+				}
+			})
+			
+		</script>
+		
+	</body>
+</html>

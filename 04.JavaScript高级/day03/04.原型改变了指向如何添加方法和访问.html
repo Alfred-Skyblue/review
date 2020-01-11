@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script>
+			
+			//构造函数
+			function Person(name) {
+				this.name=name;
+			}
+			
+			//改变原型的指向
+			Person.prototype={
+				age:18,
+				eat:function () {
+					console.log("太好吃了");
+				}
+			}
+			
+			// 添加原型方法
+			Person.prototype.sayHi=function () {
+				console.log("Hello");
+			};
+			
+			var per=new Person("小孔");
+			console.log(per.age);
+			per.sayHi();
+			
+			
+			
+			// 改变原型的指向之后添加的方法会添加到改变指向后的原型当中,所以可以访问到
+			// 如果在原型改变指向之前添加方法,会把方法添加到改变之前的原型当中,所以改变指向之后不可以访问原来的方法
+			
+		</script>
+		
+		
+		
+		
+	</body>
+</html>

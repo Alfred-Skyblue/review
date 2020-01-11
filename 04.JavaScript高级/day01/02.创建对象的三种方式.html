@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			/*
+			
+				对象：特指的某个事物，具有属性和方法(一组无序属性的集合)
+				特征---->属性
+				行为---->方法
+				小杨---->姓名，性别，年龄，长相--->这些特征都是属性
+				小杨---->吃饭，玩，打代码，看电影--->这些行为都是方法
+				
+				
+				
+				创建对象的三种方式：
+					1.字面量方式创建对象
+					2.调用系统构造函数创建对象
+					3.自定义构造函数创建对象
+					
+			
+			*/
+			
+				//字面量方式创建对象
+				
+				var  obj={
+					name:"清晨",
+					age:22,
+					sex:"女",
+					play:function () {
+						console.log("跳舞");
+					},
+					readBook:function () {
+						console.log("王阳明哲学");
+					}
+				};
+				
+				// 调用系统构造函数创建对象
+				var obj2=new Object();
+				obj2.name="社会芳";
+				obj2.age=18;
+				obj2.sex="女";
+				obj2.eat=function () {
+					console.log("吃红薯");
+				};
+				
+				
+				
+				// 自定义构造函数创建对象
+				function Person(name,age,sex) {
+					this.name=name;
+					this.age=age;
+					this.sex=sex;
+					this.play=function () {
+						console.log(this.name+"喜欢练瑜伽，今年"+this.age+"岁，我是"+this.sex+"生");
+					};
+				}
+				
+				var pre=new Person("黛拉",18,"女");
+				pre.play();
+			
+		</script>
+		
+		
+	</body>
+</html>

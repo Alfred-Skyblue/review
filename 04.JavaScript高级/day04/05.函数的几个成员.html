@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			// 函数中有一个name属性--->函数的名字,name属性是只读的,不能更改
+			// 函数中有一个arguments属性--->实参的个数
+			// 函数中有一个length属性--->函数定义的时候形参的个数
+			// 函数中有一个caller属性--->调用(f1函数在f2函数中调用的,所以,此时调用者就是f2)
+			
+			
+			function f1(x,y) {
+				console.log(f1.name);
+				console.log(f1.arguments);
+				console.log(f1.length);
+				console.log(f1.caller);
+			}
+			
+			// f1.name="fn"//函数的名字———>只读,不能更改
+			// f1(10,20,30);
+			// console.dir(f1);
+			
+			
+			function f2() {
+				console.log("我是f2函数的代码，我要调用f1函数");
+				f1(100,200)
+			}
+			
+			
+			f2();
+			
+			
+			
+			
+			
+		</script>
+		
+		
+		
+		
+	</body>
+</html>

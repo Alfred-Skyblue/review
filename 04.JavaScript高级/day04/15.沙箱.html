@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script>
+			
+			 //沙箱:环境,黑盒,在一个虚拟的环境中模拟真实世界,做实验,实验结果和真实世界的结果是一样,但是不会影响真实世界
+			
+			var num=100;
+			
+			//沙箱--小环境
+			
+			(function () {
+				var num=10;
+				console.log(num);
+			}());
+			
+			console.log(num);
+			
+			
+		
+		
+		
+			var str="天王盖地虎";
+			(function () {
+				var str="小白和小黑一起玩";
+				str=str.substr(2);
+				console.log(str);
+			}());
+			//沙箱
+			(function () {
+				// console.log(str);//undefined     //里面和外面的变量互相不会冲突，
+				var str="小红";    // 里面可以访问外面的变量，但是外面不可以访问里面的变量
+				console.log(str);
+			}());
+		
+			
+			
+			
+		</script>
+	</body>
+</html>

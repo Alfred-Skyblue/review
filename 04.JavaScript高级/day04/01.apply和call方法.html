@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>apply和call的使用</title>
+	</head>
+	<body>
+		
+		
+		<script>
+			
+			//apply和call的使用
+			//作用:可以改变this的指向
+			
+			// function f1(x,y) {
+			// 	console.log("结果为："+(x+y)+this);
+			// 	return "我是f1的返回值";
+			// }
+			
+			// f1(100,200);//普通函数调用
+			
+			
+			// console.log("下面的是apply和call的方法调用函数");
+			
+			//此时的f1实际上是当成对象来使用的,对象可以调用方法
+			//apply和call方法也是函数的调用的方式
+			// f1.apply();//如果不传值,则和普通函数调用是一样的
+			// f1.call();
+			// console.log("=======");
+			// f1.apply(null);
+			// f1.call(null);
+			
+			//apply和call方法中如果没有传入参数,或者是传入的是null,那么调用该方法的函数对象中的this就是默认的window
+			
+			// f1.apply(null,[100,200]);
+			// f1.call(null,100,200);
+			
+			// //apply和call都可以让函数或者方法来调用,传入参数和函数自己调用的写法不一样,但是效果是一样的
+			
+			// var r1=f1.apply(null,[100,200]);	
+			// var r2=f1.call(null,[100,200]);	
+			// console.log(r1);
+			// console.log(r2);
+			
+			
+			function fn(x,y) {
+				console.log("我是window对象的方法:"+(x+y)+this.sex);
+			}
+			
+			window.fn(50,60);
+			
+			//创建一个对象
+			var obj={
+				age:10,
+				sex:"男"
+			};
+			
+			window.fn.apply(obj,[10,20]);//30男
+			window.fn.call(obj,10,50);//60男
+			
+			
+			//apply和call可以改变this的指向
+			function Person(name,age) {
+				this.name=name;
+				this.age=age;
+			}
+			
+			//通过原型添加方法
+			Person.prototype.sayHi=function (x) {
+				console.log("Nice to meet you!"+this.name);
+				return "我是河北人";
+			};
+			
+			// 实例化对象
+			var per=new Person("小孔",20);
+			per.sayHi();
+			
+			console.log("========");
+			
+			function Student(name) {
+				this.name=name;
+			}
+			var stu=new Student("小刘");
+			
+			var r1=per.sayHi.apply(stu,[10]);//Person的方法指向stu
+			var r2=per.sayHi.call(stu,10);//Person的方法指向stu
+			console.log(r1);
+			console.log(r2);
+			
+			//通过apply和call方法可以改变方法中this的指向
+			
+			
+		</script>
+		
+		
+		
+		
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			//利用原型为系统的内置对象添加方法
+			
+			//把第一个元素放到最后面
+			Array.prototype.sayHi=function () {
+				console.log("添加成功");
+				for (var i = 0; i < this.length-1; i++) {
+					var temp=this[i];
+					this[i]=this[i+1];
+					this[i+1]=temp;
+				}
+			};
+			
+			
+			var arr=[1,2,3,4,5];
+			
+			arr.sayHi();
+			console.log(arr);
+			
+			
+		</script>
+		
+		
+		
+		
+	</body>
+</html>

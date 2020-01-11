@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			function Person(name,age,sex) {
+				this.name=name;
+				this.age=age;
+				this.sex=sex;
+			}
+			//简单的原型语法
+			Person.prototype={
+				
+				constructor:Person,
+				height:"178",
+				weight:"73kg",
+				sayHi:function () {
+					console.log("大爷，您慢走");
+				},
+				play:function () {
+					console.log("唱跳rap打篮球");
+				}
+				
+			}
+			
+			var per=new Person("小杨",20,"男");
+			console.log(per.name,per.age,per.sex,per.height,per.weight);
+			per.sayHi();
+			per.play();
+			
+		</script>
+		
+		
+		
+		
+	</body>
+</html>

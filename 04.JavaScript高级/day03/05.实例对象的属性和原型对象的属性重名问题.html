@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			//构造函数
+			function Person(name,age,sex) {
+				this.name=name;
+				this.age=age;
+				
+			}
+			Person.prototype.sex="人妖";
+			
+			
+			var per=new Person("小刘",18,"男");
+			
+			
+			// 如果实例对象的属性和原型对象的属性重名,则优先使用实例对象的属性,如果实例对象中没有这个属性,则会去原型当中找(原型链)
+			console.log(per.sex);
+			
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

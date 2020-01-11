@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script>
+			//原型实现继承
+			//借用构造函数实现继承
+			//组合继承:原型继承+借用构造函数继承
+			
+			//人的构造函数
+			function Person(name,age,sex) {
+				this.name=name;
+				this.age=age;
+				this.sex=sex;
+			}
+			//添加原型方法
+			Person.prototype.sayHi=function () {
+				console.log("Nice to meet you!");
+			};
+			
+			//学生的构造函数
+			function Student(name,age,sex,score) {
+				//借用构造函数,解决属性值重复的问题
+				Person.call(this.name,age,sex);
+				this,score=score;
+				
+			}
+			
+			//改变原型的指向,解决方法不能继承的问题
+			Student.prototype=new Person();
+			Student.prototype.eat=function () {
+				console.log("吃嘛嘛香，喝嘛嘛棒");
+			};
+			
+			//实例化对象
+			var stu=new Student("小刘",25,"男",88);
+			console.log(stu.name,stu.age,stu.sex,stu.score);
+			stu.sayHi();
+			stu.eat();
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

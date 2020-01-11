@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			/*
+				Set数据结构的实例方法：
+					add(value):添加某个值，返回Set结构本身
+					delete(value):删除某个值，返回一个布尔值，表示删除是否成功
+					has(value):返回一个布尔值，表示该值是否为Set的成员
+					clear():清除所有的成员，没有返回值
+					
+			*/
+			
+			
+			
+			var arr=[10,20];
+			
+			var set=new Set(arr);
+			
+			//添加30和40
+			set=set.add(30);
+			set=set.add(40);
+			
+			//删除10，返回值是布尔类型
+			var flag=set.delete(10);//true
+			console.log(flag);
+			
+			// 判断set中有没有30
+			var has=set.has(40);
+			console.log(has);
+			
+			console.log(set);
+			
+			//情况Set数据结构
+			var clear=set.clear();//
+			
+			//输出为空对象
+			console.log(set);
+			
+		</script>
+		
+		
+		
+		
+		
+	</body>
+</html>

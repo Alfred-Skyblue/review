@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<script>
+			
+			/*
+			
+				创建正则表达式对象的方式有两种
+				
+				1.通过构造函数创建对象
+				
+				
+				2.字面量的方式创建对象
+			
+			
+			
+			*/
+			
+			
+			// 构造函数创建正则表达式
+			var reg=new RegExp(/\d{5}/);
+			//字符串
+			var str="我的qq号码是8000567";
+			// 调用方法验证字符是否匹配
+			console.log(reg.test(str));
+			
+			// 字面量方式创建正则表达式
+			var reg2=/[0-9]{7}/;
+			
+			console.log(reg2.test(str));
+			
+		</script>
+		
+		
+	</head>
+	<body>
+	</body>
+</html>

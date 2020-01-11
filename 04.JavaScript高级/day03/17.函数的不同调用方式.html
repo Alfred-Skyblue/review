@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数的不同调用方式</title>
+	</head>
+	<body>
+		
+		
+		<script>
+			//普通函数调用
+			function fn() {
+				console.log("天王盖地虎");
+			}
+			fn();
+			
+			//构造函数---通过new 实例对象来调用
+			function Fn() {
+				console.log("构造函数调用");
+			}
+			var f1=new Fn();
+			
+			
+			//对象的方法调用函数
+			function Person() {
+				this.sayHi=function () {
+					console.log("Nice to meet you!");
+				};
+			}
+			var per=new Person();
+			per.sayHi();
+			
+		</script>
+		
+	</body>
+</html>

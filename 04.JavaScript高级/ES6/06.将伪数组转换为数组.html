@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			
+			li {
+				list-style: none;
+				margin-top: 20px;
+				cursor: pointer;
+				background-color: #D9534F;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		
+		<ul>
+			<li>红烧鱼</li>
+			<li>炖排骨</li>
+			<li>小炒肉</li>
+			<li>麻辣小龙虾</li>
+			<li>再来一杯奶茶</li>
+		</ul>
+		
+		<script>
+			var list=document.querySelectorAll("li");
+			
+			
+			// form方法转换数组
+			
+			var arr=[10,20,30,40,50,60];
+			Array.from(list,function (i) {
+				console.log(i);
+			})
+			
+			
+			
+			
+			//扩展运算符可以将伪数组转换为数组，来调用数组的方法
+			
+			
+			console.log([...list][0]);
+			[...list].forEach(function (ele,index) {
+				ele.onclick=function () {
+					console.log(index);
+				}
+			})
+			
+			
+		</script>
+	</body>
+</html>

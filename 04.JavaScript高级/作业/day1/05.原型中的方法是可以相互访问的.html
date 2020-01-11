@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			
+			//原型当中的方法，可以互相访问，互相调用
+			
+			//构造函数同理
+			
+			
+			function Person(name) {
+				this.name=name;
+				
+				this.sayHi=function () {
+					console.log(this.name+"你好啊");
+					//调用另一个方法
+					this.eat();
+				};
+				this.eat=function () {
+					console.log("你要吃冰淇淋吗");
+				};
+				
+			}
+			
+			Person.prototype.play=function () {
+				console.log("天王盖地虎");
+			};
+			
+			Person.prototype.read=function () {
+				//调用另一个方法
+				this.play();
+				console.log("宝塔镇河妖");
+				
+			};
+			
+			
+			var per=new Person("小红");
+			per.sayHi();
+			per.read();
+			
+			
+		</script>
+			
+		
+			
+			
+		
+		
+	</body>
+</html>

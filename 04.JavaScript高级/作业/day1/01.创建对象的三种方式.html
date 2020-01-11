@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script>
+			
+			
+			// 字面量方式创建对象
+			
+			var obj={
+				name:"小杨",
+				age:18,
+			}
+			console.log(obj.name);
+			
+			
+			// 系统构造函数创建对象
+			var obj1=new Object();
+			
+			obj1.name="小王";
+			obj1.age=20;
+			obj1.eat=function () {
+				console.log("吃西瓜");
+			};
+			
+			
+			
+			console.log(obj1.name,obj1.age);
+			obj1.eat();
+			
+			
+			// 自定义构造函数创建对象
+			function Person(name,age) {
+				this.name=name;
+				this.age=age;
+				this.sayHi=function () {
+					console.log("Hello Word");
+				};
+			}
+			
+			var per=new Person("小强",18);
+			console.log(per.name,per.age);
+			per.sayHi();
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

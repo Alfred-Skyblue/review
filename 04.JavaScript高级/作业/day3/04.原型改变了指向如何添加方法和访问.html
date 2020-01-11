@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script>
+			
+			//原型改变了指向如何添加方法和访问
+			
+			
+			
+			//人的构造函数
+			function Person() {
+				
+			};
+			Person.prototype.sayHi=function () {
+				console.log("Nice to meet you！");
+			};
+			
+			// 学生的构造函数
+			function Student(name) {
+				this.name=name;
+			}
+			//改变指向前添加方法
+			// Student.prototype.eat=function () {
+			// 	console.log("吃麻辣香锅");
+			// };
+			
+			// 改变学生的原型对象的指向
+			Student.prototype=new Person();
+			
+			//改变指向后添加方法
+			Student.prototype.eat=function () {
+				console.log("吃麻辣香锅");
+			};
+			
+			//实例化学生对象
+			var stu=new Student("小明");
+			
+			stu.eat();
+			console.log(stu.name);
+			
+			
+			/*
+			
+				总结：
+					如果在改变原型指向之前在原型中添加方法，方法会添加到之前的原型中，在改变原型指向之后不可以访问之前原型中的方法，
+					
+					可以在原型改变指向之后，把方法添加到当前原型指向的空间中，则可以通过原型访问方法
+			
+			
+			*/
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

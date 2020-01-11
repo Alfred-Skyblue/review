@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<script>
+			//自定义构造函数
+			function Person(name,age) {
+				this.name=name;
+				this.age=age;
+				// this.eat=function () {
+				// 	console.log("吃小龙虾");
+				// };
+			}
+			
+			//通过原型添加方法,解决数据共享,节省内存空间
+			Person.prototype.eat=function () {
+				console.log("吃莲藕");
+			};
+			
+			// 实例对象
+			var p1=new Person("清晨",18);
+			var p2=new Person("黛拉",22);
+			
+			console.log(p1.eat==p2.eat);
+			
+			console.dir(p1);
+			console.dir(p2);
+			
+			//构造函数中没有eat方法,但是通过原型添加的方法,一样可以被实例对象调用 
+			
+		</script>
+		
+		
+	</head>
+	<body>
+	</body>
+</html>

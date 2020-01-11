@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			// 人的构造函数
+			function Person(name) {
+				this.name=name;
+			}
+			// 人的原型对象添加方法
+			Person.prototype.eat=function () {
+				console.log("吃蛋炒饭");
+			};
+			
+			
+			
+			
+			// 学生的构造函数
+			function Student(age) {
+				this.age=age;
+			}
+			
+			// 把学生的原型指向人的实例对象
+			
+			Student.prototype=new Person("小孔");
+			Student.prototype.sayHi=function () {
+				console.log("Nice to meet you!");
+			};
+			
+			
+			var stu=new Student();
+			stu.eat();//可以访问到人的构造函数中的方法
+			stu.sayHi();
+			
+			/*
+				原型指向可以改变
+				实例对象的原型__proto__指向的是该对象所在的构造函数的原型对象
+				构造函数的原型对象(prototype)指向如果改变了,实例对象的原型(__proto__)指向也会发生改变
+				
+				原型的指向是可以改变的
+				实例对象和原型对象之间的关系是通过__proto__原型来联系起来的,这个关系就是原型链
+			*/
+			
+		</script>
+		
+		
+	</body>
+</html>

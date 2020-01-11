@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数组的函数调用</title>
+	</head>
+	<body>
+		
+		<script>
+			
+			var arr=[
+				function () {
+					console.log("天王盖地虎");
+				}
+				,
+				function () {
+					console.log("宝塔镇河妖");
+				}
+				,
+				function () {
+					console.log("小鸡炖蘑菇");
+				}
+				,
+				function () {
+					console.log("咸鱼放辣椒");
+				}
+			];
+			
+			//forEach方法可以将函数作为回调函数使用,有三个参数,第一个是数组元素,第二个是索引值,第三个是当前数组,值填一个默认为遍历数组
+			arr.forEach(function (ele) {
+				ele();
+			});
+			
+		</script>
+		
+		
+	</body>
+</html>

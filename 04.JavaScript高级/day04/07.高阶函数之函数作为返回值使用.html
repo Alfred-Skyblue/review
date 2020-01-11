@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			// function f1() {
+			// 	console.log("f1函数开始调用了");
+			// 	return function () {
+			// 		console.log("我是函数，但是此时是作为返回值使用的");
+			// 	};
+			// }
+			
+			// var ff=f1();
+			// ff();
+			
+			
+			var num=10;
+			console.log(typeof num);//获取num这个变量的数据类型
+			
+			var obj={};//字面量方式创建对象
+			//判断这个对象是不是某个类型的
+			console.log(obj instanceof Object);
+			//获取某个对象的数据类型的样子
+			
+			//Object.prototype.toString.call(对象);//此时可以获得的就是这个对象的类型的样子
+			
+			// 此时输出的是Object的数据类型 [object Object]
+			console.log(Object.prototype.toString());//[object Object]
+			
+			// 输出数组的数据类型
+			console.log(Object.prototype.toString.call([]));//用call方法把这个方法的指向传递给数组,获取它的数据类型[object Array]
+			
+			var arr=[10,20,30];
+			console.log(Object.prototype.toString.call(arr));//[object Array]
+			
+			
+			//获取某个对象的类型是不是你传入的类型
+			//type---变量---参数---"[object]"
+			//obj---是变量---是参数---[10,20,30];
+			
+			// 判断这个对象和传入的类型是不是同一个类型
+			
+			function getFunc(type) {
+				return function (obj) {
+					return Object.prototype.toString.call(obj)===type;
+				};
+			}
+			
+			var ff=getFunc("[object Object]");
+			var result=ff([1,2]);
+			console.log(result);
+			
+			var fn = getFunc("[object Object]");
+			var dt = new Date();
+			var result1 = fn(dt);
+			console.log(result1);
+			
+			console.log(Object.prototype.toString.call(dt));
+			
+			
+		</script>
+		
+		
+	</body>
+</html>
+ 

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>递归案例</title>
+	</head>
+	<body>
+		
+		
+		<script>
+			
+			//递归案例：求一个数字各个维数上数字的和
+			// 1314
+			function getEverySum(x) {
+				if (x<10) {
+					return x;
+				}
+				//获取数字的个位数
+				return x%10+getEverySum(parseInt(x/10));
+			}
+			
+			
+			console.log(getEverySum(1314));//9
+			
+			
+			//递归案例:求斐波那契数列
+			
+			function getFib(x) {
+				if (x==1||x==2) {
+					return 1;
+				}
+				return getFib(x-1)+getFib(x-2);
+			}
+			
+			//求斐波那契数列第八个月
+			console.log(getFib(8));
+			
+			
+			
+			
+			
+		</script>
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

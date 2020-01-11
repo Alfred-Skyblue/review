@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<script>
+			/*
+				function Person(name,age) {
+					this.name=name;
+					this,age=age;
+					this.eat=function () {
+						console.log("今天吃水煮白菜");
+					};
+				}
+				
+				var per1=new Person("小白",20);
+				var per2=new Person("小黑",30);
+				
+				console.dir(per1);
+				console.dir(per2);
+			*/
+			
+			
+			
+			function myEat() {
+				console.log("我要吃麻辣豆腐");
+			}
+			
+			function Person(name,age) {
+				this.name=name;
+				this.age=age;
+				this.eat=myEat;
+			}
+			
+			
+			var per1=new Person("清晨",18);
+			var per2=new Person("黛拉",20);
+			
+			console.dir(per1);
+			console.log(per2);
+			console.log(per1.eat==per2.eat);
+			//通过原型来解决---------数据共享,节省内存空间,作用之一
+			
+		</script>
+		
+		
+		
+	</head>
+	<body>
+	</body>
+</html>

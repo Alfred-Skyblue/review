@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+			<script>
+				
+				var arr=["a","b","c","d","e"];
+				
+				var set=new Set(arr);
+				
+				//Set数据结构没有索引值，但是可以使用forEach遍历
+				set.forEach(function (ele,index) {
+					console.log(`${ele}======${index}`);
+				});
+				
+				console.log("================");
+				
+				// 转换成数组对象可以使用索引值
+				[...set].forEach(function (ele,index) {
+					console.log(`${ele}======${index}`);
+				});
+				
+				
+				console.log("================");
+				
+				
+				arr.forEach(function (ele,index) {
+					console.log(`${ele}======${index}`);
+				})
+				
+			</script>
+		
+		
+	</body>
+</html>

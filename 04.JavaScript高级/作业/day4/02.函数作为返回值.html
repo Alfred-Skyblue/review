@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数作为返回值使用</title>
+	</head>
+	<body>
+		
+		<script>
+			
+			//排序,每个文件都有名字,大小,时间,都可以按照某个属性的值进行排序
+			//三部电影
+			
+			function File(name,size,time) {
+				this.name=name;//电影名字
+				this.size=size;//电影大小
+				this.time=time;//上映时间
+			}
+			
+			var f1=new File("tjq.mp4","200M","2000-8-6");
+			var f2=new File("sdyx.mp4","400M","2008-6-6");
+			var f3=new File("xlt.mp4","600M","1996-8-6");
+			
+			var arr=[f1,f2,f3];
+			
+			function fn(attr) {
+				//函数作为返回值使用
+				
+				//排序方法sort稳定代码
+				return function getSort(obj1,obj2) {
+					if (obj1[attr]>obj2[attr]) {
+						return 1;
+					}if (obj1[attr]==obj2[attr]) {
+						return 0;
+					} else{
+						return -1;
+					}
+				}
+			}
+			
+			
+			var ff1=fn("name");
+			var ff2=fn("size");
+			var ff3=fn("time");
+			
+			arr.sort(ff3);
+			for (var i = 0; i < arr.length; i++) {
+				console.log(arr[i].name+"====>" + arr[i].size + "===>" + arr[i].time);
+			}
+		</script>
+		
+		
+		
+		
+		
+	</body>
+</html>

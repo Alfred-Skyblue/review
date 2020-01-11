@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>沙箱小案例</title>
+		
+		<script>
+			//沙箱:环境,黑盒,在一个虚拟的环境中模拟真实世界,做实验,实验结果和真实世界的结果是一样,但是不会影响真实世界
+			
+			
+			//自调用函数沙箱
+			(function () {
+				var str="Hello word";
+				str=str.substr(2);
+				console.log(str);
+			}());
+			
+			
+			var str1="我是沙箱外面的字符串";
+			
+			//自调用函数沙箱
+			(function () {
+				
+				console.log(str1);//沙箱里面是可以访问外面的变量的,但是外面不能访问沙箱内部的变量,局部变量
+				
+				var str="Nice to meet you!";
+				str=str.substr(3);
+				console.log(str);
+			}());
+			
+			
+			//多个沙箱中的变量不会存在冲突问题,只作用于自己的沙箱空间之中
+			
+			
+		</script>
+		
+	</head>
+	<body>
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			
+			//总结:
+			/*
+				实例对象和构造函数之间的关系:
+				1. 实例对象是通过构造函数来创建的---创建的过程叫实例化
+				2.如何判断对象是不是这个数据类型?
+					1) 通过构造器的方式 实例对象.构造器==构造函数名字
+					2) 对象 instanceof 构造函数名字
+					尽可能的使用第二种方式来识别,为什么?原型讲完再说
+				
+			
+			
+			 */
+			
+		
+			//面向对象的思想是--->抽象的过程--->实例化的过程
+			
+			// 自定义构造函数
+			function Person(name,age,sex) {
+				this.name=name;
+				this.age=age;
+				this.sex=sex;
+				this.eat=function () {
+					console.log("爱丽无印邯郸");
+				};
+			}
+			
+			// 构造函数实例对象
+			var per=new Person("小芳",18,"女");
+			//实例对象通过构造函数创建
+			// 实例对象会指向自己的构造函数(暂时理解,是错误的)
+			// dir把这个对象的结构显示出来
+			console.dir(per);
+			console.dir(Person);
+			
+			//实例对象的构造器(构造函数)
+			//市里对象的构造器是指向Person的，结果是true,所以,这个实例对象per就是通过Person来创建的
+			console.log(per.constructor==Person);
+			
+			console.log(per.__proto__.constructor==Person);
+			console.log(per.__proto__.constructor==Person.prototype.constructor);
+			
+			
+			
+		</script>
+	</body>
+</html>

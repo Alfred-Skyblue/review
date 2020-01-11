@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script>
+			
+			//实例对象和原型对象的属性重名的问题
+			
+			
+			//构造函数
+			function Person(age) {
+				this.age=age;
+			}
+			
+			// 通过原型添加属性
+			Person.prototype.age=20;
+			
+			// 实例化对象
+			var per=new Person(10);
+			console.log(per.age);
+			
+			
+			// 如果实例对象的属性和原型对象的属性重名,则优先使用实例对象的属性,如果实例对象中没有这个属性,则会去原型当中找(原型链)
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

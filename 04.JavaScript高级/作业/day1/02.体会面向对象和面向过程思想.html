@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: #f40;
+			}
+		</style>
+	</head>
+	
+	<button>按钮</button>
+	
+	<div></div>
+	
+	<body>
+		
+		<script>
+			
+			// //面向过程思想
+			// document.querySelector("button").onclick=function () {
+			// 	document.querySelector("div").style.backgroundColor="blue";
+			// };
+			
+			
+			// 面向对象思想--初级
+			//按钮是一个对象,div是一个对象,颜色是一个属性
+			function ChangeStyle(btn,dv,color) {
+				this.btnObj=document.querySelector(btn);//按钮
+				this.dvObj=document.querySelector(dv);//div
+				this.color=color;//颜色
+			}
+			//数据共享来改变背景颜色
+			ChangeStyle.prototype.init=function () {
+				//把构造函数的this赋值给一个变量
+				var that=this;
+				this.btnObj.onclick=function () {
+					that.dvObj.style.backgroundColor=that.color;
+				};
+			};
+			
+			var btn=new ChangeStyle("button","div","blue");
+			btn.init();
+			
+		</script>
+		
+		
+		
+		
+		
+	</body>
+</html>

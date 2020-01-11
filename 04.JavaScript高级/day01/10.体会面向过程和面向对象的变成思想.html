@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: #FF4500;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<button type="button" id="btn">显示效果</button>
+		<div id="dv">
+			
+		</div>
+		<script src="common.js"></script>
+		<script>
+			
+			function ChangeStyle(btnObj,dvObj,json) {
+				this.btnObj=btnObj;
+				this.dvObj=dvObj;
+				this.json=json;
+			}
+			
+			// 利用原型添加方法,改变指定标签的样式属性
+			ChangeStyle.prototype.init=function () {
+				//因为在点击事件里面this会指向btnObj,所以先在外面定义一个变量,把当前对象储存进去
+				var that=this;
+				
+				//点击按钮,改变样式
+				this.btnObj.onclick=function () {
+					for (var key in json) {
+						that.dvObj.style[key]=that.json[key];
+					}
+				};
+			};
+			
+			
+			// 实例化对象
+			
+			var json={"height":"500px","width":"600px","backgroundColor":"red","opacity":"0.3"};
+			
+			var style=new ChangeStyle(my$("btn"),my$("dv"),json);
+			//调用方法,改变div的样式
+			style.init();
+		</script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script>
+			
+			/*
+			
+				把需要共享的数据写到原型对象中去
+				不需要共享的数据写到构造函数中
+			*/
+			
+			function Person(name,age) {
+				this.name=name;
+				this.age=age;
+			}
+			
+			// 利用原型对象添加属性
+			Person.prototype.sex="男";
+			
+			//添加方法
+			Person.prototype.sayHi=function () {
+				console.log("Hello");
+			};
+			
+			
+			// 实例化对象
+			
+			var per1=new Person("小刘",18,);
+			console.log(per1.name,per1.age,per1.sex);
+			per1.sayHi();
+			
+			var per2=new Person("小王",20);
+			
+			console.log(per2.name,per2.age,per2.sex);
+			per1.sayHi();
+			
+			
+			// 判断方法是否相等
+			console.log(per1.sayHi()===per2.sayHi());//true
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

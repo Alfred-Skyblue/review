@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			// 总结apply,call和bind的使用
+			
+			//自定义构造函数
+			
+			function Person(name) {
+				this.name=name;
+			}
+			
+			//添加原型方法
+			Person.prototype.sayHi=function (age,sex) {
+				console.log(this.name+age+sex+"Nice to meet you!");
+			};
+			
+			//学生的构造函数
+			function Student(name) {
+				this.name=name;
+			}
+			
+			//
+			var per=new Person("胡天");
+			var stu=new Student("小明");
+			
+			//调用apply和call方法来改变this的指向,让stu可以访问per的方法
+			per.sayHi.apply(stu,[18,"男"]);
+			per.sayHi.call(stu,18,"男");
+			
+			per.sayHi();
+			
+			
+			
+			//bind方法
+			
+			//与apply和call方法不同,bind是复制了一个方法,然后把这个方法作为返回值,可以在复制的时候传递参数,也可以在调用的时候传递参数
+			// var fn=per.sayHi.bind(stu,20,"女");
+			var fn=per.sayHi.bind(stu);
+			fn(20,"女");
+			
+			
+			
+			
+			
+			/*
+			
+				总结apply，call和bind的使用方法
+				
+				apply的语法：
+					函数名字.apply(对象，[参数1，参数2，...])；
+					方法名字.apply(对象，[参数1，参数2，...])；
+				
+				call的语法：
+					函数名字.call(对象，参数1，参数2，...)；
+					方法名字.call(对象，参数1，参数2，...)；
+				
+				
+				作用：apply和call都用于改变this的指向
+				区别: apply是以数组的方式传递参数，call是以字符串的方式传递参数
+				
+				apply和call方法实际上并不在函数这个实例对象中,而是在Function的prototype中
+				
+				
+				
+			
+				bind方法：
+					
+					函数名字.bind(对象，参数1，参数2,...)；===>返回值是复制之后的这个函数
+					方法名字.bind(对象，参数1，参数2,...)；===>返回值是复制之后的这个方法
+					
+					bind方法在传递参数的时候，可以在复制的时候传递参数，也可以在调用的时候传递参数
+					
+				
+			*/
+			
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

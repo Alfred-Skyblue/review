@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			// findindex()方法用于找出第一个符合条件的数组成员的位置，返回它的索引值，如果没找到则返回-1
+			
+			
+			var arr=[10,20,30,33,36,40,50];
+			
+			var index=arr.findIndex(function (ele) {
+				return ele>33;
+			})
+			
+			// ES6语法
+			var index1=arr.findIndex(ele => ele>36);
+			
+			
+			
+			console.log(index);
+			console.log(index1);
+			
+		</script>
+		
+		
+		
+		
+	</body>
+</html>

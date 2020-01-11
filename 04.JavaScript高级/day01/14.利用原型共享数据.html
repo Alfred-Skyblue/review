@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			/*
+				什么样子的数据是需要写在原型中?
+				需要共享的数据就可以写原型中
+				原型的作用之一:数据共享
+				
+				属性需要共享,方法也需要共享
+				不需要共享的数据写在构造函数中,需要共享的数据写在原型中
+				构造函数
+			*/
+			
+			function Student(name,age,sex) {
+				this.name=name;
+				this.age=age;
+				this.sex=sex;
+			}
+			
+			
+			
+			
+			//所有人的身高都是188,所有人的体重都是55
+			// 所有人而每天都都要写1000行代码
+			// 所有人每天都要吃一个十公斤的西瓜
+			
+			//原型对象添加共享属性
+			
+			Student.prototype.height="188";
+			Student.prototype.weight="60kg";
+			//添加方法
+			Student.prototype.study=function () {
+				console.log("码1000行代码，么的问题");
+			};
+			Student.prototype.eat=function () {
+				console.log("吃一个十公斤的西瓜");
+			};
+			
+			
+			// 实例对象并且初始化
+			var stu=new Student("唯一",65,"女");
+			console.dir(Student);
+			console.dir(stu);
+			
+			
+			
+			
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

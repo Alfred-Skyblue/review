@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			function Person(name) {
+				this.name=name;
+				this.sayHi=function () {
+					console.log(this.name+"起来嗨了");
+					this.eat();
+				};
+				
+				this.eat=function () {
+					console.log("该吃饭了");
+				};
+			}
+			//构造函数中的方法,可以相互访问
+			
+			var per=new Person("杨过");
+			per.sayHi();
+			
+			
+			
+			//原型当中的方法,也可以相互访问
+			function Animal(name) {
+				this.name=name;
+			}
+			
+			// 通过原型添加方法
+			Animal.prototype.eat=function () {
+				console.log(this.name+"随便吃点吧");
+				this.play();
+			};
+			Animal.prototype.play=function () {
+				console.log("玩个毛线");
+				this.sleep();
+			};
+			Animal.prototype.sleep=function () {
+				console.log("洗洗睡吧");
+			};
+			
+			var dog=new Animal("大黄",5);
+			dog.eat();
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

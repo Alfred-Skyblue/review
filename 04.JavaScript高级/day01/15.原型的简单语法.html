@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Person(name) {
+				this.name=name;
+			}
+			function Student(name,age,sex) {
+				this.name=name;
+				this.age=age;
+				this.sex=sex;
+			}
+			//简单的原型写法
+			Student.prototype={
+				// 手动修改构造器的指向
+				constructor:Student,
+				height:"188",
+				weight:"55kg",
+				study:function () {
+					console.log("且行且珍惜");
+				},
+				eat:function () {
+					console.log("晚上吃西蓝花");
+				}
+			};
+			
+			
+			var stu=new Student("小芳",20,"男");
+			console.log(stu.sex);
+			stu.eat();
+			console.dir(stu)
+			stu.study();
+		</script>
+		
+		
+	</body>
+</html>

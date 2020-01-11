@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script>
+			
+			// 为内置对象添加原型方法
+			var arr=new Array(10,20,30,40,50,60);
+			//对象调用的方法,在构造函数的原型对象中
+			arr.join("|");
+			
+			console.dir(arr);
+			
+			var str=new String("你是最棒的");
+			//对象调用的方法,在构造函数的原型对象中
+			str.indexOf("最");
+			console.dir(str);
+			
+			//实例对象中的方法如果没有,去创建该实例对象的构造函数的原型对象中找
+			
+			
+			//我们能否为系统的对象原型中添加方法,改变源码
+			
+			// 为字符串添加倒序方法
+			String.prototype.myReverse=function () {
+				for (var i = this.length-1; i >=0 ; i--) {
+					console.log(this[i]);
+				}
+			};
+			
+			var str="hello";
+			str.myReverse();
+			
+			//为Array内置对象的原型对象中添加方法
+			Array.prototype.mySort=function () {
+			  for(var i=0;i<this.length-1;i++){
+			      for(var j=0;j<this.length-1-i;j++){
+			          if(this[j]<this[j+1]){
+			              var temp=this[j];
+			            this[j]=this[j+1];
+			            this[j+1]=temp;
+			          }//end if
+			      }// end for
+			  }//end for
+			};
+			
+			var arr=[100,3,56,78,23,10];
+			arr.mySort();
+			console.log(arr);
+			
+			
+			// 为字符串对象添加打招呼方法
+			String.prototype.sayHi=function () {
+				
+				//谁调用方法this就指向谁
+				console.log(this+"你太厉害了");
+			};
+			var str1="武松";
+			str1.sayHi();
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>闭包点赞案例</title>
+		<style>
+			ul {
+      list-style-type: none;
+    }
+
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+
+    img {
+      width: 200px;
+      height: 180px;
+    }
+
+    input {
+      margin-left: 30%;
+    }
+  </style>
+
+	</head>
+	<body>
+		<ul>
+			<li><img src="images/ly.jpg" alt=""><br /><input type="button" value="赞(1)"></li>
+			<li><img src="images/lyml.jpg" alt=""><br /><input type="button" value="赞(1)"></li>
+			<li><img src="images/fj.jpg" alt=""><br /><input type="button" value="赞(1)"></li>
+			<li><img src="images/bd.jpg" alt=""><br /><input type="button" value="赞(1)"></li>
+		</ul>
+		
+		
+		<script>
+			
+			
+			
+			// 闭包缓存数据
+			function getValue() {
+				var value=2;
+				return function () {
+					//每点击一次的时候,都改变当前点击按钮的value值
+					this.value="赞("+(value++)+")";
+				};
+			}
+			
+			//获取所有按钮
+			var btnObjs=document.getElementsByTagName("input");
+			
+			//将伪数组转换为数组
+			var newObjs =  Array.prototype.slice.call(btnObjs);
+			console.log(btnObjs);
+			//遍历按钮
+			var arr=[1,2,3]
+			
+			// 利用闭包时缓存数据,实现点赞
+			// newObjs.forEach(function (ele) {
+			// 	ele.onclick=getValue();
+			// });
+			
+			
+			
+			
+			
+			//第二种方法
+			
+			for (var i = 0; i < newObjs.length; i++) {
+				//为每个按钮添加自定义属性
+				newObjs[i].setAttribute("index",1);
+			}
+			
+			//循环遍历每个按钮
+			newObjs.forEach(function (ele) {
+				//注册点击事件
+				ele.onclick=function () {
+					// 获取自定义属性值,并且转换为数字类型,不转换也可以,后面的++操作符会转换为数字类型
+					var num=parseInt(this.getAttribute("index"));
+					// 每次点击按钮的时候,自定义属性值都会+1
+					num++;
+					//把num的值赋值给value
+					this.value="赞("+num+")";
+					// 把num的值赋值给自定义属性
+					this.setAttribute("index",num);
+				};
+			});
+			
+			
+		</script>
+		
+	</body>
+</html>
