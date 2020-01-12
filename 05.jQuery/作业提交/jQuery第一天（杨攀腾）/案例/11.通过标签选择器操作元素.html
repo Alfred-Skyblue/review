@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			/*
+				id选择器
+				$("id属性值")----根据id属性值获取某个元素
+				
+				
+				标签选择器
+				$("标签名字")---获取多个元素或者某个元素
+				
+				
+				
+				.text()方法相当于DOM中的.innerText属性
+				对象.text()----获取该元素的文本内容
+				对象.text("文本内容")----设置该元素的文本内容
+				
+				
+			*/
+			
+			
+			//根据标签名字获取元素应该是返回的伪数组,DOM操作中需要循环遍历设置属性,jQuery中内部已经帮我们执行了循环操作---->隐士迭代
+			
+			$(function () {
+				$("button").click(function () {
+					$("div").text("我是一个div");
+					$("div").css("height","100px");
+					$("div").css("background","skyblue");
+				});
+			});
+			
+			
+		</script>
+		
+		
+		
+	</head>
+	<body>
+		
+		<button>按钮</button>
+		<div>我们不一样</div>
+		<div>突然好想你</div>
+		<div>天空之城</div>
+		
+		
+	</body>
+</html>

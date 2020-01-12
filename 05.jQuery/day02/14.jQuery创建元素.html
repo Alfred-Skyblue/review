@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 500px;
+				height: 200px;
+				border: 1px solid red;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			$(function () {
+				$("button").click(function () {
+					var pObj=$("<p>天王盖地虎，宝塔镇河妖</p>");
+					pObj.css({"font-family":"全新硬笔行书简","fontSize":"28px","color":"blue"});
+					// $("div").append(pObj);
+					
+					$("<a href='http://sina.com.cn'>新浪</a>").appendTo($("div"));
+				});
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+		
+		<button type="button">创建元素</button>
+		<div></div>
+		
+		
+	</body>
+</html>

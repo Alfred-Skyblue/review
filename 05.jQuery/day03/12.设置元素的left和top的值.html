@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: #0EA9B1;
+				position: absolute;
+				top: 200px;
+				left: 200px;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			$(function () {
+				$("button").click(function () {
+					// offset方法可以获取元素的left和top值
+					console.log($("div").offset());
+					console.log($("div").offset().left);
+					// $("div").css("left",$("div").offset().left*2);
+					// $("div").css("top",$("div").offset().top*2);
+					var l=$("div").offset().left*2;
+					var t=$("div").offset().top*2;
+					console.log(l);
+					$("div").offset({"left":l,"top":t});
+				});
+			});
+		</script>
+		
+	</head>
+	<body>
+		
+		<button type="button">按钮</button>
+		<div></div>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>hover方法</title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			$(function () {
+				$("div").hover(function () {
+					$(this).text("我是鼠标进入时显示的文字");
+				},function () {
+					$(this).text("");
+				});
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+		
+		
+		<div>
+			
+		</div>
+		
+	</body>
+</html>

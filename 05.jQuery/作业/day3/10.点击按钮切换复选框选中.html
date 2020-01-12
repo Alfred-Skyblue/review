@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	
+	<script src="js/jquery-1.12.1.js"></script>
+	<script>
+		
+		$(function () {
+			$("button").click(function () {
+				//判断有没有选中,如果选中,则让他取消选中状态,如果没选中,则让他变成选中
+				if ($("#ck").prop("checked")) {
+					$("#ck").prop("checked",false);
+				} else{
+					$("#ck").prop("checked",true);
+				}
+				console.log($("#ck").prop("checked"));
+			});
+		});
+		
+	</script>
+	<body>
+		
+		<button type="button">选中/不选中</button>
+		<input type="checkbox" name="play" id="ck" value="1" />Playimg Game
+	</body>
+</html>

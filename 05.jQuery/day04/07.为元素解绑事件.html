@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 400px;
+				height: 200px;
+				background-color: #008000;
+			}
+
+			p {
+				background-color: #A52A2A;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$(function() {
+				//用什么方式绑定事件,最好用对应的方式解绑事件
+				//bind括号中写什么事件的名字就会把这个事件解绑,会把这个元素的这个点击的多个事件都会解绑
+				//对象.click()这种方式添加的事件也可以使用unbind解绑
+				//括号中没有任何参数,此时该元素的所有的事件全部解绑
+				//同时解绑多个事件---每个事件的名字中间用空格即可
+				
+				
+				
+				// 点击第一个按钮,为div注册点击事件,鼠标进入和鼠标离开事件
+				// 同事为p标签绑定点击事件
+				$("button:eq(0)").click(function() {
+					console.log(1);
+					// 为div绑定事件
+					$("div").click(function() { //鼠标点击事件
+						console.log("div被点击了");
+					}).mouseenter(function() { //鼠标进入事件
+						console.log("鼠标进来了");
+					}).mouseleave(function() { //鼠标离开事件
+						console.log("鼠标离开了");
+					});
+
+					// 在div中创建一个p标签,绑定事件
+					$("<p>这是一个p</p>").appendTo($("div"));
+					$("div").on("click","p",function () {
+						console.log("p标签被点了");
+					});
+					$("div").on("mouseenter","p",function () {
+						console.log("鼠标进入p标签");
+					});
+					$("div").on("mouseleae","p",function () {
+						console.log("鼠标离开p标签);
+					});
+					
+					var span=$("<span>我是span</span>").appendTo($("div"));
+					$("div").on("click","span",function () {
+						console.log("我是span");
+					});
+				});
+
+				// 第二个按钮解绑事件
+				$("button:eq(1)").click(function() {
+					//解绑父元素和子元素所有的事件
+					// $("div").off();
+					
+					//解绑父元素和子元素的点击事件
+					// $("div").off("click");
+					
+					//解绑父元素和子元素的多个事件,中间需要用空格隔开
+					// $("div").off("click mouseenter");
+					
+					//解绑p标签的点击事件
+					// $("div").off("click","p");
+					
+					//解绑p标签所有的事件
+					// $("div").off("","p");
+					
+					//解绑div中所有子元素的点击事件
+					$("div").off("click","**");
+				});
+				
+				
+				$("button:eq(2)").on("click",function () {
+					console.log("我的天空");
+				});
+				
+				
+
+			});
+		</script>
+
+	</head>
+	<body>
+		
+		<button>绑定事件</button>
+		<button>解绑事件</button>
+		<button>按钮事件</button>
+		<div></div>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$(function () {
+				$("button").click(function () {
+					// $("#txt").val("今天阴天，风太大了");
+					// console.log($("#txt").val());
+					// $("#sex").val("竟然可以改")
+					// $("#pro").val("我要跑步");
+					$("textarea").val("小鸡炖蘑菇，性感不是骚");
+					
+					//为select标签中value属性是5的option标签设置选中
+					$("#se").val(4);
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		
+		<button type="button">按钮</button>
+		<input type="text" value="今天天气好晴朗" id="txt"><br>
+		<input type="radio" value="我是单选框" name="sex" id="sex"/>男
+		<input type="radio" value="我是单选框" name="sex"/>女
+		<input type="radio" value="我是单选框" name="sex"/>中<br>
+		
+		<input type="checkbox" value="1" />吃饭
+		<input type="checkbox" value="2" />睡觉
+		<input type="checkbox" value="3" />打篮球
+		<input type="checkbox" value="4" id="pro"/>跑步
+		
+		<textarea rows="8" cols="20">天王盖地虎，宝塔镇河妖</textarea>
+		
+		<select id="se">
+			<option value ="1">西施</option>
+			<option value ="2">貂蝉</option>
+			<option value ="3">王昭君</option>
+			<option value ="4">穆桂英</option>
+			<option value ="5">武则天 </option>
+		</select>
+		
+	</body>
+</html>

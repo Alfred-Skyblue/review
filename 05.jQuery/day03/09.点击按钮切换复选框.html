@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			button{
+				width: 80px;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$(function () {
+				$("button").click(function () {
+					if ($("#ck").prop("checked")) {
+						$("#ck").prop("checked",false);
+						$(this).text("选中");
+					} else{
+						$("#ck").prop("checked",true);
+						$(this).text("不选中");
+						
+					}
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<button type="button">选中</button>
+		<input type="checkbox" value="1" name="play" id="ck">玩游戏
+		
+		
+	</body>
+</html>

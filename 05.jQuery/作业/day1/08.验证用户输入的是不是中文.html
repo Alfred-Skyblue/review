@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			
+			$(function () {
+				$("button").click(function () {
+					//通过正则表达式验证文本框的内容是否匹配
+					if (/^[\u4e00-\u9fa5]{2,6}$/.test($("#txt").val())) {
+						//匹配则文本框的背景颜色为绿色
+						$("#txt").css("backgroundColor","green");
+					} else{
+						//如果不匹配,则文本框的背景颜色为红色
+						$("#txt").css("backgroundColor","red");
+					}
+				});
+			});
+			
+			
+		</script>
+		
+		
+	</head>
+	<body>
+		
+		<input type="text" id="txt" value="" /><br><br>
+		<button>按钮</button>
+	</body>
+</html>

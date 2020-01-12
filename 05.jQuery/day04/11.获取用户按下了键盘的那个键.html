@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			$(function () {
+				$(document).mousedown(function (e) {
+					// 判断用户有没有按下alt ctrl shift键
+					// console.log(e.altKey);
+					if (e.altKey) {
+						//判断用户有没有按下alt键
+						console.log("用户按下了alt键");
+					}else if (e.ctrlKey) {
+						// 判断用户有没有按下ctrl键
+						console.log("用户按下了ctrl键");
+					} else if (e.shiftKey) {
+						// 判断用户有没有按下thift键
+						console.log("用户按下了shift键");
+					} else{
+						console.log("用户按下了鼠标");
+					}
+					
+					
+					
+					
+				});
+			});
+		</script>
+		
+	</head>
+	<body>
+		
+		
+		
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 400px;
+				min-height: 300px;
+				border: 3px solid red;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script type="text/javascript">
+				$(function () {
+					
+					$("button").click(function () {
+						// 判断p标签的length属性等不等于0,如果等于0,就创建一个p标签
+						if ($("#p1").length==0) {
+							$("<p id='p1'>我是一个p标签</p>").appendTo("#dv");
+						}
+						// $("<p id='p1'>我是一个p标签</p>").appendTo("#dv");
+					});
+					
+				});
+		</script>
+	</head>
+	<body>
+		
+		
+		<button>创建p标签</button>
+		<div id="dv"></div>
+		
+		
+	</body>
+</html>

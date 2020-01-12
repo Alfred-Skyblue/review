@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		
+	</head>
+	<body>
+		
+		<button type="button">关灯</button>
+		
+		<script>
+			document.querySelector("button").onclick=function () {
+				//判断按钮的文字是不是等于关灯
+				if (this.innerText=="关灯") {
+					//如果是,则给body设置背景颜色为黑色,文本内容设置为开灯
+					document.body.style.backgroundColor="#000";
+					this.innerText="开灯";
+				} else{
+					//如果不等于关灯则背景颜色设置为默认,文本内容更改为关灯
+					document.body.style.backgroundColor="";
+					this.innerText="关灯";
+				}
+			};
+			
+			
+			
+		</script>
+	</body>
+</html>

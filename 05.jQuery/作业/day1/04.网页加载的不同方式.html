@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			//点击按钮,显示一句话
+		
+			// DOM中的页面加载事件
+			// $("button").click(function () {
+			// 	console.log("我是河北人");
+			// });
+			
+			// jQuery中的第一种页面加载事件
+			$(window).load(function () {
+				$("button").click(function () {
+					console.log("第一种");
+				});
+			});
+			
+			// jQuery中的第二种页面加载事件---比上面加载的快,页面中的基本元素加载后就触发
+			$(document).ready(function () {
+				$("button").click(function () {
+					console.log("第二种");
+				});
+			});
+			
+			// jQuery中的第三种页面加载事件
+			$(function () {
+				$("button").click(function () {
+					console.log("第三种");
+				});
+			});
+			
+		</script>
+		
+	</head>
+	<body>
+		<button>按钮</button>
+		
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			
+			/*
+			
+				jQuery中的页面加载事件是$(function(){})的方式执行页面加载事件，和DOM中的window.onload一样的，但是jQuery中的页面加载事件可以有多个
+			
+			
+			*/
+			
+			
+			// $(function () {
+			// 	// 点击按钮,显示文字
+			// 	$("button").click(function () {
+			// 		$("div").text("哈哈我是div");
+			// 		$("div").css("background","skyblue");
+			// 		console.log("页面加载事件1");
+			// 	});
+			// })
+			
+			// jQuery中的第一种页面加载事件,页面中所有的内容加载完毕后出发的事件
+			$(window).load(function () {
+				// 点击按钮,显示文字
+				$("button").click(function () {
+					console.log("第一种加载事件");
+				});
+			});
+			
+			
+			// jQuery中的第二种页面加载事件,比第一种快,页面中的基本元素加载后就可以出发事件
+			$(document).ready(function () {
+				$("button").click(function () {
+					console.log("第二种加载事件");
+				});
+			})
+			
+			
+			// jQuery中的第三种页面加载事件
+			$(function () {
+				// 点击按钮,显示文字
+				$("button").click(function () {
+					$("div").text("哈哈我是div");
+					$("div").css("background","skyblue");
+					console.log("页面加载事件1");
+				});
+			})
+			
+		</script>
+		
+		<button>显示文字</button>
+		<div></div>
+		
+	</head>
+	<body>
+		
+		
+		
+		
+	</body>
+</html>

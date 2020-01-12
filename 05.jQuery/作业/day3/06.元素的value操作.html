@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>val方法操作</title>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$(function () {
+			  $("#btn").click(function () {
+				//点击按钮,获取文本框的value属性
+				console.log($("#txt").val());
+				$("#txt").val("今天有雾霾");
+				// 设置单选框的value属性
+				$("#r2").val("改好了");
+				// 设置复选框的value属性
+				$("#ck3").val("我是复选框");
+				// 获取文本域的value属性
+				console.log($("#tt2").val());
+				console.log($("#tt2").text());
+				//设置文本域的内容
+				// 使用val方法设置文本域的内容时,不会改变dom树中的内容
+				// $("#tt2").val("锄禾日当午，汗滴禾下土，谁知盘中餐，粒粒皆辛苦");
+				// 推荐使用text方法改变文本域中的文本内容
+				$("#tt2").text("锄禾日当午，汗滴禾下土，谁知盘中餐，粒粒皆辛苦");
+				
+				// 为select标签中的value属性是5的这个option设置选中
+				$("#s1").val(5);
+			  });
+			});
+  </script>
+	</head>
+	<body>
+		<input type="button" value="显示效果" id="btn" />
+		<input type="text" value="今天天气很好" id="txt" /><br />
+		<input type="radio" value="1" name="sex" />男
+		<input type="radio" value="2" name="sex" id="r2" />女
+		<input type="radio" value="3" name="sex" />保密
+		<br />
+		<input type="checkbox" value="1" />吃饭
+		<input type="checkbox" value="2" />睡觉
+		<input type="checkbox" value="3" id="ck3" />打豆豆
+		<input type="checkbox" value="4" />打铅球
+		<br />
+		<textarea name="tt" id="tt2" cols="30" rows="10">
+  天王盖地虎，宝塔镇河妖，小鸡炖蘑菇，蘑菇放辣椒
+</textarea>
+
+		<select id="s1">
+			<option value="1">妲己</option>
+			<option value="2">王昭君</option>
+			<option value="3">西施</option>
+			<option value="4">貂蝉</option>
+			<option value="5">小乔</option>
+			<option value="6">大乔</option>
+			<option value="7">武则天</option>
+		</select>
+
+	</body>
+</html>

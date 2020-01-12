@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 800px;
+				min-height: 200px;
+				border: 1px solid #800080;
+			}
+			
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$(function () {
+				$("button").click(function () {
+					//循环创建十个p标签
+					for (var i = 0; i < 10; i++) {
+						// 创建p标签加入到div中并且注册鼠标进入事件
+						$("<p>天王盖地虎</p>").appendTo($("div")).mouseenter(function () {
+							$(this).css("backgroundColor","skyblue");
+						}).mouseleave(function () {
+							// 鼠标离开事件
+							$(this).css("backgroundColor","");
+						});
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		
+		
+		<button type="button">创建元素</button>
+		<div></div>
+	</body>
+</html>

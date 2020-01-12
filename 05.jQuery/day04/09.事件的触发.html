@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$(function () {
+				
+				
+				$("#txt").focus(function () {
+					$("p").text("文本框触发了获取焦点事件");
+				});
+				
+				$("button").click(function () {
+					//调用文本框获取焦点的事件,--第一种方式,让别的元素的事件触发
+					// $("#txt").focus();//对象.事件名字
+					
+					//第二种触发其他元素事件的方式
+					// $("#txt").trigger("focus");
+					
+					//第三种,这种方式可以触发该事件,但是不能触发浏览器默认的行为
+					$("#txt").triggerHandler("focus");
+				});
+				
+				
+				
+			});
+		</script>
+	</head>
+	<body>
+		
+		<br><br>
+		<button>触发文本框获取焦点的事件</button><br><br><br>
+		<input type="text" id="txt"><br><br>
+		<p></p>
+	</body>
+</html>

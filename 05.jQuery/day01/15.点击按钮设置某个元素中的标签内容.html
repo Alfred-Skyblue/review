@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.dv {
+				width: 500px;
+				height: 100px;
+				background-color: #008000;
+				color: #CC6600;
+			}
+			
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			
+			/*
+			
+				.val();----设置或者是获取某个表单标签的value值
+				.text();-----设置或者是获取标签中的文本内容，相当于DOM中的innerText
+				.css();---设置元素的css样式属性
+				.html();----设置或者是获取标签中的html内容，相当于DOM中的innerHTML
+			
+			*/
+			
+			
+			$(function () {
+				$("button").click(function () {
+					$(".dv").html("<p>我是一个p标签</p>");
+				});
+				
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+		<button>按钮</button>
+		
+		<div class="dv"></div>
+		
+		
+	</body>
+</html>

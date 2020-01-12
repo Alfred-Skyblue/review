@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: #008000;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			$(function () {
+				// 用什么方式绑定事件,最好用对应的方式解绑事件
+				// bind括号中写什么事件的名字就会把这个事件解绑,会把这个元素的这个点击的多个事件都会解绑
+				// 对象.click()这种方式添加的事件也可以使用unbind解绑
+				// 括号中没有任何参数,此时该元素的所有的事件全部解绑
+				// 同时解绑多个事件---每个事件的名字中间用空格即可
+				
+				// 点击第一个按钮为div绑定事件
+				$("button:eq(0)").click(function () {
+					// 为div添加点击事件
+					$("div").bind("click",function () {
+						console.log("div被点击了");
+					}).bind("click",function () {
+						console.log("div第二个点击事件");
+					});
+					$("div").mouseenter(function () {
+						$(this).css("backgroundColor","skyblue");
+					});
+					$("div").mouseleave(function () {
+						$(this).css("backgroundColor","pink");
+					});
+				});
+				
+				$("button:eq(1)").click(function () {
+					// 移除div绑定的事件
+					$("div").unbind();
+				});
+				
+				
+			});
+			
+			
+		</script>
+		
+	</head>
+	<body>
+		
+		<button>绑定事件</button>
+		<button>解绑事件</button>
+		<div></div>
+	</body>
+</html>

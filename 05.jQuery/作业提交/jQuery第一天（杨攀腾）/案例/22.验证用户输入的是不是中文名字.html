@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$(function () {
+				//按钮注册点击事件
+				$("button").click(function () {
+					//使用正则表达式验证字符串是否匹配中文
+					if (/^[\u4e00-\u9fa5]{2,6}$/.test($("#txt").val())) {
+						$("#txt").css("background","green");
+					} else{
+						$("#txt").css("background","red");
+					}
+				});
+			});
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		
+		<input type="text" id="txt" value="" /><br>
+		<button>验证用户名</button>
+		
+	</body>
+</html>

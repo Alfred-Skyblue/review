@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<button>按钮</button>
+		
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			
+			/*
+				通过DOM获取的对象，叫做DOM对象
+				
+				通过jQuery获取的对象，叫做jQuery对象
+			*/
+			
+			
+			
+			// DOM方式获取按钮
+			
+			var dBtn=document.querySelector("button")
+			
+			// dBtn.onclick=function () {
+			// 	console.log("我是DOM对象");
+			// };
+			
+			// // jQuery方式获取按钮
+			var jBtn=$("button");
+			// jbtn.click(function () {
+			// 	console.log("我是jQuery对象");
+			// })
+			
+			//DOM的操作需要解决一些兼容的问题,jQuery中的兼容问题都差不多解决了
+			//DOM对象---转成jQuery对象，那么就可以使用jQuery中的方法或者属性了
+			//DOM对象调用jQuery的方法---不能实现,必须是jQuery对象调用jQuery的方法
+			//如何把DOM对象转----jQuery对象----->$(DOM对象)----jQUery对象
+			
+			// DOM对象转换成jQuery对象
+			// $(dBtn).click(function () {
+			// 	console.log("转换成了jQuery对象");
+			// });
+			
+			
+			//jQuery获取的---jQuery对象
+			//jQuery对象调用DOM对象的属性和方法,不能实现
+			//jQuery对象转---DOM对象---jQuery对象[0]-----DOM对象
+			
+			// jQuery对象转换DOM对象
+			
+			jBtn[0].onclick=function () {
+				console.log("转换成了DOM对象");
+			};
+			
+			
+			
+		</script>
+		
+		
+		
+		
+	</body>
+</html>

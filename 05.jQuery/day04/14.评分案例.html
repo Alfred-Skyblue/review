@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>五角星评分案例</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			.comment {
+				font-size: 40px;
+				color: blue;
+			}
+
+			.comment li {
+				float: left;
+			}
+
+			ul {
+				list-style: none;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$(function () {
+				$(".comment>li").click(function () {//鼠标点击
+					// 鼠标点击时,为当前的li标签添加自定义属性,作为标志,并且移除其他兄弟元素的自定义属性
+					$(this).attr("index","1").siblings("li").removeAttr("index");
+				}).mouseenter(function () {//鼠标进入
+					//鼠标进入时,当前的li标签和前面的li标签都变成实心的
+					$(this).text("★").prevAll("li").text("★").end().nextAll().text("☆");
+				}).mouseleave(function () {//鼠标离开
+					//先把所有的li标签设置成空心五角星
+					$(".comment>li").text("☆");
+					//再把属性index=1的标签和他前面的标签设置为实心五角星
+					$(".comment>li[index=1]").text("★").prevAll("li").text("★");
+				});
+			});
+		</script>
+	
+	</head>
+
+	<body>
+		<ul class="comment">
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+			<li>☆</li>
+		</ul>
+	</body>
+
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>please enter your title</title>
+		<meta charset="utf-8">
+		<meta name="Author" content="潭州学院-阿飞老师">
+	
+		<style>
+			
+			*{ margin:0; padding:0;}
+			body{
+				background:#000;
+				overflow: hidden;
+			}
+			#perspective{
+				perspective:800px;
+				height: 100%;
+			}
+			#wrap{
+				width:120px;
+				height:180px;
+				margin:350px auto;
+				position:relative;
+			
+				/*搭建3D效果必须的两个属性：一个变换风格变3d，一个场景景深800px*/
+				transform-style:preserve-3d;
+				transform:rotateY(0deg);
+				
+				
+			}
+			
+			#wrap img{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				border-radius: 1px;
+				box-shadow: 0 0 5px #f9f;
+				transform: rotateY(0deg) translateZ(0px);
+				/* 倒影：朝向 偏移 遮盖 */  /* 线性渐变(从哪里开始，开始时候的颜色，结束时候的颜色) */
+				-webkit-box-reflect: below 5px -webkit-linear-gradient(top,rgba(0,0,0,0) 40%,rgba(0,0,0,.5) 100%);
+				
+			}
+			#wrap p{
+				width: 1200px;
+				height: 1200px;
+				background: -webkit-radial-gradient(center center,600px 600px,rgba(244,23,134,.2),rgba(0,0,0,0));
+				border-radius: 100%;
+				position: absolute;
+				left: 50%;
+				top: 105%;
+				margin-left:-600px;
+				margin-top:-600px;
+				/* transform: translate(-50%,-50%); */
+				transform: rotateX(90deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="perspective">
+			<div id="wrap">
+				<img src="img/1.jpg" />
+				<img src="img/2.jpg" />
+				<img src="img/3.jpg" />
+				<img src="img/4.jpg" />
+				<img src="img/5.jpg" />
+				<img src="img/6.jpg" />
+				<img src="img/7.jpg" />
+				<img src="img/8.jpg" />
+				<img src="img/9.jpg" />
+				<img src="img/10.jpg" />
+				<img src="img/11.jpg" />
+
+				<p></p>
+			</div>
+		</div>
+		<script src="jquery.min.js"></script>
+		<script>
+			$(function () {
+				
+				var $oWrap=$("#wrap");
+				var $oImg=$oWrap.find("img");
+				var $oImgLength=$oImg.length;
+				var Deg=360/$oImgLength;
+				var nowX,nowY,lastX,lestY,minusX=0,minusY=0;
+				var roY=0,roX=-10;
+				var timer;
+				
+				$(window).on("resize",mTop);
+				
+				$oImg.each(function (i,e) {
+					$(e).css({
+						transform:"rotateY("+i*Deg+"deg) translateZ(350px)",
+						transition:"transform 1s "+(($oImgLength-1-i)*0.1)+"s"
+					});
+				})
+				
+				
+				function mTop() {
+					var $wH=$(window).height();
+					$oWrap.css("marginTop",$wH/2-180);
+					console.log($wH/2-180);
+				}
+				mTop();
+				// 拖拽：三个事件===按下  移动  抬起
+				
+				$(document).on("mousedown",function (e) {
+					clearInterval(timer);
+					lastX=e.pageX;
+					lastY=e.pageY;
+					$(this).on({mousemove:function (e) {
+						//鼠标的横纵坐标
+						nowX=e.pageX;
+						nowY=e.pageY;
+						
+						// 更新wrap的旋转角度，变化越大旋转越快
+						roY+=minusX*0.2;
+						roX+=-minusY*0.2;
+						$oWrap.css({
+							transform:"rotateX("+roX+"deg) rotateY("+roY+"deg)"
+						});
+						
+						// 当前坐标和前一个坐标点的差值
+						minusX=nowX-lastX;
+						minusY=nowY-lastY;
+						
+						lastX=nowX;
+						lastY=nowY;
+						
+					},mouseup:function () {
+						
+						$(this).off("mousemove");
+					},mouseup:function () {
+						clearInterval(timer);
+						$(this).off("mousemove");
+						timer=setInterval(function () {
+							minusX*=0.95;
+							minusY*=0.95;
+							roY+=minusX*0.2;
+							roX+=-minusY*0.2;
+							$oWrap.css({
+								transform:"rotateX("+roX+"deg) rotateY("+roY+"deg)"
+							});
+							// 当前坐标和前一个坐标点的差值
+							console.log(minusX);
+							if (Math.abs(minusX)<0.5&&Math.abs(minusY)<0.5) {
+								clearInterval(timer);
+							}
+							
+							
+							
+						},20);
+					}});
+					
+					
+					
+					
+					
+					
+					
+				})
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				$(document).on("mousedown",function () {
+					return false;
+				});
+				
+				
+				
+				
+			
+				
+			})
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

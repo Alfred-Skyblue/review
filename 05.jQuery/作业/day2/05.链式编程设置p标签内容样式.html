@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			$(function () {
+				$("button").click(function () {
+					var pObj=$("<p></p>").appendTo($("body"));
+					pObj.text("我是一个p标签").css({"fontFamily":"全新硬笔行书简","fontSize":"28px","color":"skyblue"}).mouseenter(function () {
+						$(this).css("backgroundColor","pink");
+					}).mouseleave(function () {
+						$(this).css("background","");
+					});
+				});
+			});
+			
+			
+		</script>
+		
+	</head>
+	<body>
+		<button type="button">创建p标签设置样式</button>
+		
+		
+	</body>
+</html>

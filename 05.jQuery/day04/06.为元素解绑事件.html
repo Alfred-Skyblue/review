@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 400px;
+				height: 200px;
+				background-color: #008000;
+			}
+			p {
+				background-color: #A52A2A;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			$(function () {
+				// delegate绑定事件对应的解绑方式
+				
+				// 点击第一个按钮,为div注册点击事件,鼠标进入和鼠标离开事件
+				// 同事为p标签绑定点击事件
+				$("button:eq(0)").click(function () {
+					console.log(1);
+					// 为div绑定事件
+					$("div").click(function () {
+						console.log("div被点击了");
+					}).mouseenter(function () {
+						console.log("鼠标进来了");
+					}).mouseleave(function () {
+						console.log("鼠标离开了");
+					});
+					
+					// 在div中创建一个p标签,绑定事件
+					$("<p>这是一个p</p>").appendTo($("div"));
+					$("div").delegate("p","click",function () {
+						console.log("p标签被点击了");
+					});
+					$("div").delegate("p","mouseenter",function () {
+						console.log("鼠标进入p标签");
+					});
+				});
+				
+				// 第二个按钮解绑事件
+				$("button:eq(1)").click(function () {
+					
+					// $("div").undelegate();//移除p标签所有的事件
+					// $("div").undelegate("p","click");//移除p标签的点击事件
+					
+					//可以移除多个事件,事件之间需要用空格隔开
+					$("div").undelegate("p","click mouseenter");
+				});
+				
+				
+			});
+			
+			
+		</script>
+		
+	</head>
+	<body>
+		
+		<button>绑定事件</button>
+		<button>解绑事件</button>
+		<div></div>
+	</body>
+</html>

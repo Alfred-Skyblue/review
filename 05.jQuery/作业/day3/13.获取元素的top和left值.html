@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>title</title>
+		<style>
+			*{
+      margin: 0;
+      padding: 0;
+    }
+    div{
+      width: 200px;
+      height: 100px;
+      background-color: indianred;
+
+      position: absolute;
+      left:100px;
+      top:200px;
+    }
+  </style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$(function () {
+			
+				$("#btn").click(function () {
+					// 获取元素的top和left值
+					// var t=$("#dv").css("top");//200px
+					// var l=$("#dv").css("left");//100px
+					// console.log(l,t);
+					// 获取到的是字符串类型的值,如果需要操作,则需要转换成数字类型
+					
+					// 使用offset()方法获取left和top值
+					// 该方法获取的是一个对象,该对象中有两个属性,left和top
+					// left和top包含left和margin-left和top和margin-top的值
+					// console.log($("#dv").offset().left);
+					var lt=$("#dv").offset().left;
+					var tp=$("#dv").offset().top;
+					
+					// $("#dv").css("left",lt*2);
+					// $("#dv").css("top",tp*2);
+					$("#dv").offset({"left":lt*2,"top":tp*2});
+					
+				});
+			
+			
+			});
+	</script>
+	</head>
+	<body>
+		<input type="button" value="显示效果" id="btn" />
+		<div id="dv"></div>
+
+	</body>
+</html>

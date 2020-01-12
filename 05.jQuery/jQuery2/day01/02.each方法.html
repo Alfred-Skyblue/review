@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$(function () {
+				$(function () {
+					
+					// jQuery的隐士迭代是对同类元素做了同样的操作,如果想要给同一类元素做不同的操作,就需要用到遍历
+					var arr=["green","orange","red","blue","skyblue"];
+					$("button").click(function () {
+						$("li").each(function (index,ele) {
+							// each里面的函数有两个参数,第一个是索引值,第二个是dom元素
+							console.log(index);
+							console.log(ele);
+							$(ele).css("backgroundColor",arr[index]);
+						});
+					});
+					
+					
+					// each方法还可以用来遍历对象
+					obj={
+						name:"小明",
+						gae:18,
+						sayHi:function () {
+							return console.log("你好啊");
+						}
+					}
+					// $.each()可以遍历任何对象
+					$.each(obj,function (index,ele) {
+						// 此时的index是属性名字
+						// 此时的ele是属性值或者方法
+						console.log(index+"========="+ele);
+					});
+					
+					
+					
+					
+					
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		
+		<button>显示效果</button>
+		
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 300px;
+				min-height: 200px;
+				border: 2px solid red;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$(function () {
+				// 为按钮注册点击事件
+				$("button").click(function () {
+					
+					//prepend()方法为div添加第一个子元素
+					// $("div").prepend($("<span>我是新来的span</span>"));
+					
+					// 主动添加第一个子元素
+					// $("<span>我是新来的span</span>").prependTo("div");
+					
+					// after方法把元素加入到div的后面,变成div的下一个兄弟元素
+					// $("div").after($("<span>我是新来的span</span>"));
+					
+					// before方法把元素加入到div的前面,变成div的第一个兄弟元素
+					$("div").before($("<h2>我是div的前一个兄弟元素</h2>"));
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button type="button">按钮</button>
+		<div>
+			<p>我是div里面的p标签</p>
+		</div>
+		<h2>我是div的下一个兄弟元素</h2>
+	</body>
+</html>

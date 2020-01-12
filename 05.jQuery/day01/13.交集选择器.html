@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.cls {
+				background-color: skyblue;
+			}
+		</style>
+		
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$(function () {
+				$("button").click(function () {
+					
+					//交集选择器---标签名+类样式名字
+					//先找到P标签名字.在从P标签中找到类样式名字
+					$("p.cls").css("background","yellow");
+				});
+			});
+			
+			
+			
+		</script>
+		
+	</head>
+	<body>
+		<button>按钮</button>
+		<p class="cls">我们的歌</p>
+		<p>生活如此美妙</p>
+		<ul>
+			<li>天王盖地虎</li>
+			<li>宝塔镇河妖</li>
+			<li>小鸡炖蘑菇</li>
+		</ul>
+		<span class="cls">
+			十一月，愿生活越来越好
+		</span>
+		
+		
+	</body>
+</html>

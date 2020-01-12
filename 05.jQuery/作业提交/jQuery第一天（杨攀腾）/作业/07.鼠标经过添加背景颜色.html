@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			li {
+				list-style: none;
+				cursor: pointer;
+				margin-top: 20px;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			$(function () {
+				$("li").mouseenter(function () {
+					$(this).css("backgroundColor","skyblue");
+				});
+				
+				$("li").mouseleave(function () {
+					$(this).removeAttr("style");
+				});
+			});
+			
+			
+		</script>
+		
+	</head>
+	<body>
+		
+		
+		
+		<ul>
+			<li>放羊的星星</li>
+			<li>我们的几年</li>
+			<li>一起同过窗</li>
+			<li>耿耿于怀</li>
+			<li>最好的我们</li>
+			<li>橘生淮南</li>
+		</ul>
+		
+		
+	</body>
+</html>

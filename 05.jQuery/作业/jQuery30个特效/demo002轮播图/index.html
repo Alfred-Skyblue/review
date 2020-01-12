@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>please enter your title</title>
+		<meta charset="utf-8">
+		<meta name="Author" content="潭州学院-阿飞老师">
+		<style type='text/css'>
+			*{ margin:0; padding:0;}
+			#banner{
+				width:520px;
+				height:280px;
+				margin:20px auto;
+				border:1px solid red;
+				position:relative;
+				overflow: hidden;
+			}
+			#banner .pic{
+				width:100%;
+				height:100%;
+				overflow:hidden;
+			}
+			li{
+				list-style:none;
+			}
+			#banner .pic ul{
+				width:1000%;
+				overflow:hidden;
+				margin-left:-520px;
+				position: absolute;
+			}
+			#banner .pic ul li{
+				float:left;
+			}
+
+			#banner .tab{
+				width:70px;
+				height:14px;
+				background:#fff;
+				background:rgba(255,255,255,0.5);
+				position:absolute;
+				left:50%;
+				margin-left:-35px;
+				bottom:10px;
+				border-radius:7px;
+			}
+			#banner .tab ul li{
+				width:10px;
+				height:10px;
+				border-radius:100%;
+				background:#999;
+				float:left;
+				margin:2px 2px;
+				cursor:pointer;
+			}
+			#banner .tab ul li.on{
+				background:#f60;
+			}
+			
+			#banner .btn{
+				display:none;
+			}
+			#banner .block{
+				display:block;
+			}
+			#banner .btn div{
+				width:40px;
+				height:40px;
+				background:#000;
+				background:rgba(0,0,0,0.3);
+				color:#fff;
+				font-size:26px;
+				font-weight:bold;
+				text-align:center;
+				line-height:40px;
+				cursor:pointer;
+				position:absolute;
+				top:50%;
+				margin-top:-20px;
+			}
+			#banner .btn .color{
+				background:rgba(0,0,0,0.6);
+			}
+			#leftBtn{
+				left:5px;
+			}
+			#rightBtn{
+				right:5px;
+			}
+			/* #banner .btn div.hover{
+				background:rgba(0,0,0,0.6)
+			} */
+
+		</style>
+	</head>
+	<body>
+		
+		<div id="banner">
+			
+			<div class="pic">
+				<ul>
+					<!-- <li><a href=""><img src="img/5.jpg" /></a></li> -->
+					<li><a href=""><img src="img/1.jpg" /></a></li>
+					<li><a href=""><img src="img/2.jpg" /></a></li>
+					<li><a href=""><img src="img/3.jpg" /></a></li>
+					<li><a href=""><img src="img/4.jpg" /></a></li>
+					<li><a href=""><img src="img/5.jpg" /></a></li>
+					<!-- <li><a href=""><img src="img/1.jpg" /></a></li> -->
+				</ul>
+			</div>
+
+			<div class="tab">
+				<ul>
+					<li class="on"></li><li></li><li></li><li></li><li></li>
+				</ul>
+			</div>
+
+			<div class="btn">
+				<div id="leftBtn">&lt;</div>
+				<div id="rightBtn">&gt;</div>
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+		<script>
+			var $banner=$("#banner");
+			var $btn=$(".btn");
+			var $tabLi=$(".tab li");
+			var $picUl=$(".pic ul");
+			var imgWidth=$(".pic li").width();
+			var $btnDiv=$(".btn div");
+			var index=0;
+			var $first=$(".pic li:last").clone(true).prependTo(".pic ul");
+			var $last=$(".pic li:eq(1)").clone(true).appendTo(".pic ul");
+			// console.log($first[0]);
+			// console.log($last[0]);
+			
+				$tabLi.on("click",function () {
+					index=$(this).index();
+					$(this).addClass("on").siblings().removeAttr("class");
+					$picUl.animate({
+						left:-index*imgWidth
+					});
+				});
+				//自动播放的定时器
+				var timeId=setInterval(interval,2000);
+				
+				//$banner的鼠标进入换个鼠标离开事件
+				$banner.hover(function () {
+					$btn.addClass("block");
+					clearInterval(timeId);
+					timeId=null;
+				},function () {
+					$btn.removeClass("block");
+					 timeId=setInterval(interval,2000);
+				});
+				$btnDiv.hover(function () {
+					$(this).toggleClass("color");
+				}).on("click",clickHandle).mousedown(function () {
+					return false;
+				});
+				
+				
+				
+				
+			var flag=true;//节流阀
+			function clickHandle() {
+						if (flag) {
+						var i=$(this).index();
+						i?index++:index--;
+						fn();
+						}
+						
+			}
+			
+			
+			function interval() {
+				index++;
+				fn();
+			}
+			function fn() {
+				var liIndex=index;
+				liIndex=liIndex>=$tabLi.length?0:liIndex;
+				liIndex=liIndex<0?$tabLi.length-1:liIndex;
+				// index=index<0?$tabLi.length-1:index;
+				$tabLi.eq(liIndex).addClass("on").siblings().removeAttr("class");
+				if (flag) {
+					flag=false;
+					$picUl.animate({
+						left:-index*imgWidth,
+					},500,function () {
+						if (index>=$tabLi.length) {
+							$picUl.css("left",0);
+							index=0;
+						}
+						if (index<0) {
+							$picUl.css("left",-imgWidth*($tabLi.length-1));
+							index=$tabLi.length-1;
+						}
+						flag=true;
+					});
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>多库共存</title>
+		<script>
+			//一个html文件引入了多个的js文件库,每个js库中的顶级对象可能都是$
+    //1.js  $.eat();
+    //2.js  $.sayHi();
+
+
+  </script>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+		// $(function () {
+			
+		// 	// var $=123;
+		// 	// $("button").click(function () {
+		// 	// 	console.log(1);
+		// 	// });
+			
+			
+		// 	// 可以使用jQuery代替$
+			
+		// 	// var $=123;
+		// 	// jQuery("button").click(function () {
+		// 	// 	console.log(1);
+		// 	// });
+			
+			
+		// });
+			// 可以把jQuery中顶级对象$的权利转让给其他变量,用其他的变量调用方法
+			
+			var xy= $.noConflict();
+			
+			xy(function () {
+				var $=123;
+				xy("button").click(function () {
+					console.log(1);
+				});
+			});
+			
+			
+			
+		
+			
+			
+			
+		</script>
+		
+	</head>
+	<body>
+		<button type="button">按钮</button>
+
+	</body>
+</html>

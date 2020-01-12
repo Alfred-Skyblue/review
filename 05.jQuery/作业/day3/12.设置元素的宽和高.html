@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 200px;
+				height: 100px;
+				background-color: #008000;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			//元素的宽和高,jQuery中封装了方法
+			/*
+			* .width()可以获取也可以设置元素的宽
+			* .height()可以获取也可以设置元素的高
+			*
+			*
+			* */
+			$(function () {
+				$("div").click(function () {
+					var w=$(this).width();
+					var h=$(this).height();
+					$(this).css({"width":w*2,"height":h*2});
+					
+				});
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+		
+		<div></div>
+	</body>
+</html>

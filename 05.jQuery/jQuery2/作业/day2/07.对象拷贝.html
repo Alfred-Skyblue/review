@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>对象拷贝</title>
+		
+		<script src="../jquery.min.js"></script>
+		<script>
+			
+		$(function () {
+			
+			var obj1={
+				name:"小明",
+				age:18,
+				sayHi:function () {
+					console.log("你好啊");
+				},
+				msg:{
+					age:50,
+				}
+			};
+			var obj2={
+				sex:"男"
+			};
+			
+			//浅拷贝只是拷贝了地址，如果其中有一个改变了属性值，另一个也会随之改变
+			//浅拷贝还会覆盖掉原来的数据，变成拷贝过后的值
+			// $.extend(obj2, obj1);
+			
+			
+			//深拷贝相当于拷贝了一个完整的数据，拷贝的引用类型是独有的，更改数据的时候不会影响其他对象
+			$.extend(true,obj2, obj1);
+			
+			
+			
+			obj1.msg.age=33;
+			console.log(obj1.msg.age);
+			console.log(obj2.msg.age);
+			
+			
+			console.log(obj2);
+			
+			obj2.sayHi();
+			
+			obj1.age=20;
+			obj1.sayHi=function () {
+				console.log("Hello");
+			}
+			
+			
+		})
+			
+		
+		</script>
+		
+	</head>
+	<body>
+	</body>
+</html>

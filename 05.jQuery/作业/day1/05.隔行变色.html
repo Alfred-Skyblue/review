@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			$(function () {
+				$("button").click(function () {
+					//获取索引为偶数的li标签
+					$("ul>li:even").css("backgroundColor","skyblue");
+					//获取索引为奇数的li标签
+					$("ul>li:odd").css("backgroundColor","red");
+				});
+			});
+			
+			
+			
+		</script>
+		
+	</head>
+	<body>
+		<button type="button">按钮</button>
+		
+		<ul id="uu">
+			<li>天空之城</li>
+			<li>突然好想你</li>
+			<li>北极星的眼泪</li>
+			<li>世间美好与你环环相扣</li>
+			<li>我的天空</li>
+			<li>哦买噶</li>
+		</ul>
+		
+	</body>
+</html>

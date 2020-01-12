@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 300px;
+				height: 200px;
+				background-color: #0000FF;
+			}
+			p {
+				height: 30px;
+				background-color: #f40;
+				cursor: pointer;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			//点击按钮为div绑定事件
+			
+			//此时on和delegate的作用是一样的,但是参数的顺序是不一样
+			$(function () {
+				$("button:eq(0)").click(function () {
+					console.log(1);
+					$("<p>我是绑定了事件的p标签</p>").appendTo("div");
+					$("div").on("click","p",function () {
+						alert("我是p标签");
+					});
+				});
+				
+				$("button:eq(1)").click(function () {
+					$("<p>我是新创建的p标签</p>").appendTo("div");
+					
+				});
+			});
+		</script>
+	</head>
+	<body>
+		
+		<button>创建一个p标签绑定事件</button>
+		<button>创建一个p标签</button>
+		<div></div>
+	</body>
+</html>

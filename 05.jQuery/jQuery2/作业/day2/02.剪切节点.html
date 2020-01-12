@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style>
+			div {
+				width: 300px;
+				height: 300px;
+				float: left;
+				margin-right: 30px;
+				border: 3px solid red;
+			}
+		</style>
+		<script src="../jquery.min.js"></script>
+	</head>
+	<body>
+		
+		<script>
+			
+			$(function () {
+				$("button").click(function () {
+					// $(".left>span").appendTo(".right");
+					$(".right").append($(".left>span"));
+				});
+				
+			});
+		</script>
+		
+		
+		<div class="left"><span>我是左边的span</span></div>
+		<div class="right"></div>
+		<button>剪切节点</button>
+	</body>
+</html>

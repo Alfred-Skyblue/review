@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>链式编程原理</title>
+		
+		<script>
+			
+			//    $(function () {
+			//      //为按钮注册点击事件
+			//      $("#btn").click(function () {
+			//        //$(this).val("哈哈").val("嘎嘎");
+			//        //console.log( );
+			//
+			//        //对象.方法();调用,如果返回来的还是对象,那么可以继续的调用方法
+			//      });
+			//    });
+			
+			
+			function Person() {
+				this.sayHi=function () {
+					console.log("你好啊");
+					return this;
+				},
+				this.ect=function () {
+					console.log("吃饭了吗");
+				}
+			}
+			
+			var per=new Person();
+			per.sayHi().ect();
+		</script>
+		
+		
+		
+	</head>
+	<body>
+		
+		
+		
+		
+		
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				border: 10px solid red;
+				padding: 50px;
+				margin: 50px;
+			}
+		</style>
+		
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+		  //innerWidth()/innerHeight()	方法返回元素的宽度/高度（包括内边距）。
+		  //outerWidth()/outerHeight()  方法返回元素的宽度/高度（包括内边距和边框）。
+		  //outerWidth(true)/outerHeight(true)  方法返回元素的宽度/高度（包括内边距、边框和外边距）。
+		  $(function () {
+		
+		    // 获取div的宽度,不包括边框,包括内边距
+			console.log($("div").innerWidth());
+			// 获取div的高度,不包括边框,包括内边距
+			console.log($("div").innerHeight());
+			// 获取div的宽度,包括边框和内边距
+			console.log($("div").outerWidth());
+			// 获取div的高度,包括边框和内边距
+			console.log($("div").outerHeight());
+			
+			// 获取div的宽度包括边框和内外边距
+			console.log($("div").outerWidth(true));
+			// 获取div的高度,包括边框和内外边距
+			console.log($("div").outerHeight(true));
+		  });
+		</script>
+	</head>
+	<body>
+		
+		<div></div>
+		
+		
+	</body>
+</html>

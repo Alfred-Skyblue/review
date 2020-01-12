@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			
+			ul {
+				list-style: none;
+			}
+			li {
+				cursor: pointer;
+				margin-top: 10px;
+			}
+			
+			
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			// 高亮显示效果:鼠标进入,当前li标签显示背景颜色,鼠标离开颜色小时
+			// $(function () {
+			// 	$("#uu>li").mouseenter(function () {
+			// 		$(this).css("background","skyblue");
+			// 	});
+			// 	$("#uu>li").mouseleave(function () {
+			// 		$(this).css("background","");
+			// 	});
+			// })
+			
+			// $(function () {
+			// 	$("#uu>li").mouseenter(function () {
+			// 		$(this).css("background","skyblue");
+			// 	}).mouseleave(function () {
+			// 		$(this).css("background","");
+			// 	});
+			// 	//鼠标点击事件:改变当前li标签中的字体样式
+			// 	$("#uu>li").click(function () {
+			// 		$(this).css("color","green");
+			// 		$(this).css("fontSize","26px");
+			// 		$(this).css("fontFamily","LiSu");
+			// 	});
+			// })
+			
+			$(function () {
+				//链式编程
+				$("#uu>li").mouseenter(function () {
+					$(this).css("background","skyblue");
+				}).mouseleave(function () {
+					$(this).css("background","");
+				}).click(function () {
+					$(this).css("color","green").css("fontSize","26px").css("fontFamily","LiSu");
+				});
+			})
+			
+		</script>
+		
+		
+		
+	</head>
+	<body>
+		
+		<ul id="uu">
+			<li>念旧</li>
+			<li>世间美好与你环环相扣</li>
+			<li>突然好想你</li>
+			<li>你是我的眼</li>
+			<li>痴心绝对</li>
+			<li>北极星的眼泪</li>
+		</ul>
+		
+		
+	</body>
+</html>

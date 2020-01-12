@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>title</title>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			/*
+			 *
+			 * 设置或者是获取元素的选中的问题
+			 * 推荐使用prop()方法
+			 * .prop("属性",值); 值一般是布尔类型----->目前这么写代码是设置选中
+			 * .prop("属性");-----获取这个元素是否选中
+			 *
+			 * */
+			
+			
+			$(function () {
+			  //点击按钮选中性别
+				$("#btn").click(function () {
+					// 判断按钮是否被选中,如果选中就取消,如果没选中,就让他选中
+					if ($("#r3").prop("checked")) {
+						$("#r3").prop("checked",false);
+					} else{
+						$("#r3").prop("checked",true);
+					}
+				
+				
+				});
+			});
+  </script>
+	</head>
+	<body>
+		<input type="button" value="选中" id="btn" /><br />
+		请选择小苏的性别:
+		<input type="radio" value="1" name="sex" />男
+		<input type="radio" value="2" name="sex" />女
+		<input type="radio" value="3" name="sex" id="r3" />人妖
+
+	</body>
+</html>

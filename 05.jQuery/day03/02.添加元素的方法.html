@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 300px;
+				min-height: 100px;
+				border: 5px solid red;
+			}
+			
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$(function () {
+				$("button").click(function () {
+					// 创建一个a标签加入到div中
+					// $("div").prepend($("<a href='http://www.baidu.com'>百度</a>"))
+					// 主动加入的方法
+					// $("<a href='http://www.baidu.com'>百度</a>").prependTo("div");
+					// 把元素加入到div的后面,变成div的下一个兄弟元素
+					// $("div").after($("<a href='http://www.baidu.com'>百度</a>"));
+					// 把元素添加到div的前面,变成div的前一个兄弟元素
+					$("div").before($("<a href='http://www.baidu.com'>百度</a>"));
+					
+				});
+			});
+			
+		</script>
+		
+	</head>
+	<body>
+		
+		<button type="button">按钮</button>
+		<div>
+			<p>我是div中的唯一的元素</p>
+		</div>
+	</body>
+</html>

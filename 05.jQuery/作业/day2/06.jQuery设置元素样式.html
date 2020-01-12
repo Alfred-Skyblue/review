@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    .cls{
+      width: 200px;
+      height: 100px;
+      background-color: crimson;
+    }
+    .cls2{
+      border: 2px solid green;
+    }
+  </style>
+  <script src="js/jquery-1.12.1.js"></script>
+	<script>
+		//总结:设置元素的样式可以使用css()方法,也可以使用addClass()或者是removeClass()方法
+		
+		$(function () {
+			$("button:eq(0)").click(function () {
+				// $("#dv").css({"width":"200px","height":"100px","backgroundColor":"blue"});
+				// $("#dv").addClass("cls").addClass("cls2");//添加类样式
+				$("#dv").addClass("cls cls2");//添加类样式
+				// $("#dv").toggleClass("cls cls2")//切换类样式
+			});
+			
+			$("button:eq(1)").click(function () {
+				//移除cls2类样式
+				$("#dv").removeClass("cls2");
+			});
+			
+			
+		});
+		
+	</script>
+</head>
+<body>
+<button type="button">添加类样式</button>
+<button type="button">移除类样式</button>
+<div id="dv"></div>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 300px;
+				height: 200px;
+				background-color: #A52A2A;
+			}
+			p {
+				height: 50px;
+				background-color: #f40;
+				cursor: pointer;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			// 如果是先创建元素,再为这个子元素绑定事件(对象.事件名字(事件处理函数的方式)),后面再创建的子元素,没有事件
+			// 如果使用$("父元素").delegate()方法添加事件,那么后面创建的子元素,也会自动绑定事件
+			
+			$(function () {
+				$("button:eq(0)").click(function () {
+					$("<p>我是一个p标签，我可以点击</p>").appendTo("div");
+					
+					// 只能为当前已经存在的p标签注册点击事件
+					// $("p").click(function () {
+					// 	alert("我一个p");
+					// });
+					
+					// 同上
+					// $("p").bind("click",function () {
+					// 	alert("我一个p");
+					// });
+					
+					
+					$("div").delegate("p","click",function () {
+						alert("我一个p");
+					});
+					
+				});
+				$("button:eq(1)").click(function () {
+					$("<p>我是第二个按钮创建的p标签</p>").appendTo("div");
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<button type="button">创建p标签绑定事件</button>
+		<button type="button">创建p标签</button>
+		<div></div>
+	</body>
+</html>

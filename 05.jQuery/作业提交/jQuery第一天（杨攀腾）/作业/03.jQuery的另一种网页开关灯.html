@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			$(function () {
+				$("button").click(function () {
+					if ($(this).text()=="关灯") {
+						$("body").css("background","#000");
+						$(this).text("开灯");
+					} else{
+						$("body").css("background","");
+						$(this).text("关灯");
+					}
+				});
+			});
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		
+		<button>关灯</button>
+		
+		
+	</body>
+</html>

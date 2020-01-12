@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    img{
+      position: absolute;
+    }
+  </style>
+  <script src="js/jquery-1.12.1.js"></script>
+  <script>
+	// $(element).animate({params},[speed],[easing],[callback]);
+    //参数1:键值对----css属性和值
+    //参数2:时间---1000毫秒---1秒
+	//参数3:默认为swing缓动动画,可设置为linear（匀速动画）
+    //参数4:回调函数
+    $(function () {
+		
+		
+		//使用连续动画不能使用链式编程,必须使用回调函数设置
+		$("button").click(function () {
+			$("#im").animate({"width":"300px","height":"300px","top":"500px","left":"300px"},2000,function () {
+				$("#im").animate({"width":"200px","height":"200px","top":"100px","left":"500px","opacity":0.3},2000,function () {
+					$("#im").animate({"width":"100px","height":"100px","top":"500px","left":"600px"},2000,function () {
+						$("#im").animate({"width":"20px","height":"20px","top":"100px","left":"700px","opacity":1},2000);
+					});
+				});
+			});
+		});
+		
+		
+    });
+  </script>
+</head>
+<body>
+	<button type="button">动画</button>
+<img src="images/bird.png" alt="" id="im" />
+
+</body>
+</html>

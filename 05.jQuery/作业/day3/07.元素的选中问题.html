@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			$(function () {
+				// 点击按钮选择性别
+				$("button").click(function () {
+					// DOM中的操作方法
+					// document.querySelector("#r2").checked=true;
+					
+					// jQuery中的操作方法
+					// $("#r2").get(0).checked=true;//转换成dom操作
+					
+					// 使用自定义属性的方式操作
+					// $("#r2").attr("checked",true);
+					
+					// 获取是否被选中
+					// console.log($("#r2").attr("checked"));//undefined
+					// 如果标签已经被选中了,那么attr("checked")就等于checked
+					// 如果标签没有被选中,那么attr("checked")就等于undefined
+					
+					//attr方法针对于单选框或者复选框的是否选中问题,操作起来很麻烦,几乎不会用
+					if ($("#r2").attr("checked")==undefined) {
+						$("#r2").attr("checked",true);
+						console.log($("#r2").attr("checked"));
+					} else{
+						$("#r2").attr("checked",false);
+						console.log($("#r2").attr("checked"));
+					}
+				});
+			});
+			
+		</script>
+	</head>
+	<body>
+		
+		<button type="button">按钮</button>
+		
+		<h4>选择性别:</h4>
+		<input type="radio" value="1" name="sex">男
+		<input type="radio" value="2" name="sex" id="r2">女
+		<input type="radio" value="3" name="sex">中
+		
+	</body>
+</html>

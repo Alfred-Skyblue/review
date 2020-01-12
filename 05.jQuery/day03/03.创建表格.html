@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 500px;
+				min-height: 300px;
+				border: 2px solid red;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			var arr=[
+			  {"name":"传智播客","href":"http://www.itcast.cn"},
+			  {"name":"快播","href":"http://www.kuaibo.cn"},
+			  {"name":"优酷","href":"http://www.youku.cn"},
+			  {"name":"爱奇艺","href":"http://www.iqiyi.cn"},
+			  {"name":"B站","href":"http://www.bili.cn"},
+			  {"name":"土豆","href":"http://www.tudou.cn"}
+			];
+			
+			$(function () {
+				$("button:eq(0)").click(function () {
+					// 创建一个表格把它加入到div中
+					var table=$("<table style='cursor: pointer' border='1' cellpadding='0' cellspacing='0'></table>").appendTo("div");
+					// 循环遍历数组,创建行和列
+					for (var i = 0; i < arr.length; i++) {
+						var dt=arr[i];//把数组中的每个对象都储存到一个变量中
+						// 创建行,加入到table中
+						var tr=$("<tr></tr>").appendTo(table);
+						//创建列,加入到行中,并给列设置内容
+						var td1=$("<td>"+dt.name+"</td>").appendTo(tr);
+						var td2=$("<td><a href="+dt.href+">"+dt.name+"</a></td>").appendTo(tr);
+						console.log(td1);
+						$("td").mouseenter(function () {
+							$(this).css("backgroundColor","skyblue");
+						}).mouseleave(function () {
+							$(this).css("backgroundColor","");
+						});
+					}
+				})
+			});
+			
+			$(function () {
+				$("button:eq(1)").click(function () {
+					//删除下一个兄弟元素中所有的子节点
+					// $(this).next().empty();
+					// $("div").empty();
+					$("div>table").remove();
+				});
+				$("button:eq(2)").click(function () {
+					var tr=$("<tr><td>企鹅</td><td><a href='http://www.qq.com'>企鹅</a></td></tr>")
+					$("div>table").append(tr);
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		
+		<button>创建表格</button>
+		<button>移除表格</button>
+		<button>添加一行</button>
+		<div></div>
+		
+		
+	</body>
+</html>

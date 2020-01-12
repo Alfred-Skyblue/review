@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 500px;
+				min-height: 300px;
+				border: 2px solid red;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			var arr=[
+			  {"name":"传智播客","href":"http://www.itcast.cn"},
+			  {"name":"快播","href":"http://www.kuaibo.cn"},
+			  {"name":"优酷","href":"http://www.youku.cn"},
+			  {"name":"爱奇艺","href":"http://www.iqiyi.cn"},
+			  {"name":"B站","href":"http://www.bili.cn"},
+			  {"name":"土豆","href":"http://www.tudou.cn"}
+			];
+			
+			$(function () {
+				$("button:eq(0)").click(function () {
+					//创建一个table标签加入到div中
+					var table=$("<table style='cursor: pointer;' border='1' cellpadding='0' cellspacing='0'></table>").appendTo($("div"));
+					
+					
+					for (var i = 0; i < arr.length; i++) {
+						// 把数组中的数据保存到变量中
+						var objs=arr[i];
+						//创建tr标签,加入到table中
+						var tr=$("<tr></tr>").appendTo(table);
+						//创建td标签,加入到tr中
+						var td1=$("<td>"+objs.name+"</td>").appendTo(tr);
+						var td2=$("<td><a href="+objs.href+">"+objs.name+"</a></td>").appendTo(tr);
+					}
+					
+					//为td标签添加鼠标进入事件和鼠标离开事件
+					$("td").mouseenter(function () {
+						$(this).css("backgroundColor","skyblue");
+					}).mouseleave(function () {
+						$(this).css("backgroundColor","");
+					});
+				});
+				
+				
+				$("button:eq(1)").click(function () {
+					// 点击按钮移除表格
+					// $("div").html("");
+					// $("div>table").remove();
+					$("div").empty();
+				});
+				
+				// 点击按钮创建一行
+				$("button:eq(2)").click(function () {
+					// 创建一行
+					$("<tr><td>企鹅</td><td><a href='http://www.qq.com'>腾讯</a></td><tr>").appendTo($("table"));
+				});
+			});
+		</script>
+	</head>
+	<body>
+		
+		<button>创建表格</button>
+		<button>移除表格</button>
+		<button>添加一行</button>
+		<div></div>
+		
+		
+	</body>
+</html>

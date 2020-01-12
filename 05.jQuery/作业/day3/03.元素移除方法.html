@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 300px;
+				min-height: 200px;
+				border: 2px solid red;
+			}
+		</style>
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			$(function () {
+				// 为按钮注册点击事件
+				$("button").click(function () {
+					//从父级元素中移除子级元素---移除所有的内容
+					// $("div").html("");
+					// $("div").empty();//清空
+					
+					// 想要移除那个元素,就调用remove()方法,可以把元素移除
+					$("div").remove();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button type="button">按钮</button>
+		<div>
+			<p>我是div里面的p标签</p>
+			<h2>我是div的下一个兄弟元素</h2>
+		</div>
+		
+	</body>
+</html>

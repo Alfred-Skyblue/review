@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			 div {
+				 width: 500px;
+				 height: 400px;
+				 border: 5px solid #0000FF;
+			 }
+			
+			
+		</style>
+		
+		<script src="js/jquery-1.12.1.js"></script>
+		<script>
+			
+			$(function () {
+				$("button").click(function () {
+					//后代元素原则器,选中的是div里面所有的span标签,包括孙子元素
+					// $("div span").css("background","skyblue");
+					
+					//子元素选择器,选中的是div里面的直接子元素,不包括孙子元素
+					// $("div>span").css("background","skyblue");
+					
+					//获取的是div这个元素后面所有的兄弟元素span
+					// $("div~span").css("background","skyblue");
+					
+					//获取div后面直接的兄弟元素
+					$("div+span").css("background","skyblue");
+				});
+			});
+			
+			
+			
+		</script>
+		
+		
+		
+	</head>
+	<body>
+		<button type="button">按钮</button>
+		<div>
+
+			<span>我是div的第一个子元素span</span>
+
+			<ul>
+				<li>我是第一个li标签</li>
+				<li>我是第二个li标签<span>我是li标签中的span</span><span>我是li标签中的span</span></li>
+				<li>我是第三个li标签</li>
+			</ul>
+			<span>我是最后一个span</span>
+		</div>
+		<!-- <p>我是p</p> -->
+		<span>我是div后面的兄弟元素span</span>
+		<span>我是div后面的兄弟元素span</span>
+		<span>我是div后面的兄弟元素span</span>
+
+	</body>
+</html>
