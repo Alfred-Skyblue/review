@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script>
+			
+			// 涉及到 AJAX 操作的页面"不能"使用文件协议访问(文件的方式访问)
+			
+			
+			// AJAX 是一套 API 核心提供的类型: XMLHttpRequest
+			
+			// 1.安装浏览器(用户代理)
+			// xhr就类似于浏览器的作用(发送请求接受响应)
+			var xhr=new XMLHttpRequest()
+			// 2.打开浏览器 输入网址
+			xhr.open("GET","http://day-05.io/config.php");
+			// 3.敲回车键,开始请求
+			xhr.send();
+			// 4.等待响应
+			
+			// 5.看结果
+			xhr.onreadystatechange=function () {
+				console.log(1);
+			}
+			
+			
+		</script>
+		
+
+	</body>
+</html>
