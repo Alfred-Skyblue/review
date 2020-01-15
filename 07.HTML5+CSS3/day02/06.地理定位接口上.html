@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="demo"></div>
+		<script>
+			
+			var x=document.getElementById("demo");
+			
+			
+			function getLocation() {
+				// 能力测试
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(showPosition,showError,{});
+				}else{
+					x.innerHTML="Geolocation is not supported ba this browser.";
+				}
+			}
+			
+			// 成功获取定位之后的回调
+			function showPosition(position) {
+				x.innerHTML="Latitude:" + position.coords.latitude + "<br/>Longitude:"+position.coords.longitude;
+			}
+			
+			
+			
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

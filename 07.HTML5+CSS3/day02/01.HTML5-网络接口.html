@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			
+			// 1. ononline 网络连通时出发这个事件
+			window.addEventListener("online",function () {
+				console.log("网络连通了");
+			});
+			
+			// 2. onoffline 网络断开时触发事件
+			window.addEventListener("offline",function () {
+				console.log("网络断开了");
+			});
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

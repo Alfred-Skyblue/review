@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<form action="">
+			
+			用户名: <input type="text" name="userName"><br>
+			手机号: <input type="tel" name="userTel" pattern="^1\d{10}$"><br>
+			
+			<button>提交</button>
+			
+			
+		</form>
+		
+		<script>
+			
+			
+			
+			// 1.oninput: 监听当前指定元素内容的改变: 只要内容发生改变(增加或者删除),就会触发该事件
+			document.getElementsByName('userName')[0].oninput=function () {
+				// console.log("oninput:"+this.value);
+			}
+			
+			document.getElementsByName('userName')[0].onkeyup=function () {
+				// console.log("onkeyup:"+this.value);
+			}
+			
+			
+			// oninvalid: 当验证不通过时触发事件
+			document.getElementsByName('userTel')[0].oninvalid=function () {
+				console.log("请输入11位手机号");
+				// setCustomValidity() 方法可以设置默认的提示信息
+				this.setCustomValidity("请输入正确的手机号");
+			}
+			
+			
+		</script>
+		
+		
+	</body>
+</html>
