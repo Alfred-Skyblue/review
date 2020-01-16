@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				position: relative;
+				margin: 300px;
+				width: 500px;
+				height: 500px;
+				background-color: #f10215;
+			}
+			span {
+				display: block;
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				background-color: #FF7F50;
+				transform: translate(-50%,-50%);
+			}
+			/*transform: translate(-50%,-50%);移动的是自身的50%,和父元素无关*/
+		</style>
+	</head>
+	<body>
+		<div>
+			<span></span>
+		</div>
+	</body>
+</html>

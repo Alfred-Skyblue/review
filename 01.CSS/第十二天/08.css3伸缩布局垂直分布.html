@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			section {
+				width: 80%;
+				height: 150px;
+				margin: 200px;
+				background-color: skyblue;
+				display: flex;
+				flex-direction: column;	/* 垂直分布弹性伸缩盒 */
+				margin-bottom: 0;
+				/* display: flex; 给父亲添加伸缩布局 */
+				
+			}
+			section div {
+				height: 100%;
+				flex: 1;	/* 孩子的份数 */
+				
+				
+			}
+			section div:nth-child(1) {
+				background-color: #0000FF;
+				
+			}
+			section div:nth-child(2) {
+				background-color: #008000;
+			}
+			section div:nth-child(3) {
+				background-color: aquamarine;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+		</section>
+	</body>
+</html>

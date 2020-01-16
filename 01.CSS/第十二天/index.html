@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+	</head>
+	<body>
+
+		<script>
+			
+			var obj={
+				a:1,
+				n:2,
+			}
+			
+			
+			var obj1={};
+			
+			for (var key in obj) {
+				obj1[key]=obj[key]
+			}
+			
+			console.log(obj1);
+			
+			delete obj.a;
+			
+			
+			
+			
+			
+			function Person() {
+				
+			}
+			
+			Person.prototype.a=1;
+			Person.prototype.n=2;
+			Person.prototype.sayHi=function () {
+				console.log("Nice to meet you!");
+			};
+			
+			var per=new Person();
+			
+			var obj={};
+			
+			for (var key in per.__proto__) {
+				obj[key]=per.__proto__[key];
+			}
+			console.log(obj);
+			
+			
+			
+			
+		</script>
+
+
+	</body>
+</html>

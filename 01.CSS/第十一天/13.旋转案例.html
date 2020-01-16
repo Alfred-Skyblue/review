@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				width: 250px;
+				height: 170px;
+				position: relative;
+				margin: 300px;
+			}
+			img {
+				width: 250px;
+				height: 170px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transition: all 0.6s;
+				transform-origin: right top;
+			}
+			div:hover .chuqiao6 {
+				transform: rotate(60deg);
+			}
+			div:hover .chuqiao2 {
+				transform: rotate(120deg);
+			}
+			div:hover .chuqiao3 {
+				transform: rotate(180deg);
+			}
+			div:hover .chuqiao4 {
+				transform: rotate(240deg);
+			}
+			div:hover .chuqiao5 {
+				transform: rotate(300deg);
+			}
+			div:hover .chuqiao1 {
+				transform: rotate(360deg);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div>
+			
+			<img src="images/2.jpg" class="chuqiao2"/>
+			<img src="images/3.jpg" class="chuqiao3"/>
+			<img src="images/4.jpg" class="chuqiao4"/>
+			<img src="images/5.jpg" class="chuqiao5"/>
+			<img src="images/6.jpg" class="chuqiao6"/>
+			<img src="images/1.jpg" class="chuqiao1"/>
+		</div>
+	</body>
+</html>
