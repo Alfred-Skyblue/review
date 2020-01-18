@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-12-23 10:55:56
+ * @LastEditors  : sueRimn
+ * @LastEditTime : 2019-12-23 12:29:03
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+      var myCanvas = document.querySelector("canvas");
+
+      var ctx = myCanvas.getContext("2d");
+
+      // 1.绘制一个三角形
+      ctx.moveTo(100, 100);
+      ctx.lineTo(200, 100);
+      ctx.lineTo(200, 200);
+      // 起始点和linTo的结束点无法完全闭合导致缺角
+      // 解决方法 => 使用canvas的自动闭合closePath方法
+      ctx.closePath(); // 关闭路径
+      // ctx.lineTo(100, 100);
+
+      // 2. 描边
+      ctx.stroke();
+
+      // 3. 填充方法fill()默认为黑色
+      // ctx.fill();
+    </script>
+  </body>
+</html>

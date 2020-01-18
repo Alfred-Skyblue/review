@@ -1,0 +1,55 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-12-23 10:55:56
+ * @LastEditors  : sueRimn
+ * @LastEditTime : 2019-12-24 11:30:23
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #000;
+      }
+
+      /* .linearGradient {
+        width: 400px;
+        height: 100px;
+        background-image: linear-gradient(to right, pink, blue);
+      } */
+    </style>
+  </head>
+
+  <body>
+    <div class="linearGradient"></div>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+      var myCanvas = document.querySelector("canvas");
+
+      var ctx = myCanvas.getContext("2d");
+
+      // 1. 体验曲线的绘制
+      // 2. 线是由点构成的
+      // 3. 曲线可以由数学公式得来
+
+      // 公式：y = 2x
+      // 公式：y = (x + 2)^2
+      for (var i = 1; i < 600; i++) {
+        var x = i;
+        // var y = x / 2;
+        // var y = Math.pow(x / 10 - 30, 2);
+        var y = Math.sin(x / 10) * 50 + 100;
+        // ctx.beginPath();
+        ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    </script>
+  </body>
+</html>

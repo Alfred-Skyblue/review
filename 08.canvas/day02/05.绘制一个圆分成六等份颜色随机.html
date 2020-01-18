@@ -1,0 +1,70 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-12-23 10:55:56
+ * @LastEditors  : sueRimn
+ * @LastEditTime : 2019-12-24 13:37:28
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="linearGradient"></div>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+      var myCanvas = document.querySelector("canvas");
+
+      var ctx = myCanvas.getContext("2d");
+
+      var w = ctx.canvas.width;
+      var h = ctx.canvas.height;
+
+      // 把中心和起点放到圆心位置 => 绘制扇形必须要把起点放到圆心位置
+      ctx.moveTo(w / 2, h / 2);
+      ctx.arc(w / 2, h / 2, 150, 0, -Math.PI / 2, true);
+
+      // 分成几等份
+      var num = 80;
+
+      // 一份多少弧度
+      var angle = (Math.PI * 2) / num;
+
+      var x0 = w / 2;
+      var y0 = h / 2;
+      // 上一次绘制结束的弧度等于当前次的其实弧度
+      //   var startAngle = 0;
+      //   var endAngle = 0;
+      for (var i = 0; i < num; i++) {
+        var startAngle = i * angle;
+        var endAngle = (i + 1) * angle;
+        ctx.beginPath();
+        ctx.moveTo(x0, y0);
+        ctx.arc(x0, y0, 150, startAngle, endAngle);
+        ctx.fillStyle = randomColor();
+        ctx.fill();
+      }
+
+      // 生成随机颜色的函数
+      function randomColor() {
+        var str = "#";
+        for (var i = 0; i < 6; i++) {
+          str += Math.floor(Math.random() * 16).toString(16);
+        }
+        return str;
+      }
+    </script>
+  </body>
+</html>

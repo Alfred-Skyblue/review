@@ -1,0 +1,61 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-12-23 10:55:56
+ * @LastEditors  : sueRimn
+ * @LastEditTime : 2019-12-23 14:20:59
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+      var myCanvas = document.querySelector("canvas");
+
+      var ctx = myCanvas.getContext("2d");
+
+      // 画平行线
+
+      ctx.beginPath(); // 开启新路径
+      // 绘制成蓝色
+      ctx.moveTo(100, 100);
+      ctx.lineTo(300, 100);
+      ctx.strokeStyle = "blue";
+      ctx.lineWidth = 10;
+
+      ctx.stroke();
+
+      ctx.beginPath(); // 开启新路径
+      // 红色
+      ctx.moveTo(100, 200);
+      ctx.lineTo(300, 200);
+      ctx.strokeStyle = "red";
+      ctx.stroke();
+
+      ctx.beginPath(); // 开启新路径
+      // 黄色
+      ctx.moveTo(100, 300);
+      ctx.lineTo(300, 300);
+      ctx.strokeStyle = "yellow";
+      // 描边
+      ctx.stroke();
+
+      ctx.beginPath(); // 开启新路径
+      // 开启新路径可以解决样式覆盖的问题
+    </script>
+  </body>
+</html>

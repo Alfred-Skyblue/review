@@ -1,0 +1,47 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-12-23 19:21:00
+ * @LastEditors  : sueRimn
+ * @LastEditTime : 2019-12-24 09:58:51
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+      var myCanvas = document.querySelector("canvas");
+      var ctx = myCanvas.getContext("2d");
+
+      // 绘制矩形路径，不是独立路径
+      //   ctx.rect(100, 100, 200, 100);
+      //   ctx.fillStyle = "green";
+      //   ctx.stroke();
+      //   ctx.fill();
+
+      // 绘制矩形，有自己的独立路径
+      //   ctx.strokeRect(100, 100, 200, 100);
+      ctx.fillRect(100, 100, 200, 100);
+
+      // 清除矩形的内容
+      ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+      // 清除以后可以重新绘制
+      //   ctx.fillRect(100, 100, 200, 100);
+    </script>
+  </body>
+</html>

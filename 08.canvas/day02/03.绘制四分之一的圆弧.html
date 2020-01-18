@@ -1,0 +1,51 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-12-23 10:55:56
+ * @LastEditors  : sueRimn
+ * @LastEditTime : 2019-12-24 11:51:16
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #000;
+      }
+
+      /* .linearGradient {
+        width: 400px;
+        height: 100px;
+        background-image: linear-gradient(to right, pink, blue);
+      } */
+    </style>
+  </head>
+
+  <body>
+    <div class="linearGradient"></div>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+      var myCanvas = document.querySelector("canvas");
+
+      var ctx = myCanvas.getContext("2d");
+
+      // 绘制圆弧
+      // 确定圆心 坐标x y
+      // 确定半径
+      // 确定起始绘制的位置和结束绘制的位置 => 确定弧的长度和位置 => startAngle endAngle  弧度
+      // 确定绘制的方向 => direction(默认为顺时针 false 逆时针为 true)
+
+      // 在中心位置画一个半径 150px 的圆弧  右下角
+      var w = ctx.canvas.width;
+      var h = ctx.canvas.height;
+      ctx.arc(w / 2, h / 2, 150, Math.PI / 2, Math.PI);
+      ctx.stroke();
+    </script>
+  </body>
+</html>

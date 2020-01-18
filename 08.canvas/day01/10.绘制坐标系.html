@@ -1,0 +1,73 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-12-23 10:55:56
+ * @LastEditors  : sueRimn
+ * @LastEditTime : 2019-12-23 19:20:48
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+      var myCanvas = document.querySelector("canvas");
+
+      var ctx = myCanvas.getContext("2d");
+
+      // 1. 绘制坐标系
+      // 2. 确定原定
+      // 3. 确定距离画布旁边的距离
+      // 4. 确定坐标轴的长度
+      // 5. 确定箭头的大小  是个等腰三角形  10
+      // 6. 绘制箭头填充
+
+      var space = 20;
+      var arrowSize = 10;
+
+      // 计算原点
+      var canvasWidth = ctx.canvas.width;
+      var canvasHeight = ctx.canvas.height;
+      var x0 = space;
+      var y0 = canvasHeight - space;
+
+      // 绘制x轴
+      ctx.beginPath();
+      ctx.moveTo(x0, y0);
+      ctx.lineTo(canvasWidth - space, y0);
+
+      // 绘制箭头
+      ctx.lineTo(canvasWidth - space - arrowSize, y0 + arrowSize / 2);
+      ctx.lineTo(canvasWidth - space - arrowSize, y0 - arrowSize / 2);
+      ctx.lineTo(canvasWidth - space, y0);
+      ctx.fill();
+      ctx.stroke();
+
+      // 绘制y轴
+      ctx.beginPath();
+      ctx.moveTo(x0, y0);
+      ctx.lineTo(space, space);
+
+      // 绘制箭头
+      ctx.lineTo(x0 + arrowSize / 2, space + arrowSize);
+      ctx.lineTo(x0 - arrowSize / 2, space + arrowSize);
+      ctx.lineTo(x0, space);
+      ctx.fill();
+      ctx.stroke();
+      // 绘制y轴
+    </script>
+  </body>
+</html>

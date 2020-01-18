@@ -1,0 +1,46 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-12-23 10:55:56
+ * @LastEditors  : sueRimn
+ * @LastEditTime : 2019-12-24 23:14:57
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+      var myCanvas = document.querySelector("canvas");
+
+      var ctx = myCanvas.getContext("2d");
+
+      // translate移动坐标原点的方法:
+      // ctx.translate(100, 100);
+      // 坐标轴缩放的方法
+      // ctx.scale(0.5, 1);
+      // 坐标轴旋转的方法
+      // ctx.rotate(Math.PI / 60);
+      var startAngle = 0;
+      ctx.translate(150, 150);
+      setInterval(() => {
+        startAngle += Math.PI / 180;
+        ctx.rotate(startAngle);
+        ctx.strokeRect(-50, -50, 100, 100);
+      }, 500);
+    </script>
+  </body>
+</html>

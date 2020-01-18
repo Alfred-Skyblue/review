@@ -1,0 +1,198 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-12-23 19:21:00
+ * @LastEditors  : sueRimn
+ * @LastEditTime : 2019-12-24 08:38:23
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+      // 1. 创建构造函数
+      var LineChart = function(ctx) {
+        /*获取绘图工具*/
+        this.ctx = ctx || document.querySelector("canvas").getContext("2d");
+        /*画布的大小*/
+        this.canvasWidth = this.ctx.canvas.width;
+        this.canvasHeight = this.ctx.canvas.height;
+        /*网格的大小*/
+        this.gridSize = 10;
+        /*坐标系的间距*/
+        this.space = 20;
+        /*坐标原点*/
+        this.x0 = this.space;
+        this.y0 = this.canvasHeight - this.space;
+        /*箭头的大小*/
+        this.arrowSize = 10;
+        /*绘制点*/
+        this.dottedSize = 6;
+        /*点的坐标 和数据有关系  数据可视化*/
+      };
+
+      // 2. 行为和方法
+      LineChart.prototype.init = function(data) {
+        this.drawGrid();
+        this.drawAxis();
+        this.drawDotted(data);
+      };
+
+      // 绘制网格
+      LineChart.prototype.drawGrid = function() {
+        // x方向的线
+        var xLineTotal = Math.floor(this.canvasHeight / this.gridSize);
+        this.ctx.strokeStyle = "#eee";
+        for (var i = 0; i <= xLineTotal; i++) {
+          this.ctx.beginPath();
+          this.ctx.moveTo(0, i * this.gridSize - 0.5);
+          this.ctx.lineTo(this.canvasWidth, i * this.gridSize - 0.5);
+          this.ctx.stroke();
+        }
+
+        // y轴方向的线
+        var yLineTotal = Math.floor(this.canvasWidth / this.gridSize);
+        for (var i = 0; i <= yLineTotal; i++) {
+          this.ctx.beginPath();
+          this.ctx.moveTo(i * this.gridSize - 0.5, 0);
+          this.ctx.lineTo(i * this.gridSize - 0.5, this.canvasHeight);
+          this.ctx.stroke();
+        }
+      };
+
+      // 绘制坐标系
+      LineChart.prototype.drawAxis = function() {
+        // x轴
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = "#000";
+        this.ctx.moveTo(this.x0, this.y0);
+        this.ctx.lineTo(this.canvasWidth - this.space, this.y0);
+        this.ctx.lineTo(
+          this.canvasWidth - this.space - this.arrowSize,
+          this.y0 + this.arrowSize / 2
+        );
+        this.ctx.lineTo(
+          this.canvasWidth - this.space - this.arrowSize,
+          this.y0 - this.arrowSize / 2
+        );
+        this.ctx.lineTo(this.canvasWidth - this.space, this.y0);
+        this.ctx.fill();
+        this.ctx.stroke();
+
+        // y轴
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = "#000";
+        this.ctx.moveTo(this.x0, this.y0);
+        this.ctx.lineTo(this.space, this.space);
+        this.ctx.lineTo(
+          this.space + this.arrowSize / 2,
+          this.space + this.arrowSize
+        );
+        this.ctx.lineTo(
+          this.space - this.arrowSize / 2,
+          this.space + this.arrowSize
+        );
+        this.ctx.lineTo(this.space, this.space);
+        this.ctx.fill();
+        this.ctx.stroke();
+      };
+
+      // 绘制点
+      LineChart.prototype.drawDotted = function(data) {
+        // 1. 数据的坐标 需要转换 canvas 坐标
+        // 2. 再进行点的绘制
+        // 3. 把线连起来
+
+        // 记录当前的坐标
+        var prevCanvasX = 0;
+        var prevCanvasY = 0;
+        data.forEach((item, i) => {
+          // x = 原点的坐标 + 数据的坐标 => x0 + item.x
+          // y = 原点的坐标 - 数据的坐标 => y0 - item.y
+          var canvasX = this.x0 + item.x;
+          var canvasY = this.y0 - item.y;
+
+          // 绘制点
+          this.ctx.beginPath();
+          this.ctx.moveTo(
+            canvasX - this.dottedSize / 2,
+            canvasY - this.dottedSize / 2
+          );
+          this.ctx.lineTo(
+            canvasX + this.dottedSize / 2,
+            canvasY - this.dottedSize / 2
+          );
+          this.ctx.lineTo(
+            canvasX + this.dottedSize / 2,
+            canvasY + this.dottedSize / 2
+          );
+          this.ctx.lineTo(
+            canvasX - this.dottedSize / 2,
+            canvasY + this.dottedSize / 2
+          );
+          this.ctx.closePath();
+          this.ctx.fill();
+
+          // 点连接线
+          // 当时是第一个点的时候，起点是 x0 y0
+          // 当时不是第一个点的时候，起点是上一个点
+          if (i == 0) {
+            this.ctx.beginPath();
+            this.ctx.moveTo(this.x0, this.y0);
+            this.ctx.lineTo(canvasX, canvasY);
+            this.ctx.stroke();
+          } else {
+            // 上一个点
+            this.ctx.beginPath();
+            this.ctx.moveTo(prevCanvasX, prevCanvasY);
+            this.ctx.lineTo(canvasX, canvasY);
+            this.ctx.stroke();
+          }
+          // 记录当前的坐标，下一次要用到
+          prevCanvasX = canvasX;
+          prevCanvasY = canvasY;
+        });
+      };
+      // 3. 初始化
+
+      var data = [
+        {
+          x: 100,
+          y: 120
+        },
+        {
+          x: 200,
+          y: 160
+        },
+        {
+          x: 300,
+          y: 240
+        },
+        {
+          x: 400,
+          y: 150
+        },
+        {
+          x: 500,
+          y: 80
+        }
+      ];
+      var lineChart = new LineChart();
+      lineChart.init(data);
+    </script>
+  </body>
+</html>

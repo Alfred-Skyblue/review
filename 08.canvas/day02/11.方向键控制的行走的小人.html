@@ -1,0 +1,144 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-12-23 10:55:56
+ * @LastEditors  : sueRimn
+ * @LastEditTime : 2019-12-24 22:58:34
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- <img src="images/04.png" alt="赵丽颖" /> -->
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+      // TODO:小人的构造函数
+      var Person = function(ctx) {
+        //绘制工具
+        this.ctx = ctx || document.querySelector("canvas").getContext("2d");
+        //图片路径
+        this.src = "images/04.png";
+        //画布的大小
+        this.canvasWidth = this.ctx.canvas.width;
+        this.canvasHeight = this.ctx.canvas.height;
+
+        //行走相关参数
+        this.stepSzie = 10;
+        // 0 前  1 左  2 右  3 后  和图片的行数包含的图片对应上
+        this.direction = 0;
+        //x轴方向的偏移步数
+        this.stepX = 0;
+        //y轴方向的偏移步数
+        this.stepY = 0;
+
+        //初始化方法
+        this.init();
+      };
+      // TODO:初始化
+      Person.prototype.init = function() {
+        var that = this;
+        // 1. 加载图片
+        this.loadImage(image => {
+          // 图片的大小
+          console.log(this === that);
+          this.imageWidth = image.width;
+          this.imageHeight = image.height;
+
+          // 人物的大小
+          this.personWidth = this.imageWidth / 4;
+          this.personHeight = this.imageHeight / 4;
+
+          // 绘制图片的起点
+          this.x0 = this.canvasWidth / 2 - this.personWidth / 2;
+          this.y0 = this.canvasHeight / 2 - this.personHeight / 2;
+
+          // 2. 默认绘制在中心位置正面朝外
+          this.ctx.drawImage(
+            image,
+            0,
+            0,
+            this.personWidth,
+            this.personHeight,
+            this.x0,
+            this.y0,
+            this.personWidth,
+            this.personHeight
+          );
+
+          // 3. 能通过方向键去控制任务行走
+          that.index = 0;
+          document.onkeydown = function(e) {
+            if (e.keyCode == 40) {
+              that.direction = 0;
+              that.stepY++;
+              that.drawImage(image);
+              // 前
+            } else if (e.keyCode == 37) {
+              that.direction = 1;
+              that.stepX--;
+              that.drawImage(image);
+              // 左
+            } else if (e.keyCode == 39) {
+              that.direction = 2;
+              that.stepX++;
+              that.drawImage(image);
+              // 右
+            } else if (e.keyCode == 38) {
+              that.direction = 3;
+              that.stepY--;
+              that.drawImage(image);
+              // 后
+            }
+          };
+        });
+      };
+      // TODO:加载图片
+      Person.prototype.loadImage = function(callback) {
+        var image = new Image();
+        image.onload = function() {
+          callback && callback(image);
+        };
+        image.src = this.src;
+      };
+
+      // TODO:绘制图片
+      Person.prototype.drawImage = function(image) {
+        this.index++;
+        // 清除画布
+        this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+        // 绘图
+        // 在精灵图上的定位 x 索引来确定
+        // 在精灵图上的定位 y 方向来确定
+        this.ctx.drawImage(
+          image,
+          this.index * this.personWidth,
+          this.direction * this.personHeight,
+          this.personWidth,
+          this.personHeight,
+          this.x0 + this.stepX * this.stepSzie,
+          this.y0 + this.stepY * this.stepSzie,
+          this.personWidth,
+          this.personHeight
+        );
+        // 如果索引超出了图片宽度 变为0
+        this.index = this.index >= 3 ? 0 : this.index;
+      };
+
+      //   var ctx = document.querySelector("canvas").getContext("2d");
+      new Person();
+    </script>
+  </body>
+</html>

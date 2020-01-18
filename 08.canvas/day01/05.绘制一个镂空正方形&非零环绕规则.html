@@ -1,0 +1,51 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-12-23 10:55:56
+ * @LastEditors  : sueRimn
+ * @LastEditTime : 2019-12-23 12:58:36
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+      var myCanvas = document.querySelector("canvas");
+
+      var ctx = myCanvas.getContext("2d");
+
+      // 1. 绘制两个正方形，一大200 一小100，套在一起
+      //   ctx.beginPath();
+      ctx.moveTo(100, 100);
+      ctx.lineTo(300, 100);
+      ctx.lineTo(300, 300);
+      ctx.lineTo(100, 300);
+      ctx.closePath();
+
+      //   ctx.beginPath();
+      ctx.moveTo(150, 150);
+      ctx.lineTo(150, 250);
+      ctx.lineTo(250, 250);
+      ctx.lineTo(250, 150);
+      ctx.closePath();
+
+      ctx.stroke();
+      // 2. 去填充
+      ctx.fill();
+    </script>
+  </body>
+</html>

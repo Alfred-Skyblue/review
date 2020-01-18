@@ -1,0 +1,82 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-12-23 10:55:56
+ * @LastEditors  : sueRimn
+ * @LastEditTime : 2019-12-24 14:32:07
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      canvas {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="linearGradient"></div>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+      var myCanvas = document.querySelector("canvas");
+
+      var ctx = myCanvas.getContext("2d");
+
+      // 1. 根据年龄数据分布绘制饼图
+      // 2. 准备统计的数据
+      // 15-20岁 6个
+      // 20-25岁 30个
+      // 25-30岁 20个
+      // 30-35岁 8个
+
+      var data = [6, 30, 20, 8];
+
+      // 3. 在饼图中表示出来
+      // 4. 需要把数据转换成弧度
+      var angleList = [];
+      var total = data.reduce((sum, num) => {
+        return sum + num;
+      }, 0);
+
+      data.forEach(function(item, i) {
+        var angle = Math.PI * 2 * (item / total);
+        angleList.push(angle);
+      });
+
+      var w = ctx.canvas.width;
+      var h = ctx.canvas.height;
+      var x0 = w / 2;
+      var y0 = h / 2;
+      // 根据弧度绘制扇形
+      var startAngle = 0;
+      angleList.forEach((item, i) => {
+        // 上一次绘制的结束弧度等于当前次的其实弧度
+        var endAngle = startAngle + item;
+        ctx.beginPath();
+        ctx.moveTo(x0, y0);
+        ctx.arc(x0, y0, 150, startAngle, endAngle);
+        ctx.fillStyle = randomColor();
+        ctx.fill();
+        // ctx.stroke();
+        // 记录当前的结束位置，作为下一次的起始位置
+        startAngle = endAngle;
+      });
+
+      // 生成随机颜色的函数
+      function randomColor() {
+        var str = "#";
+        for (var i = 0; i < 6; i++) {
+          str += Math.floor(Math.random() * 16).toString(16);
+        }
+        return str;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- 1. 准备画布 -->
+		<!-- 1.1 画布是白色的，而且默认300*150 -->
+		<!-- 1.2 设置画布的大小 宽度600 高度400 -->
+		<canvas id="map" width="600" height="400"></canvas>
+		
+		<!-- 2. 准备绘制工具 -->
+		<!-- 3. 利用绘制工具绘图 -->
+		<script>
+			
+			// 1. 获取元素
+			var myCanvas=document.querySelector('#map');
+			
+			// 2. 获取上下文，绘制工具箱
+			var ctx = myCanvas.getContext('2d');
+			
+			// 3. 移动画笔
+			ctx.moveTo(100,100);
+			
+			// 4. 绘制直线(轨迹，绘制路径)
+			ctx.lineTo(200,100);
+			
+			// 5. 描边
+			ctx.stroke();
+			
+			
+		</script>
+		
+	</body>
+</html>
