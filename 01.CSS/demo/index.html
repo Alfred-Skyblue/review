@@ -35,11 +35,13 @@
 				height: 500px;
 				overflow: hidden;
 			}
+
 			ul li {
 				position: relative;
 				z-index: 6;
 				margin-bottom: 10px;
 			}
+
 			ul li:first-child {
 				position: absolute;
 				width: 100%;
@@ -48,63 +50,41 @@
 				z-index: 5;
 				left: 0;
 			}
+
 			ul li img {
 				display: block;
 				margin: 0 auto;
 				width: 260px;
 				height: 180px;
 			}
+
 			.box2 {
 				height: 600px;
 			}
-			.uu .fixed{
-			    position: fixed;
-			    top:420px;
-			    left:0;
+
+			.uu .fixed {
+				position: fixed;
+				top: 420px;
+				left: 0;
 			}
-			
 		</style>
 
 	</head>
 	<body>
 
+		{{ include './index2.html' }}
 
-		<div class="box"></div>
-
-<img src="" >
 		<ul class="uu">
-			<li class="first"></li>
-			<li><img src="images/1.jpg"></li>
-			<li><img src="images/2.jpg"></li>
-			<li><img src="images/3.jpg"></li>
-			<li><img src="images/4.jpg"></li>
-			<li><img src="images/5.jpg"></li>
-		</ul>
-		<div class="box2"></div>
-		
-		<script src="js/jquery-1.12.1.min.js"></script>
-		<script>
-		
-			$(function () {
-				var $ul=$(".uu");
-				var $box1=$(".box");
-				var $ulHeight=$ul.height();
 
-				
-				$(document).on("scroll",function () {
-					// console.log($box1.height()+$ulHeight);
-					console.log($(".first").offset().top-$(window).scrollTop());
-					// console.log();
-					
-					if ($ul.offset().top-$(window).scrollTop()<=520) {
-						$(".first").addClass("fixed");
-					}else{
-						$(".first").removeClass("fixed");
-					}
-				});
-			}());
-		
-			
+		</ul>
+
+		<script src="js/jquery-1.12.1.min.js"></script>
+		<script src="template-web.js"></script>
+		<script>
+
+
+
+
 		</script>
 
 	</body>
