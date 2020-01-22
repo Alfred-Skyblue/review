@@ -1,0 +1,11 @@
+body {
+  background-color: blue;
+}
+div {
+  border: 1px solid red;
+  color: blue;
+  font-size: 14px;
+}
+a {
+  font-size: 14px;
+}

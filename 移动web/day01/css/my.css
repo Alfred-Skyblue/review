@@ -1,0 +1,21 @@
+body
+{
+    background-color: blue;
+}
+
+div
+{
+    font-size: 14px;
+
+    position: absolute;
+
+    color: blue;
+    border: 2px solid red;
+}
+
+a
+{
+    font-size: 14px;
+
+    color: aqua;
+}
