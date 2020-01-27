@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+// <!-- 关于原型链 我们总会这样写 -->
+    function Person(){
+        this.name = 'Jim';
+    }
+    var person = new Person();
+    Person.prototype.say = function(){
+        console.log('hello,' + this.name);
+    };
+    console.dir(Person);
+    person.say();//输出？
+//问题 ：为什么可以调用这个say方法？
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function Person () {
+        this.name = 'Jim';
+    }
+    var person = new Person();
+    Person.prototype = {
+        say: function(){
+            console.log('hello,' + this.name);
+        }
+    };
+    person.say();//会得到什么结果
+
+
+
+
+</script>
+</html>

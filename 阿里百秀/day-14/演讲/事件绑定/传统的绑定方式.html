@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">点击</div>
+	</body>
+	<script type="text/javascript">
+		// click 单击事件名称  
+		var oBox = document.getElementById("box");
+		// js中 事件的第一种绑定方式  也是传统的绑定方式
+		//　obj元素.on+事件名称 = 事件处理函数   
+		
+		//缺点： 同一对象 同一个事件 绑定多个事件处理函数  后者会把前者覆盖
+		// 在实际开发中 往往一个项目 多人协作  之间可能会有功能的交叉区域，如果后者功能 把前者功能 覆盖，则会出现问题
+		oBox.onclick = function() {
+			alert('a')	
+		}
+		oBox.onclick = function() {
+			alert('b')	
+		}
+
+	</script>
+</html>

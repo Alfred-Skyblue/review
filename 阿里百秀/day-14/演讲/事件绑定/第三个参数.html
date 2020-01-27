@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box {
+			position: relative;
+			background-color: red;
+			border: 1px solid;
+			padding: 50px;
+			width: 200px;
+			height: 200px;
+		}
+		#box2 {
+			width: 100px;
+			height: 100px;
+			background-color: green;
+
+		}
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="box2">点击</div>
+	</div>
+</body>
+<script>
+    // 第三个参数true和false
+    // true表示该元素在事件的“捕获阶段”（由外往内传递时）响应事件；
+    // false表示该元素在事件的“冒泡阶段”（由内向外传递时）响应事件。
+	var box=document.getElementById('box')
+	var box2=document.getElementById('box2')
+	// box.addEventListener("click",function(){
+	// 	alert('红色')
+	// },false);
+	// box2.addEventListener("click",function(){
+	// 	alert('绿色')
+	// },false);
+	box.addEventListener("click",function(){
+		alert('红色')
+	},true);
+	box2.addEventListener("click",function(){
+		alert('绿色')
+	},true);
+
+
+
+</script>
+</html>

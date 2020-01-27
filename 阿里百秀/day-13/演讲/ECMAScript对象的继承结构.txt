@@ -1,0 +1,21 @@
+ECMAScript对象的继承结构
+
+继承的规律：
+
+1 对象继承的终点是 Object.prototype
+
+2 所有函数默认的显示原型（即函数的 prototype） 都继承
+
+Object.prototype
+
+3 谁的实例，这个实例就继承谁的 prototype
+
+3.1 所有的函数，都被看作是 Function的实例，所以都继承
+
+Function.prototype
+
+3.2 所有的数组，都被看作是 Array 的实例，所以都继承
+
+Array.prototype
+
+3.3 所有的正则，都被看作是 RegExp 的实例，所以都继承

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>1</title>
+</head>
+<body>
+	<script>
+
+
+
+// typeof 运算符把类型信息当作字符串返回。typeof 返回值有六种可能：
+//  "undefined","boolean",“string”,“number”,“object”,“function”
+
+
+// ===========================================================================
+
+
+
+
+// 1.“undefined” ——未定义
+
+		// i. undefined表示一个声明了没有赋值的变量，变量只声明的时候值默认是undefined
+
+			document.write ("typeof(lol): "+typeof(lol)+"<br>");
+
+		// ii. null表示一个空，变量的值如果想为null，必须手动设置
+
+			// var cf =
+			// console.log(typeof cf);
+
+
+// 2.“boolean”——布尔值
+
+		// i. - Boolean字面量两个值：  true和false，区分大小写
+			document.write ("typeof(true): "+typeof(true)+"<br>");
+
+		// 		// ii- 计算机内部存储：true为1，false为0
+		// ''(空字符串) null undefined NaN 会转换成false  其它都会转换成true
+
+			var test=0;
+			console.log(Boolean(test));//false
+
+			var test1=null;
+			console.log(Boolean(test1));//false
+
+			var test2=1;
+			console.log(Boolean(test2));//true
+
+
+
+// 3.“string”——字符串
+			var rng = "123";
+			console.log(typeof rng);
+			document.write ("typeof(\"123\"): "+typeof("123")+"<br>")
+
+	// i 字符串的拼接
+		// 1. 两边只要有一个是字符串，那么+就是字符串拼接功能
+			// console.log('11' + 11);
+			// console.log('卢本伟' + "驴逼");
+		// 2. 两边如果都是数字，那么就是算术功能。
+			// console.log(11 + 11);
+
+
+// 4.“number”——数值
+		document.write ("typeof(1): "+typeof(1)+"<br>");
+
+		var uzi = NaN;
+		console.log(typeof uzi);
+
+		// NaN：not a number
+		// NaN 与任何值都不相等，包括他本身
+
+
+
+
+// 5.“object”——对象或者null;
+// document.write ("typeof(window): "+typeof(window)+"<br>")
+// document.write ("typeof(document): "+typeof(document)+"<br>")
+
+// var faker = null ;
+// console.log (typeof faker);
+
+
+
+// 6.“function”——函数
+console.log(eval);
+console.log(Date);//日期函数
+console.log(String);
+document.write ("typeof(eval): "+typeof(eval)+"<br>")
+document.write ("typeof(Date): "+typeof(Date)+"<br>")
+
+
+// var ld = String
+// console.log(typeof ld)
+
+	</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+	// var a;
+	// function fn(num2){
+
+	// 	var num = 15;
+
+	// 	function abc(){
+	// 		num++;
+
+	// 		// console.log(a);
+	// 		console.log(num+num2);
+	// 	}
+
+	// 	return abc;
+
+	// }
+
+	// var aa = fn(20);
+	// aa();//16+20
+	// aa();//17+20
+
+	// fn(20)();//36
+	// fn(20)();
+
+
+	function f1() {
+    var num = 10;
+    num++;
+    return num;
+  }
+  console.log(f1());
+  console.log(f1());
+  console.log(f1());
+
+
+	function f2() {
+    var num = 10;
+    return function () {
+      num++;
+      return num;
+    }
+  }
+  var ff = f2();
+  console.log(ff());
+  console.log(ff());
+  console.log(ff());
+
+</script>
+</html>

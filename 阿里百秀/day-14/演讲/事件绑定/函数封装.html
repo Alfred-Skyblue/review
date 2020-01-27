@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">点击</div>
+	</body>
+	<script type="text/javascript">
+		var oBox = document.getElementById("box");
+		
+		function fn() {
+		  console.log('a');
+		}
+		function fn2() {
+		  console.log('b');
+		}
+		
+		bind(oBox,"click",fn);
+		bind(oBox,"click",fn2);
+	
+		function bind(obj,evType,evFn) {
+			// 根据浏览器能力进行检测  如果识别支持addEventListener 就直接使用这个绑定方式
+			// 如果不支持这个方法 则按照后面的方式进行绑定
+			if(obj.addEventListener){
+				// 标准浏览器走这个绑定
+				obj.addEventListener(evType,evFn,false);
+			}else if(obj.attachEvent) {
+				//IE6 7 8 走这个绑定方式
+				obj.attachEvent("on"+evType,function(){
+					evFn.call(obj);
+				});
+			} else {
+				// 以上方法都不支持的很老的浏览器 走这个方法
+				obj["on"+evType] = evFn;	
+			}
+		}
+	</script>
+</html>

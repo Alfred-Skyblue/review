@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+    // 全局作用域  0级链
+    var num = 5;
+    function fn1(){ // fn1开起了一个局部作用域 ---1级链
+      var num = 15;
+      function fn2(){// fn2开启了一个局部作用域---2级链
+        console.log(num);
+      }
+      fn2();
+    }
+    fn1();
+
+    // 以上代码执行完 打出什么值
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

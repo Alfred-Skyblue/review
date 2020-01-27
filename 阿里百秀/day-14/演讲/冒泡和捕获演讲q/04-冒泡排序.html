@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>冒泡排序</title>
+</head>
+
+<body>
+  <script src="./calc.js"></script>
+  <script>
+    // 要求按照从小到大排列数组
+    var arr = [1, 45, 23, 16, 12, 9, 4, 5];
+    var cont = 0;
+    // 完成控制趟数
+    for(var i = 0;i<arr.length-1;i++){
+      cont++;
+      // 完成控制数字交换的次数的控制
+      for(var j = 0;j<arr.length-1-i ;j++){
+        // 判断 如果前面的值大于后面的值 那么 把前面的值和后面的值做一下交换
+        if(arr[j]>arr[j+1]){
+          cont++;
+          // 交换两个变量的值
+          var temp = arr[j]; //把arr[j]的值存起来
+          arr[j] = arr[j+1];// 把后面的值赋值给前面
+          arr[j+1] = temp;
+        }
+      }
+    }
+
+    console.log(arr);
+    console.log(cont);
+
+
+  //   var sum = 0;
+  //   for(var i = 0;i<=100;i++){
+  //     sum+=i;
+  // }
+// 
+
+// calcSum();
+
+
+
+    // var temp= 0;
+    // var count = 0;
+    // var arr = [1, 45, 23, 16, 12, 9, 4,5];
+    // for (var i = 0 ; i<arr.length ; i++){
+    //   count++;
+    // 	for (var j = i+1 ; j<arr.length ; j++){
+    // 		if (arr[i] > arr[j]){
+    // 			temp = arr[i];
+    // 			arr[i] = arr[j];
+    //       arr[j] = temp;
+    //       count++;
+    // 		}
+    // 	}
+    // }
+    // console.log( arr);
+    // console.log(count);
+
+  </script>
+</body>
+
+</html>

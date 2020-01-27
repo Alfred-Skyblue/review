@@ -1,0 +1,14 @@
+$('#share').on('click', function () {
+    showGlobalMaskLayer();
+    $('#pop-share').removeClass('hide');
+})
+$('#pop-share .pop-close').on('click', function () {
+    $(this).parents('#pop-share').addClass('hide');
+    hideGlobalMaskLayer();
+})
+
+$('.radio label').on('click', function (e) {
+    console.log(e.target.nodeName)
+    $("input[name=radio]").parent().removeClass().addClass('radio-1');
+    $("input[name=radio]:checked").parent().removeClass().addClass('radio-0');
+})
