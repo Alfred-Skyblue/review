@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			li{
+				margin-top: 20px;
+				background-color: #f10215;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+		<script>
+			
+			let list=document.querySelectorAll('li')
+			
+			for (let i = 0; i < list.length; i++) {
+				list[i].innerText=i
+				list[i].addEventListener('click',function () {
+					console.log(i);
+				})
+			}
+			
+			console.dir(list[0]);
+			console.log(`鞋子等于${60/3}`);
+			console.log(`人等于${10/2}`);
+			console.log(`眼镜等于${4/2}`);
+			console.log(`一个拳套等于${(42-20-2)}`);
+			console.log(`总共等于${10+(20+40+2+5)*2}`);
+			
+			// 鞋20
+			// 人5
+			// 眼睛2
+			// 手套20一个
+			// 10+20+40+2+5+2
+			 
+
+			
+		</script>
+		
+		
+	</body>
+</html>

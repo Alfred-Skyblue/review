@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>RAF动画</title>
+</head>
+
+<style>
+  #dv {
+    width: 100px;
+    height: 50px;
+    background-color: #f10215;
+  }
+</style>
+
+<body>
+  <p>js 动画演示</p>
+  <div id="dv">
+
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/3.4.0/jquery.js"></script>
+  <script>
+    const $div = $('#dv')
+    let curWidth = 100;
+    const maxWidth = 640;
+    console.log($div);
+
+    // // setTimeout
+    // function animate() {
+    //   curWidth = curWidth + 3
+    //   $div.css('width', curWidth);
+    //   if (curWidth < maxWidth) {
+    //     setTimeout(animate, 16.7)
+    //   }
+    // }
+    // animate()
+
+    // RAF
+    function animate() {
+      curWidth = curWidth + 3
+      $div.css('width', curWidth);
+
+      if (curWidth < maxWidth) {
+        window.requestAnimationFrame(animate)
+      }
+    }
+    animate()
+  </script>
+
+</body>
+
+</html>
