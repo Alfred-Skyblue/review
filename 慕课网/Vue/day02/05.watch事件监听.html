@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{ fullName }}
+			{{ age }}
+		</div>
+		
+		
+		<script>
+			
+			var vm=new Vue({
+				el:"#app",
+				data:{
+					firstName:"Dell",
+					lastName:"lee",
+					fullName:"Jack",
+					age:18
+				},
+
+				watch:{
+					firstName(){
+						console.log("firstName计算了一次");
+						this.fullName=this.firstName+this.lastName
+					},
+					lastName(){
+						
+						this.fullName=this.firstName+this.lastName
+					}
+				}
+				
+			})
+			
+			
+			
+		</script>
+	</body>
+</html>

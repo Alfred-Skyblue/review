@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.activated{
+				color: red;
+			}
+		</style>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		
+		<div id="app">
+			<h3 :class="[activated,activatedOne]">
+				{{ msg }}
+			</h3>
+			<button type="button" @click="handleBtnClick">改变样式</button>
+		</div>
+		
+		
+		<script>
+			
+			var vm=new Vue({
+				el:"#app",
+				data:{
+					activated:'',
+					activatedOne:"activatedOne",
+					msg:"Hello word"
+				},
+				methods:{
+					handleBtnClick(){
+							this.activated=this.activated?"":"activated"
+					}
+				}
+			})
+			
+			
+		</script>
+		
+	</body>
+</html>

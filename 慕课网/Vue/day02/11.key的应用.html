@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			
+			.header{
+				font-size: 20px;
+				width: 300px;
+				height: 60px;
+				border: 1px solid #f10215;
+			}
+		</style>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+	<!-- 当 Vue.js 用 v-for 正在更新已渲染过的元素列表时，它默认用“就地复用”策略。如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序， 而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。key的作用让每个item有一个唯一的识别身份，可以下标值index或者id, 主要是为了vue精准的追踪到每一个元素，高效的更新虚拟DOM。 -->
+		<div id="app">
+			<div v-if="flag" :class="[header]">用户名: <input type="text" :key="1"></div>
+			<div v-else :class="[header]">邮箱: <input type="text" :key="2"></div>
+			
+			<button type="button" @click="flag=!flag">显示/隐藏</button>
+		</div>
+		
+		<script>
+
+
+
+			var vm=new Vue({
+				el:"#app",
+				data:{
+					header:"header",
+					msg:"Hello word",
+					flag:false
+				}
+			})
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

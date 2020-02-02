@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+<div id="app">
+  <child>
+    <template slot-scope="props">
+      <h3>{{ props.item }}</h3>
+    </template>
+  </child>
+</div>
+
+
+<script>
+  Vue.component('child', {
+    data() {
+      return {
+        list: [1, 2, 3, 4, 5, 6]
+      }
+    },
+    template: `<div>
+                <ul>
+                  <slot v-for="(item,index) of list" :item="item"></slot>
+                </ul>
+              </div>`
+  })
+
+
+
+  var vm = new Vue({
+    el: "#app"
+  })
+</script>
+
+<body>
+
+</body>
+
+</html>

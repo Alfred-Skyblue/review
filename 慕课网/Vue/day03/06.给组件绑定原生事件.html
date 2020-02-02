@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <script src="./vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <child @click.native="handleClick"></child>
+    </div>
+
+    <script>
+      // native 事件修饰符可以让子组件触发父组件的事件
+      Vue.component('child', {
+        template: '<div>Child</div>'
+      });
+
+      var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+          handleClick() {
+            console.log('父组件的click事件');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

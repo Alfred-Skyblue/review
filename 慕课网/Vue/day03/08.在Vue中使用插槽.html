@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+    <body-content>
+      <div class="header" slot='header'>header</div>
+      <div class="footer" slot="footer">footer</div>
+    </body-content>
+  </div>
+
+  <script>
+    /*     
+    注意三点
+
+      1. 具名插槽的内容必须使用模板<template></template>包裹
+      2. 不指定名字的模板插入匿名插槽中，推荐使用具名插槽，方便代码追踪且直观清楚
+      3. 匿名插槽具有隐藏的名字"default" 
+    */
+    Vue.component('body-content', {
+      template: `<div>
+                    <slot name='header'></slot>
+                    <div class="content">content</div>
+                    <slot name='footer'></slot>
+                  </div>`
+    })
+
+    var vm = new Vue({
+      el: "#app"
+    })
+  </script>
+</body>
+
+</html>

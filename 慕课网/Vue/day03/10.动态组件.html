@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=DEVICE-WIDTH, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+
+
+    <!--
+       常规写法
+    <child-one v-if="type==='child-one'"></child-one>
+    <child-tow v-if="type==='child-tow'"></child-tow> 
+  -->
+
+    <!-- 动态组件 component-->
+    <component :is="type"></component>
+
+    <button @click="handleBtnClick">按钮</button>
+  </div>
+
+
+  <script>
+    Vue.component("child-one", {
+      template: `<div>child-one</div>`
+    })
+    Vue.component('child-tow', {
+      template: `<div>child-tow</div>`
+    })
+
+
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        type: "child-one",
+        flag: false
+      },
+      methods: {
+        handleBtnClick() {
+          this.type = this.type === "child-one" ? "child-tow" : "child-one"
+        }
+      },
+    })
+  </script>
+
+
+</body>
+
+</html>

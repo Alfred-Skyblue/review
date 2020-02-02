@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		
+		<div id="app" @click="handleClick">
+			{{ msg }}
+		</div>
+		
+		
+		<script>
+			
+			
+			var vm=new Vue({
+				el:"#app",
+				data:{
+					msg:"hello word"
+				},
+				methods:{
+					handleClick(){
+						console.log("ok");
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>

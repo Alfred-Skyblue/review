@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.isAction{
+				color: red;
+			}
+		</style>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		
+		<div id="app">
+			<h3 :class="{isAction:flag}">
+				{{ msg }}
+			</h3>
+			<button type="button" @click="flag=!flag">改变样式</button>
+		</div>
+		
+		
+		<script>
+			
+			var vm=new Vue({
+				el:"#app",
+				data:{
+					msg:"Hello word",
+					flag:false
+				},
+				methods:{
+					isClass(){
+						this.flag=!this.flag
+					}
+				}
+			})
+			
+			
+		</script>
+		
+	</body>
+</html>

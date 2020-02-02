@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+
+		<div id="app">
+
+			<div v-for="(item,key,index) of obj" :key="item">
+				<input type="checkbox" /><span>{{ item}}====={{ key }}====={{ index }}</span>
+			</div>
+			<div v-for="(item,index) of list" :key="index">
+				<input type="checkbox" /><span>{{ item}}====={{ index }}</span>
+			</div>
+			<input type="text" v-model="food">
+			<button type="button" @click="btnClick">增加一道菜</button>
+			<button type="button" @click="changeClick">更改菜肴</button>
+		</div>
+
+		<button type="button" id="btn">增加数据</button>
+		<script>
+			// Vue 中更新数组的方法
+			// push pop shift unshift splice sort reverse
+
+			var vm = new Vue({
+				el: "#app",
+				data: {
+					obj: {
+						name: "Jack",
+						age: 18,
+						eat: "大米",
+						hobby: "跑步"
+					},
+					list: [1, 2, 3, 4],
+					food: ''
+				},
+				methods: {
+					btnClick() {
+						let obj = {
+							id: this.list.length + 1,
+							food: this.food
+						}
+						this.list.push(obj)
+					},
+					changeClick() {
+						this.list.forEach((item, index) => {
+							item.food = item.food + "哈哈"
+						})
+					}
+
+				}
+			})
+
+
+			btn.addEventListener('click', function() {
+				vm.$set(vm.list, 4, "新增")
+			})
+		</script>
+	</body>
+</html>

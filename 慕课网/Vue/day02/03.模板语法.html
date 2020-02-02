@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./vue.js"></script>
+		<style>
+			.header{
+				color: red;
+				text-decoration: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div v-text="name"></div>
+			<a :href="href" :class="cls" :id="ak">{{msg}}</a>
+		</div>
+		
+		
+		<script>
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					name:"Brant",
+					href:"https://www.baidu.com/",
+					msg:"百度",
+					cls:"header sty",
+					ak:"aks"
+				}
+			})
+		</script>
+		
+	</body>
+</html>
