@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+
+</head>
+
+<body>
+  <div id="app">
+    <fade :show="show">
+      <div v-show="show">Hello world</div>
+    </fade>
+    <fade :show="show">
+      <h1 v-show="show">Hello world</h1>
+    </fade>
+    <button v-on:click="handleBtnClick">添加数据</button>
+  </div>
+
+  <script>
+    Vue.component('fade', {
+      props: ['show'],
+      template: `<transition @before-enter="handleBeforeEnter" 
+                  @enter="handleEnter">
+                    <slot v-if="show"></slot>
+                </transition>`,
+
+      methods: {
+        handleBeforeEnter(el) {
+          console.log(el);
+          el.style.color = 'red'
+        },
+        handleEnter(el, done) {
+          setTimeout(() => {
+            el.style.color = 'green'
+            done()
+          }, 2000)
+        }
+      }
+    })
+
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        show: false
+      },
+      methods: {
+        handleBtnClick() {
+          this.show = !this.show
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

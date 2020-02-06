@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // ES6 中定义静态方法的关键字 static 关键字
+    class Animal {
+      constructor(type) {
+        this.type = type
+      }
+      eat() {
+        Animal.walk()
+        console.log('I am eat food======>' + this.type)
+      }
+      // 通过 static关键字定义的方法，是 class 类的静态方法 实例对象中不可以访问
+      static walk() {
+        console.log('I am walk')
+      }
+    }
+
+    const dog = new Animal('dog')
+
+    dog.eat()
+  </script>
+</body>
+
+</html>

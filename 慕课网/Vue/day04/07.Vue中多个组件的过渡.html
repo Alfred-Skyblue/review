@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+
+  <style>
+    .v-enter,
+    .v-leave-to {
+      opacity: 0;
+    }
+
+    .v-enter-active,
+    .v-leave-active {
+      transition: opacity 1s;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <transition mode="out-in">
+      <component :is="type"></component>
+
+    </transition>
+    <button @click="handleClick" class="btn">按钮</button>
+  </div>
+
+
+  <script>
+    Vue.component('child-one', {
+      template: `<div>child-one</div>`
+    })
+    Vue.component('child-tow', {
+      template: `<div>child-tow</div>`
+    })
+
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        type: 'child-one'
+      },
+      methods: {
+        handleClick() {
+          this.type = this.type === 'child-one' ? 'child-tow' : 'child-one'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

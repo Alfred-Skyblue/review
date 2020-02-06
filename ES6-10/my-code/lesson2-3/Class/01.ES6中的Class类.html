@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    // ES5中模拟类
+    /*
+    let Animal = function(type) {
+    this.type = type
+    }
+    Animal.prototype.eat = function() {
+    console.log('I am eat food=====>' + this.type)
+    }
+
+    let dog = new Animal('dog')
+
+    let monkey = new Animal('monkey')
+
+    console.log(dog)
+
+    monkey.eat = function() {
+    console.log('已更改')
+    }
+    monkey.eat()
+    dog.eat()
+    console.log(monkey)
+    console.log(monkey.constructor.prototype)
+    */
+
+    // ES6的Class语法
+    class Animal {
+      constructor(type) {
+        this.type = type
+      }
+      eat() {
+        console.log('I am eat food=====>' + this.type)
+      }
+    }
+
+    let dog = new Animal('dog')
+
+    let monkey = new Animal('monkey')
+    console.log(dog)
+    console.log(monkey)
+
+    monkey.eat()
+    dog.eat()
+
+    let arr = []
+    let obj = {}
+    console.log(Object.prototype.toString.call(obj))
+  </script>
+
+</body>
+
+</html>

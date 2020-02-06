@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // ES5中模拟类
+      /*
+    let Animal = function(name) {
+      this.name = name
+    }
+    Animal.prototype.eat = function() {
+      Animal.walk()
+      console.log('I am eat food=====>' + this.name)
+    }
+
+    Animal.walk = function() {
+      console.log('I am walking')
+    }
+    let Dog = function(name) {
+      // 初始化父类的构造函数
+      Animal.call(this, name)
+    }
+    Dog.prototype = Animal.prototype
+    Dog.prototype.run = function() {
+      console.log(this.name + '=====>I can run')
+    }
+    const dog = new Dog('大黄')
+    console.dir(dog)
+    dog.run()
+    dog.eat()
+    */
+
+      // ES6的Class语法
+      class Animal {
+        constructor(type) {
+          this.type = type
+        }
+        eat() {
+          Animal.walk()
+          console.log('I am eat food======>' + this.type)
+        }
+        // 通过 static关键字定义的方法，是 class 类的静态方法 实例对象中不可以访问
+        static walk() {
+          console.log('I am walk')
+        }
+      }
+
+      class Dog extends Animal {
+        constructor(type, age) {
+          super(type)
+          this.age = age || 2
+        }
+      }
+      let dog = new Dog('dog')
+      console.log(dog.age)
+      dog.eat()
+    </script>
+  </body>
+</html>

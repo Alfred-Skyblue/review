@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>函数参数的默认值</title>
+  </head>
+
+  <body>
+    <script>
+      // 函数参数的默认值
+      // ES6中定义函数参数的默认值，可以在函数形参的位置定义，函数参数的默认值可以是一个值，也可以是一个表达式
+      function fn(x, y = 5, z = x + y) {
+        // console.log(Array.from(arguments))
+
+        // fn.length 获取的只能获取函数定义的时候没有默认值的参数
+        console.log(fn.length)
+        return x * 10 + z
+      }
+
+      let num = fn(3, undefined, 10, 5)
+      console.log(num)
+    </script>
+  </body>
+</html>

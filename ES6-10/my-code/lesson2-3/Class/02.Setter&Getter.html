@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let _age = 4
+
+    class Animal {
+      constructor(type) {
+        this.type = type
+      }
+      get age() {
+        return _age
+      }
+      set age(val) {
+        if (val < 7 && val > 4) {
+          _age = val
+        }
+      }
+    }
+
+    let dog = new Animal('dog')
+
+    console.log(dog.age)
+
+    dog.age = 5
+    console.log(dog.age)
+
+    /*
+    总结：
+    1.setter方法和getter方法
+    setter方法:
+    作用: 设置成员变量的值
+    格式:
+    （1）setter方法一定是对象方法
+    （2） 一定没有返回值
+    （3） 一定以set开头, 并且set后面跟上需要设置的成员变量的名称去掉下划线, 并且首字母大写
+    （4）一定有参数, 参数类型一定和需要设置的成员变量的类型一致, 并且参数名称就是成员变量的名称去掉下划线
+
+    getter方法:
+    作用: 获取成员变量的值
+    格式:
+    （1） getter方法一定是对象方法
+    （2）一定有返回值, 而且返回值一定和获取的成员变量的类型一致
+    （3）方法名称就是获取的成员变量的名称去掉下划线
+    （4） 一定没有参数
+
+    */
+  </script>
+</body>
+
+</html>

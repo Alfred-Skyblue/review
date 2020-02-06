@@ -6,15 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <script src="https://cdn.bootcss.com/velocity/2.0.5/velocity.min.js"></script>
   <script src="./vue.js"></script>
-
-
+  <script src="https://cdn.bootcss.com/velocity/2.0.5/velocity.min.js"></script>
 </head>
 
 <body>
   <div id="app">
-    <transition name="fade" @before-leave="handleBeforEnter" @leave="handleEnter" @after-leave="handleAfterEnter">
+    <transition name="fade" @before-enter="handleBeforEnter" @enter="handleEnter" @after-enter="handleAfterEnter">
       <div v-show="show">Hello world</div>
     </transition>
     <button @click="handleClick">按钮</button>
@@ -32,19 +30,18 @@
           this.show = !this.show
         },
         handleBeforEnter(el) {
-          el.style.color = "blue"
+          el.style.opacity = 0
         },
         handleEnter(el, done) {
-          setTimeout(() => {
-            el.style.color = "#f40"
-
-          }, 2000)
-          setTimeout(() => {
-            done()
-          }, 4000)
+          Velocity(el, {
+            opacity: 1
+          }, {
+            duration: 1000,
+            complete: done
+          })
         },
         handleAfterEnter(el) {
-          el.style.color = "#000"
+          console.log("动画结束");
         }
       },
     })

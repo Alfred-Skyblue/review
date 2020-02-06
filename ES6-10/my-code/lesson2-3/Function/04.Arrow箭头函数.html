@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>箭头函数</title>
+  </head>
+
+  <body>
+    <script>
+      // let hello = name => console.log('hello world', name)
+      // hello('小明')
+
+      // let sum = (x, y, z) => ({ x: x, y: y, z: z })
+      // console.log(sum(10, 20, 30))
+
+      let test = {
+        name: 'xiaoming',
+        say: () => {
+          console.log(this.name, this)
+        }
+      }
+      test.say()
+      console.log(test.name)
+      console.log(window.name)
+    </script>
+  </body>
+</html>
