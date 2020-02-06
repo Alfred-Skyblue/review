@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    // ES6对象赋值
+
+    let x = 1
+    let y = 2
+    let z = 3
+
+    let obj = {
+      x,
+      y,
+      [x + z]: 66,
+      hello() {
+        console.log('hello');
+      }
+    }
+
+    console.dir(obj)
+    obj.hello()
+  </script>
+
+
+</body>
+
+</html>

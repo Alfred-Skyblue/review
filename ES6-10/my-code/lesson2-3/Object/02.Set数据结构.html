@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Set数据结构</title>
+</head>
+
+<body>
+
+  <script>
+    // ES6 的 Set 数据结构
+    // let s = new Set([1, 2, 3, 4])
+
+    let s = new Set()
+    // Set会过滤重复的数据
+    s.add('hello').add('goodBey').add('hello')
+    // s.delete('hello') // 删除数据
+    // s.clear() // 清空set数据
+    // s.has('hello') // 查找数据
+    // console.log(s.has('hello')) // 查找数据
+    // console.log(s.size) // 判断数据的长度
+    // console.log(s.keys()) // 获取key
+    // console.log(s.values()) // 获取value
+    // console.log(s.entries()) // 获取key==value
+    // s.forEach((item) => {
+    //   console.log(item);
+
+    // })
+
+    for (let item of s) {
+      console.log(item)
+    }
+  </script>
+
+</body>
+
+</html>
