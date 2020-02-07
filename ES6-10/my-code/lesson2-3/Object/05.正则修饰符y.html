@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    /* y准确概念是：
+
+    1、只从正则表达式的lastIndex属性指定的显示位置开始匹配，不前也不后
+    2、只匹配一次，注意，并不是全局匹配
+    3、如果没有指定lastIndex属性，默认是0
+    4、根据lastIndex的值可赋值，也可以自己变，根据这一特性，多次匹配会得到不同的结果。你说的“后一次匹配将从。。。”那句半对半错，因为对于test和exec方法来讲，lastIndex的值会变，但是对于replace和match来讲，lastIndex值始终是0。这一点非常关键。
+    5、说白了加了y之后，正则表达式就成了一个带隐藏属性（也就是lastIndex）的表达式，必须从lastIndex指定的位置匹配，如果不成功就结束语句。
+
+    你的第一个问题，你的正则是/a/y，它的意义是“先匹配一个a，如果之后还有匹配（也就是下一条语句），就从第二个a开始，如果没有匹配，那么就是匹配一个a”。所以结果就是替换了一个a为星号。
+
+    你的第二个问题，是g和y同时存在，其实是执行 /a/y 全局匹配，再说白了就是相当于:
+
+    先从最左边看aaa_aa_a，用lastIndex为0的/a/匹配，OK，配到了最左侧的a，匹配结束。
+
+    然后由于g的作用，继续看aa_aa_a（少了最前面的a），然后此时的正则的lastIndex依然是0，那么又匹配的最左边的a。
+
+    然后由于g的作用，继续看，又匹配到了一个a。
+
+    然后继续看，就不能再匹配了，为什么，因为/a/y要求必须从0位开始匹配，但是目前的缓存中的字符串是_aa_a，也就是最左侧不是a，那么显然匹配失败。y的存在让语句停止执行。
+
+    所以得出***_aa_a。 */
+    let str = 'aaa_aa_a'
+
+    let r1 = /a+/g
+    let r2 = /a+/y
+
+    console.log(r1.exec(str))
+    console.log(r2.exec(str))
+    console.log(r1.exec(str))
+    console.log(r2.exec(str))
+  </script>
+
+</body>
+
+</html>

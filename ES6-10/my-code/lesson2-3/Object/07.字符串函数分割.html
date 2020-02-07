@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    function Price(strings, type, com) {
+      let s1 = strings[0]
+      let s2 = strings[1]
+
+      const retailPrice = 20
+      const wholeSalePrice = 15
+      const food = '菠菜'
+      let showTxt
+      if (type === 'retail') {
+        showTxt = `购买的单价是${retailPrice}`
+      } else {
+        showTxt = `购买的批发价是${wholeSalePrice}`
+      }
+      if (com === 'commodity') {
+        showTxt = `购买的批发价是${wholeSalePrice}${s2}${food}`
+      }
+      return `${s1}${showTxt}`
+    }
+
+    let showTxt = Price `您此次的${'retail'}是我的${'commodity'}`
+    console.log(showTxt);
+  </script>
+
+
+
+</body>
+
+</html>

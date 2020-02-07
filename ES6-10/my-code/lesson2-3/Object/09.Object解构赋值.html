@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // let options = {
+    //   title: 'menu',
+    //   // width: 100,
+    //   height: 200
+    // }
+
+    // let {
+    //   title,
+    //   width = 168,
+    //   height
+    // } = options
+
+
+    // console.log(title, width, height);
+    // console.log(typeof width, typeof title);
+
+
+
+    let options = {
+      size: {
+        title: 'menu',
+        width: 100,
+        height: 200,
+      },
+      arr: ['hello', 'word'],
+      extra: true
+    }
+
+    let {
+      size: {
+        width,
+        height
+      },
+      arr: [he, hi],
+      extra
+    } = options
+
+    // options.arr[0] = 300
+    console.log(width, height, he, hi);
+  </script>
+
+</body>
+
+</html>

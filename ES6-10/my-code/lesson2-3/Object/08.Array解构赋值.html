@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>解构赋值</title>
+</head>
+
+<body>
+
+
+
+  <script>
+    // 解构赋值
+    // let arr = ['hello', 'world']
+
+    // let [firstName, lastName] = arr
+
+    // console.log(firstName);
+    // console.log(lastName);
+
+
+    // let arr = ['a', 'b', 'c', 'd']
+    // // 如果不需要赋值的项，可以用逗号空格跳过
+    // let [firstName, , , lastName] = arr
+    // console.log(firstName);
+    // console.log(lastName);
+
+    // let str = 'abcd'
+
+    // let [firstName, , , lastName] = new Set(['a', 'b', 'c', 'd'])
+    // console.log(firstName);
+    // console.log(lastName);
+
+
+    // 对象解构赋值
+    // let obj = {
+    //   name: '小明',
+    //   age: 18
+    // }
+    // console.log(obj.name);
+
+    // [obj.name, obj.age] = ["小红", 20]
+    // console.log(obj);
+
+    // let obj = {
+    //   name: '小明',
+    //   age: 18
+    // }
+    // console.log(Object.entries(obj));
+
+    // for (let [key, val] of Object.entries(obj)) {
+    //   // 隐士赋值，显示索引
+    //   // arr[1]显示赋值
+    //   // 隐士赋值是内部隐士转换
+    //   console.log(key, val);
+    // }
+
+    // let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    // let [firstName, curName, ...last] = arr
+
+    // console.log(firstName, curName, last);
+
+    let arr = [1]
+    let [firstName = "哈哈", curName, ...last] = arr
+
+    console.log(firstName, curName, last);
+  </script>
+
+
+</body>
+
+</html>
