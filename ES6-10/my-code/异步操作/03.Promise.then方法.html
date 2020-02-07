@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      function loadScript(src) {
+        return new Promise((resolve, reject) => {
+          let script = document.createElement('script')
+          script.src = src
+          script.onload = () => resolve(src)
+          script.onerror = err => reject(err)
+          document.head.append(script)
+        })
+      }
+
+      loadScript('./js/1.js')
+        .then(
+          () => {
+            // loadScript('./js/4.js')//直接在then里面调用Promise不会影响下一个then的执行状态
+            return loadScript('./js/4.js') //如果要控制下一个then的执行状态，需要在上一个then的resolve里面return一个Promise实例
+          },
+          err => {
+            console.log(err)
+          }
+        )
+        .then(
+          () => {
+            loadScript('./js/3.js')
+          },
+          err => {
+            console.log(err)
+          }
+        )
+
+      // promise.then(onFulfilled, onRejected)
+    </script>
+  </body>
+</html>

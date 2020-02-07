@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    function test(boll = 1) {
+      if (boll) {
+        return new Promise((resolve, reject) => {
+          resolve(88)
+        })
+      } else {
+        return Promise.reject(new Error('ss'))
+      }
+    }
+
+    test(0).then((num) => {
+      console.log(num)
+    }, (err) => {
+      console.log(err)
+    })
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <img src="" alt="">
+
+  <script>
+    function loadImg(src) {
+      return new Promise((resolve, reject) => {
+        const img = document.createElement('img')
+        img.src = src
+        img.onload = () => {
+          resolve(img)
+        }
+        img.onerror = () => {
+          const err = new Error(`图片加载失败${src}`)
+          reject(err)
+        }
+        document.body.append(img)
+      })
+    }
+
+    const url1 =
+      'https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=c08a0c60a844ad342ebf8081e8996bc9/4afbfbedab64034f29596c8ba6c379310b551da2.jpg'
+    const url2 = 'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1035415831,1465727770&fm=26&gp=0.jpg'
+    // loadImg(url)
+    //   .then(img => {
+    //     console.log(img.height);
+    //     return img
+    //   })
+    //   .then((val) => {
+    //     console.log(val.width);
+
+    //   })
+    //   .catch(err => console.log(err))
+
+    loadImg(url1)
+      .then(img1 => {
+        console.log(img1.width);
+        return img1
+      })
+      .then(img1 => {
+        console.log(img1.height);
+        return loadImg(url2)
+      })
+      .then(img2 => {
+        console.log(img2.width);
+        return img2
+      })
+      .then(img2 => {
+        console.log(img2.height);
+
+      }).catch(err => console.log(err))
+  </script>
+</body>
+
+</html>

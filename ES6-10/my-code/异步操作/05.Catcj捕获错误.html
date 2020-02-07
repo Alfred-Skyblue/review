@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    function loadScript(src) {
+      return new Promise((resolve, reject) => {
+        let script = document.createElement('script')
+        script.src = src
+        script.onload = () => resolve(src)
+        script.onerror = err => reject(err)
+        document.head.append(script)
+      })
+    }
+
+    // 捕获异常是程序质量保障最基本的要求，可以使用 Promise 对象的 catch 方法来捕获异步操作过程中出现的任何异常。
+    loadScript('./js/1.js')
+      .then(() => {
+        return loadScript('./js/2.js')
+      })
+      .then(() => {
+        return loadScript('./js/4.js')
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    // 可以使用catch方法来捕捉错误
+
+
+    // 这个代码展示了如何使用 catch 捕获 Promise 对象中的异常， catch 捕获的是 Promise 内部的 Error 还是 Reject？上面的示例既用了 reject 也用了 Error，到底是哪个触发的这个捕获呢？
+
+    function test() {
+      return new Promise((resolve, reject) => {
+        throw new Error('wrong')
+      })
+    }
+
+    test().catch((e) => {
+      console.log(e.message) // wrong
+    })
+
+    // 这个代码对比着上个代码就能明显感受出来的，throw Error 和 reject 都触发了 catch 的捕获，而第一个用法中虽然也有 Error 但是它不是 throw，只是 reject 的参数是 Error 对象，换句话说 new Error 不会触发 catch，而是 reject。
+
+
+    // 不建议在 Promise 内部使用 throw 来触发异常，而是使用 reject(new Error()) 的方式来做，因为 throw 的方式并没有改变 Pronise 的状态
+  </script>
+</body>
+
+</html>
