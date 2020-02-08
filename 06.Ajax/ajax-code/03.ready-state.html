@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+  <script>
+    let xhr = new XMLHttpRequest()
+    // console.log(xhr.readyState);
+    // => 0 初始化 请求代理对象
+
+    xhr.open('get', './time.json')
+    // console.log(xhr.readyState);
+    // => 1 open 方法已经被调用，建立一个与服务器特定端口的连接
+
+    xhr.send()
+
+
+
+    // xhr.onreadystatechange = function () {
+    //   if (this.readyState !== 4) return false
+    //   console.log(this.responseText);
+
+    // }
+
+    xhr.addEventListener('readystatechange', function () {
+      // if (this.readyState !== 4) return false
+      // console.log(this.responseText);
+      switch (this.readyState) {
+        case 2:
+          // => 2
+          // 已经接受到了响应报文的响应头
+          console.log(this.getAllResponseHeaders().split('\n'));
+          // console.log(this.getResponseHeader('date'));
+          // 可以拿到响应头，但是还没有拿到响应体
+          console.log(this.responseText);
+          break
+        case 3:
+          // => 3
+          // 正在下载响应报文的响应体，有可能响应体为空，也有可能不完整
+          // 在这里处理响应体不保险(不可靠)
+          console.log(this.responseText);
+          break
+        case 4:
+          // => 已经接受到了响应报文的响应头
+          console.log(this.responseText);
+          break
+
+      }
+
+    })
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let xhr = new XMLHttpRequest()
+
+    // 如果需要捕获第一个状态变化，需要注意代码的执行顺序
+    // xhr.onreadystatechange = function () {
+    // // 这个事件并不是在响应时触发，而是在状态改变时触发
+    // console.log(this.readyState);
+
+    // }
+    xhr.open("GET", './time.json')
+
+    // 因为客户端永远不知道服务端何时才能返回我们需要的响应
+    // 所以 AJAX API 采用时间的机制 获取数据
+    xhr.onreadystatechange = function () {
+      // 这个事件并不是在响应时触发，而是在状态改变时触发
+      if (this.readyState !== 4) return false
+      // 获取响应内容(响应体)
+      console.log(this.responseText);
+
+    }
+
+    // 因为响应需要时间，所以无法通过返回值的方式返回响应
+    let respones = xhr.send()
+  </script>
+
+</body>
+
+</html>

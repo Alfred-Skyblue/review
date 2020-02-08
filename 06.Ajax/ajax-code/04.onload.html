@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    let xhr = new XMLHttpRequest()
+
+    xhr.open('get', './time.json')
+
+    xhr.send(null)
+
+    // onload 是 HTML5 中提供的 XMLHttpRequest version 2.0定义的 API
+    xhr.addEventListener('load', function () {
+      console.log(this.responseText);
+      console.log(this.readyState);
+    })
+  </script>
+
+
+</body>
+
+</html>
